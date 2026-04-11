@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Oasis - moderni sovellusalusta, joka tuo rauhallisuuden ja tehokkuuden arkeen.">
+    <title>Oasis | Etusivu</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts (valinnainen, mutta parantaa skaalautuvaa typografiaa) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--nav bar reusable -->
+    <header class="site-header">
+        <div class="header-container">
+            <!--logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🌊</span>
+                    <span class="logo-text">Oasis</span>
+                </a>
+            </div>
+
+            <!--login painike -->
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-login" aria-label="Kirjaudu sisään sovellukseen">
+                    Kirjaudu sisään
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!--main content-->
+    <main class="site-main">
+        <div class="container">
+            <!-- Otsikko näytön yläkeskellä  -->
+            <div class="hero-headline">
+                <h1 class="page-title">Löydä oma Oasis -rauhasi</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Keskialue teksti + kuva -->
+            <div class="content-grid">
+                <!-- Vasen leipäteksti (placeholder lorem ipsum) -->
+                <div class="text-content">
+                    <p class="lead-text">
+                        Tervetuloa Oasis-alustalle. Suunnittelemme työkaluja, jotka tuovat selkeyttä ja luovuutta arkeesi.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                    <p>
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra.
+                    </p>
+                </div>
+
+                <!-- Oikea kuva (placeholder) -->
+                <div class="image-content">
+                    <figure>
+                        <img src="https://picsum.photos/id/1018/600/420"
+                             alt="Rauhallinen maisema, joka symboloi Oasis-sovelluksen tunnelmaa"
+                             loading="lazy"
+                             class="responsive-img">
+                        <figcaption>Inspiraatiota ja tasapainoa – kuva: Lorem Ipsum</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Pieni lisäelementti:  -->
+            <div class="info-badge">
+                <span>✨ Seuraa meitä – pian lisää ominaisuuksia</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- footwer-->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Oasis – Kaikki oikeudet pidätetään. Skaalautuva ja modulaarinen rakenne.</p>
+            <nav class="footer-nav" aria-label="Alatunnisteen navigointi">
+                <a href="#">Tietosuoja</a>
+                <a href="#">Käyttöehdot</a>
+                <a href="#">Yhteystiedot</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

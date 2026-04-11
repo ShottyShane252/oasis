@@ -1,0 +1,436 @@
+
+/*  väriteemat(vaaleansininen)  */
+/*  KÄYTTÖ ESIMERKKI: background-color: var(--primary-dark); */
+
+:root {
+    -primary-light: #e6f4ff;      /* vaalein tausta */
+    --primary-soft: #b8d9f5;       /* pehmeä sininen */
+    --primary-mid: #7ab3d9;        /* keskisininen */
+    --primary-dark: #3b82f6;       /* aksentti/painikkeet */
+    --primary-hover: #2563eb;      /* tummempi hover */
+    --gray-bg: #f8fafc;            /* yleinen tausta */
+    --text-dark: #1e293b;          /* luettavuus */
+    --text-muted: #475569;
+    --border-light: #cbd5e1;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+    --container-max: 1280px;
+    --transition: all 0.25s ease;
+}
+
+/*RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: linear-gradient(145deg, #f0f9ff 0%, #e9f2f9 100%);
+    color: var(--text-dark);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* container – kaikki sivut */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* NAVBAR*/
+.site-header {
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* oasis logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -0.3px;
+    transition: var(--transition);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.logo-text {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #1e4b8f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.logo a:hover {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+/* login nappi */
+.btn-login {
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(59,130,246,0.2);
+}
+
+.btn-login:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(59,130,246,0.25);
+}
+
+/* main content */
+.site-main {
+    flex: 1;
+    padding: 3rem 0 4rem 0;
+}
+
+/* otsikko hero (löydä oma rauha) */
+.hero-headline {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(125deg, #1e3a5f, var(--primary-dark));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.75rem;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #7ab3d9, #3b82f6);
+    border-radius: 4px;
+    margin: 0.8rem auto 0;
+}
+
+/* teksti + kuva  */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 2rem 0 2rem;
+}
+
+.text-content p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    border-left: 4px solid var(--primary-dark);
+    padding-left: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.image-content figure {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-content figure:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    background: #f9fdfe;
+    color: var(--primary-dark);
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+    font-style: italic;
+}
+
+/* pian lisää ominaisuusksia */
+.info-badge {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 0.7rem;
+    background: rgba(59,130,246,0.08);
+    border-radius: 60px;
+    display: inline-block;
+    width: auto;
+    backdrop-filter: blur(4px);
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+/* footer - kaikki sivut*/
+.site-footer {
+    background-color: white;
+    border-top: 1px solid var(--border-light);
+    padding: 1.8rem 0;
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.footer-nav a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ---------- LOGIN PAGE ---------- */
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.login-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
+/* FORM */
+.form-group {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+/* BUTTON FULL WIDTH */
+.btn-full {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* FOOTER TEXT */
+.login-footer {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* responsiivisuus */
+
+/*tabletit*/
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .header-container {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .logo-icon {
+        font-size: 1.7rem;
+    }
+}
+
+/*puhelimet*/
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .lead-text {
+        font-size: 1.15rem;
+    }
+
+    .btn-login {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+
+    .hero-headline {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ---------- HELPPO SKAALAUS TULEVIA SIVUJA VARTEN ---------- */
+/*
+   Modulaariset luokat, joita voidaan käyttää uusilla sivuilla:
+   - .btn, .btn-primary, .card, .grid-2, .grid-3 jne.
+   Tässä muutama perusesimerkki valmiina (laajennettavissa).
+*/
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-dark);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid rgba(122,179,217,0.3);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+/* Lisäksi varmistetaan, että kuvat eivät riko layoutia */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
