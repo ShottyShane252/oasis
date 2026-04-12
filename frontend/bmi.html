@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Laske painoindeksisi (BMI) helposti ja nopeasti. Seuraa terveyttäsi Oasiksen avulla."
+    />
+    <title>Oasis - BMI-laskuri</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header / Navigaatio -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <span class="logo-icon">🌊</span>
+            <span class="logo-text">Oasis</span>
+          </a>
+        </div>
+        <div class="nav-actions">
+          <span style="margin-right: 1rem;">Hei, <span class="username">Vieras</span></span>
+          <a href="login.html" class="btn btn-primary btn-login" aria-label="Kirjaudu sisään">Kirjaudu sisään</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigaatio linkit -->
+    <nav style="background: white; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" style="text-decoration: none; color: var(--text-dark); font-weight: 500;">Koti</a>
+        <a href="#" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; border-bottom: 2px solid var(--primary-dark);">BMI-laskuri</a>
+        <a href="psqi.html" style="text-decoration: none; color: var(--text-dark); font-weight: 500;">PSQI</a>
+        <a href="paivakirja.html" style="text-decoration: none; color: var(--text-dark); font-weight: 500;">Päiväkirja</a>
+        <a href="historia.html" style="text-decoration: none; color: var(--text-dark); font-weight: 500;">Historia</a>
+        <a href="tietoa.html" style="text-decoration: none; color: var(--text-dark); font-weight: 500;">Tietoa meistä</a>
+      </div>
+    </nav>
+
+    <!-- Main sisältö -->
+    <main class="site-main">
+      <div class="container">
+        <!-- Otsikko -->
+        <div class="hero-headline">
+          <h1 class="page-title">Painoindeksilaskuri</h1>
+          <div class="title-underline"></div>
+          <p class="lead-text" style="text-align: center; border-left: none; margin-top: 1rem;">
+            Laske BMI ja seuraa terveyttäsi
+          </p>
+        </div>
+
+        <!-- ISO KUVA KESKELLÄ -->
+        <div style="margin: 2rem 0 3rem 0;">
+          <figure style="margin: 0; text-align: center; background: white; border-radius: 28px; padding: 1.5rem; box-shadow: var(--shadow-md);">
+            <img 
+              src="images/bmi.jpeg" 
+              alt="BMI Index chart" 
+              style="max-width: 100%; width: auto; max-height: 500px; object-fit: contain; display: block; margin: 0 auto; border-radius: 16px;" 
+            />
+            <figcaption style="margin-top: 1rem; font-size: 1.1rem; color: var(--primary-dark); font-weight: 500; font-style: italic;">
+              📊 Painoindeksin viitearvot
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- LASKE BMI - OSIO (leveä kortti) -->
+        <div class="card" style="max-width: 700px; margin: 0 auto; padding: 2.5rem;">
+          <h2 style="color: var(--primary-dark); margin-bottom: 0.5rem; text-align: center; font-size: 2rem;">Laske BMI</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem; text-align: center;">
+            Syötä painosi ja pituutesi, niin laskemme painoindeksisi.
+          </p>
+
+          <form id="bmi-form" style="max-width: 400px; margin: 0 auto;">
+            <div class="form-group">
+              <label for="weight">⚖️ Paino (kg):</label>
+              <input type="number" id="weight" name="weight" placeholder="esim. 70" step="0.1" required />
+            </div>
+            <div class="form-group">
+              <label for="height">📏 Pituus (cm):</label>
+              <input type="number" id="height" name="height" placeholder="esim. 175" step="0.1" required />
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 0.5rem;">✨ Laske indeksi</button>
+          </form>
+
+          <!-- Tulos -->
+          <section style="margin-top: 2.5rem;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">Mittaustuloksesi</p>
+              <span class="bmi-score" style="color: var(--primary-dark); font-size: 3.5rem; font-weight: 700; line-height: 1.2;">0</span>
+            </div>
+
+            <!-- Taulukko -->
+            <table style="width: 100%; margin: 1.5rem 0; border-collapse: collapse;">
+              <tbody>
+                <tr class="bmi0-19" style="border-bottom: 1px solid var(--border-light);">
+                  <td style="padding: 0.8rem 0; font-weight: 500;">🔵 Alipaino</td>
+                  <td style="padding: 0.8rem 0; text-align: right;">0 - 18.4</td>
+                </tr>
+                <tr class="bmi19-25" style="border-bottom: 1px solid var(--border-light);">
+                  <td style="padding: 0.8rem 0; font-weight: 500;">🟢 Normaali paino</td>
+                  <td style="padding: 0.8rem 0; text-align: right;">18.5 - 24.9</td>
+                </tr>
+                <tr class="bmi25-30">
+                  <td style="padding: 0.8rem 0; font-weight: 500;">🟠 Ylipaino</td>
+                  <td style="padding: 0.8rem 0; text-align: right;">25.0 - 40.0+</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Analyysi -->
+            <div style="background: linear-gradient(135deg, var(--primary-light) 0%, #f0f9ff 100%); padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border-left: 4px solid var(--primary-dark);">
+              <p style="font-weight: 600; margin-bottom: 0.8rem; font-size: 1.1rem;">〽️ Analyysi</p>
+              <p class="analysis" style="color: var(--text-dark); line-height: 1.6;">Tähän saat analyysin BMI-tuloksestasi</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2025 Oasis – Hyvinvointia elämään</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/bmi.js"></script>
+    <script type="module" src="js/loggedUser.js"></script>
+  </body>
+</html>

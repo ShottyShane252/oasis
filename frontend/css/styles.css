@@ -434,3 +434,18 @@ img {
     height: auto;
 }
 
+/* BMI-taulukon korostukset */
+.lowBmi {
+  background-color: #ffcccc !important;
+  font-weight: 600;
+}
+
+.normalBmi {
+  background-color: #ccffcc !important;
+  font-weight: 600;
+}
+
+.highBmi {
+  background-color: #ffcc99 !important;
+  font-weight: 600;
+}
