@@ -21,6 +21,12 @@ const validationErrorHandler = (req, res, next) => {
   next();
 };
 
+const customError = (message, status) => {
+  const error = new Error(message);
+  error.status = status;
+  return error;
+};
+
 /**
  * Default middleware for 404 requests
  *
@@ -49,4 +55,4 @@ const errorHandler = (err, req, res, next) => {
 };
 
 
-export {validationErrorHandler, notFoundHandler, errorHandler};
+export {validationErrorHandler, notFoundHandler, errorHandler, customError};
