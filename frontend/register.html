@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis | Rekisteröidy</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🌊</span>
+                    <span class="logo-text">Oasis</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-primary">Etusivu</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="login-wrapper">
+                <div class="login-card">
+                    <h2>Luo käyttäjä</h2>
+
+                    <form class="registerForm">
+                        <div class="form-group">
+                            <label for="username">Käyttäjänimi</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Sähköposti</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Salasana</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Rekisteröidy
+                        </button>
+                    </form>
+
+                    <p class="login-footer">
+                        Onko sinulla jo tili? <a href="login.html">Kirjaudu sisään</a>
+                    </p>
+
+                    <p id="registerResponse" class="form-response"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/register.js"></script>
+</body>
+</html>
