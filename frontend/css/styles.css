@@ -392,11 +392,9 @@ figcaption {
     }
 }
 
-/* ---------- HELPPO SKAALAUS TULEVIA SIVUJA VARTEN ---------- */
 /*
-   Modulaariset luokat, joita voidaan käyttää uusilla sivuilla:
-   - .btn, .btn-primary, .card, .grid-2, .grid-3 jne.
-   Tässä muutama perusesimerkki valmiina (laajennettavissa).
+    luokat  voidaan käyttää uusilla sivuilla:
+
 */
 
 .btn {
@@ -436,24 +434,154 @@ figcaption {
     transform: translateY(-3px);
 }
 
-/* Lisäksi varmistetaan, että kuvat eivät riko layoutia */
+/*kuvat eivät riko layoutia */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* BMI-taulukon korostukset */
+/* BMI */
+
+/* ---------- BMI PAGE ---------- */
+
+.user-greeting {
+    margin-right: 1rem;
+}
+
+.sub-nav {
+    background: white;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary-dark);
+}
+
+.center-text {
+    text-align: center;
+}
+
+.no-border {
+    border-left: none;
+}
+
+.bmi-image-wrapper {
+    margin: 2rem 0 3rem 0;
+}
+
+.bmi-image-card {
+    text-align: center;
+    background: white;
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.bmi-image {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 16px;
+}
+
+.bmi-caption {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+}
+
+.bmi-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem;
+}
+
+.bmi-title {
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+.bmi-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.bmi-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.bmi-result {
+    margin-top: 2.5rem;
+}
+
+.bmi-score-box {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.bmi-label {
+    font-weight: 500;
+}
+
+.bmi-score {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.bmi-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bmi-table td {
+    padding: 0.8rem 0;
+}
+
+.bmi-table tr {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.bmi-analysis {
+    background: linear-gradient(135deg, var(--primary-light), #f0f9ff);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--primary-dark);
+}
+
+.analysis-title {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
 .lowBmi {
-  background-color: #ffcccc !important;
+  background-color: #ffcccc ;
   font-weight: 600;
 }
 
 .normalBmi {
-  background-color: #ccffcc !important;
+  background-color: #ccffcc ;
   font-weight: 600;
 }
 
 .highBmi {
-  background-color: #ffcc99 !important;
+  background-color: #ffcc99 ;
   font-weight: 600;
 }
