@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oasis - Päiväkirja</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-icon">🌊</span>
+          <span class="logo-text">Oasis</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <span class="user-greeting">Hei, <span class="username">Vieras</span></span>
+        <a href="login.html" class="btn btn-primary btn-login">Kirjaudu sisään</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sub-nav">
+    <div class="container nav-links">
+      <a href="index.html">Koti</a>
+      <a href="bmi.html">BMI-laskuri</a>
+      <a href="psqi.html">PSQI</a>
+      <a href="#" class="active">Päiväkirja</a>
+      <a href="historia.html">Historia</a>
+      <a href="tietoa.html">Tietoa meistä</a>
+    </div>
+  </nav>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="hero-headline">
+        <h1 class="page-title">Hyvinvointipäiväkirja</h1>
+        <div class="title-underline"></div>
+        <p class="lead-text center-text no-border">Lisää uusi merkintä ja tarkastele aiempia kirjauksiasi</p>
+      </div>
+
+      <section class="diary-layout">
+        <div class="card diary-form-card">
+          <h2 class="diary-section-title">Uusi merkintä</h2>
+          <p class="diary-section-text">Kirjaa tämän päivän fiilis, unet ja ajatukset.</p>
+
+          <form id="diaryForm" class="diary-form">
+            <div class="form-group">
+              <label for="entryDate">Päivämäärä</label>
+              <input type="date" id="entryDate" required>
+            </div>
+
+            <div class="form-group">
+              <label for="mood">Mieliala</label>
+              <select id="mood" class="diary-select" required>
+                <option value="great">Great</option>
+                <option value="good">Good</option>
+                <option value="okay">Okay</option>
+                <option value="bad">Bad</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sleep">Uni (tuntia)</label>
+              <input type="number" id="sleep" min="0" max="24" step="1" placeholder="esim. 7">
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Muistiinpanot</label>
+              <textarea id="notes" class="diary-textarea" rows="6" placeholder="Kirjoita päivän ajatuksia tähän..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Tallenna merkintä</button>
+          </form>
+        </div>
+
+        <div class="card diary-entries-card">
+          <h2 class="diary-section-title">Aiemmat merkinnät</h2>
+          <p class="diary-section-text">Täältä näet tallennetut päiväkirjamerkintäsi.</p>
+
+          <div class="entries-list"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2025 Oasis</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/diary.js"></script>
+  <script type="module" src="js/loggedUser.js"></script>
+</body>
+</html>

@@ -42,7 +42,7 @@ const loginUser = async (event) => {
       `localStorage set with token value: ${response.token}`
     );
     setTimeout(function () {
-      window.location.href = 'index.html';
+      window.location.href = 'diary.html';
     }, 3000);
   }
 
