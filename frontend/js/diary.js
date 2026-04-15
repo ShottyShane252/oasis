@@ -25,6 +25,7 @@ const renderEntries = (entries) => {
   <h4>${entry.entry_date}</h4>
   <p>Mood: ${entry.mood}</p>
   <p>Sleep: ${entry.sleep_hours} hours</p>
+  <p>Weight: ${entry.weight ?? '-'} kg</p>
   <p>${entry.notes}</p>
   <button data-id="${entry.entry_id}" class="view-btn">View</button>
   <button data-id="${entry.entry_id}" class="delete-btn">Delete</button>
@@ -64,7 +65,7 @@ const getEntryById = async (id) => {
   }
 
   alert(
-    `Date: ${entry.entry_date}\nMood: ${entry.mood}\nSleep: ${entry.sleep_hours} hours\nNotes: ${entry.notes}`
+    `Date: ${entry.entry_date}\nMood: ${entry.mood}\nSleep: ${entry.sleep_hours} hours\nWeight: ${entry.weight ?? '-'} kg\nNotes: ${entry.notes}`
   );
 };
 
@@ -75,12 +76,13 @@ const addEntry = async (event) => {
   const entryDate = document.querySelector('#entryDate').value;
   const mood = document.querySelector('#mood').value;
   const sleep = document.querySelector('#sleep').value;
+  const weight = document.querySelector('#weight').value;
   const notes = document.querySelector('#notes').value;
 
   const body = {
     entry_date: entryDate,
     mood: mood,
-    weight: null,
+    weight: weight ? Number(weight) : null,
     sleep_hours: sleep ? Number(sleep) : null,
     notes: notes
   };

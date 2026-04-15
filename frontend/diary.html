@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="fi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oasis - Päiväkirja</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
   <header class="site-header">
@@ -18,7 +22,7 @@
         </a>
       </div>
       <div class="nav-actions">
-        <span class="user-greeting">Hei, <span class="username">Vieras</span></span>
+        <span class="username">Vieras</span></span>
         <a href="login.html" class="btn btn-primary btn-login">Kirjaudu sisään</a>
       </div>
     </div>
@@ -26,10 +30,10 @@
 
   <nav class="sub-nav">
     <div class="container nav-links">
-      <a href="index.html">Koti</a>
+      <a href="home.html">Koti</a>
       <a href="bmi.html">BMI-laskuri</a>
       <a href="psqi.html">PSQI</a>
-      <a href="#" class="active">Päiväkirja</a>
+      <a href="diary.html" class="active">Päiväkirja</a>
       <a href="historia.html">Historia</a>
       <a href="tietoa.html">Tietoa meistä</a>
     </div>
@@ -69,9 +73,15 @@
               <input type="number" id="sleep" min="0" max="24" step="1" placeholder="esim. 7">
             </div>
 
+            <div class="form-group"> 
+              <label for="weight">Paino (kg)</label>
+              <input type="number" id="weight" min="1" step="0.1" placeholder="esim. 72.5">
+            </div>
+
             <div class="form-group">
               <label for="notes">Muistiinpanot</label>
-              <textarea id="notes" class="diary-textarea" rows="6" placeholder="Kirjoita päivän ajatuksia tähän..."></textarea>
+              <textarea id="notes" class="diary-textarea" rows="6"
+                placeholder="Kirjoita päivän ajatuksia tähän..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-full">Tallenna merkintä</button>
@@ -97,4 +107,5 @@
   <script type="module" src="js/diary.js"></script>
   <script type="module" src="js/loggedUser.js"></script>
 </body>
+
 </html>
