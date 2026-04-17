@@ -325,72 +325,6 @@ figcaption {
     text-decoration: underline;
 }
 
-/* responsiivisuus */
-
-.form-response {
-    margin-top: 1rem;
-    text-align: center;
-    color: var(--primary-dark);
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/*tabletit*/
-@media (max-width: 900px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .page-title {
-        font-size: 2.2rem;
-    }
-
-    .header-container {
-        padding: 0.8rem 1.2rem;
-    }
-
-    .logo-text {
-        font-size: 1.4rem;
-    }
-
-    .logo-icon {
-        font-size: 1.7rem;
-    }
-}
-
-/*puhelimet*/
-@media (max-width: 640px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .page-title {
-        font-size: 1.8rem;
-    }
-
-    .lead-text {
-        font-size: 1.15rem;
-    }
-
-    .btn-login {
-        padding: 0.45rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-nav {
-        justify-content: center;
-    }
-
-    .hero-headline {
-        margin-bottom: 2rem;
-    }
-}
 
 /*
     luokat  voidaan käyttää uusilla sivuilla:
@@ -440,13 +374,9 @@ img {
     height: auto;
 }
 
-/* BMI */
 
 /* ---------- BMI PAGE ---------- */
 
-.user-greeting {
-    margin-right: 1rem;
-}
 
 .sub-nav {
     background: white;
@@ -585,3 +515,198 @@ img {
   background-color: #ffcc99 ;
   font-weight: 600;
 }
+
+/* ---------- DIARY PAGE ---------- */
+
+.diary-layout {
+    display: grid; /* tekee kahden palstan layoutin */
+    grid-template-columns: 1fr 1.25fr; /* vasen lomake hieman kapeampi, oikea korttialue leveämpi */
+    gap: 2rem; /* väli palstojen väliin */
+    align-items: start; /* molemmat alkavat samalta korkeudelta */
+}
+
+.diary-form-card,
+.diary-entries-card {
+    padding: 2rem; /* antaa korttien sisälle ilmaa */
+}
+
+.diary-section-title {
+    color: var(--primary-dark); /* pitää otsikot muun teeman mukaisina */
+    margin-bottom: 0.5rem; /* pieni väli otsikon alle */
+    font-size: 1.8rem; /* tekee osio-otsikosta selkeän */
+}
+
+.diary-section-text {
+    color: var(--text-muted); /* pehmeämpi väri selitetekstille */
+    margin-bottom: 1.5rem; /* väli ennen lomaketta tai listaa */
+}
+
+.diary-form {
+    display: flex; /* asettaa lomakekentät pystysuoraan */
+    flex-direction: column; /* varmistaa että kentät tulevat allekkain */
+}
+
+.diary-select {
+    width: 100%; /* select täyttää koko kentän leveyden */
+    padding: 0.6rem; /* sama sisätila kuin inputeissa */
+    border-radius: 8px; /* yhtenäinen kulmien pyöristys */
+    border: 1px solid var(--border-light); /* sama reunus kuin inputeissa */
+    font-size: 1rem; /* yhtenäinen fonttikoko */
+    background-color: white; /* varmistaa selkeän taustan */
+    transition: var(--transition); /* pehmeä hover/focus */
+}
+
+.diary-select:focus {
+    outline: none; /* poistaa selaimen oletuskorostuksen */
+    border-color: var(--primary-dark); /* korostaa aktiivisen kentän */
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.2); /* näyttää fokusrenkaan */
+}
+
+.diary-textarea {
+    width: 100%; /* textarea täyttää kentän leveyden */
+    padding: 0.75rem; /* hieman enemmän tilaa kirjoittamiseen */
+    border-radius: 8px; /* yhtenäinen ulkoasu inputien kanssa */
+    border: 1px solid var(--border-light); /* sama reunaviiva */
+    font-size: 1rem; /* yhtenäinen fonttikoko */
+    resize: vertical; /* käyttäjä voi muuttaa korkeutta, ei leveyttä */
+    font-family: var(--font-sans); /* sama fontti kuin muualla */
+    transition: var(--transition); /* pehmeä focus-efekti */
+}
+
+.diary-textarea:focus {
+    outline: none; /* poistaa selaimen default focusin */
+    border-color: var(--primary-dark); /* korostaa aktiivisen kentän */
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.2); /* focus-efekti */
+}
+
+.entries-list {
+    display: grid; /* merkinnät listautuvat siististi allekkain */
+    gap: 1rem; /* väli korttien välille */
+}
+
+.entry-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); /* kevyt korttitausta */
+    border: 1px solid rgba(122,179,217,0.25); /* pehmeä reunaviiva */
+    border-radius: 18px; /* pyöristetyt kulmat kortille */
+    padding: 1.25rem; /* sisätila sisällölle */
+    box-shadow: var(--shadow-sm); /* kevyt varjo */
+    transition: var(--transition); /* pehmeä hover-liike */
+}
+
+.entry-card:hover {
+    transform: translateY(-2px); /* nostaa korttia hieman hoverissa */
+    box-shadow: var(--shadow-md); /* syvempi varjo hoverissa */
+}
+
+.entry-card h4 {
+    color: var(--primary-dark); /* päivämäärä erottuu otsikkona */
+    margin-bottom: 0.75rem; /* väli otsikon alle */
+    font-size: 1.05rem; /* hieman korostettu koko */
+}
+
+.entry-card p {
+    margin-bottom: 0.45rem; /* tilaa tekstirivien väliin */
+    color: var(--text-dark); /* hyvä luettavuus */
+}
+
+.entry-card button {
+    margin-top: 0.8rem; /* väli tekstin ja nappien väliin */
+    margin-right: 0.6rem; /* väli nappien väliin */
+    padding: 0.55rem 1rem; /* napin koko */
+    border: none; /* puhdas nappi */
+    border-radius: 999px; /* pill-mallinen nappi */
+    cursor: pointer; /* näyttää klikattavalta */
+    font-weight: 600; /* hieman vahvempi teksti */
+    transition: var(--transition); /* hover-efekti */
+}
+
+.view-btn {
+    background-color: var(--primary-light); /* vaalea sininen napille */
+    color: var(--primary-dark); /* tumma teksti kontrastiksi */
+}
+
+.view-btn:hover {
+    background-color: var(--primary-soft); /* hoverissa hieman tummempi */
+}
+
+.delete-btn {
+    background-color: #fee2e2; /* vaalea punainen poistonapille */
+    color: #b91c1c; /* selkeä poistoväri */
+}
+
+.delete-btn:hover {
+    background-color: #fecaca; /* hoverissa hieman vahvempi punainen */
+}
+
+/* responsiivisuus */
+
+.form-response {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/*tabletit*/
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .header-container {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .logo-icon {
+        font-size: 1.7rem;
+    }
+
+     .diary-layout {
+        grid-template-columns: 1fr; /* mobiilissa/pienemmällä näytöllä palstat allekkain */
+    }
+
+}
+
+/*puhelimet*/
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .lead-text {
+        font-size: 1.15rem;
+    }
+
+    .btn-login {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+
+    .hero-headline {
+        margin-bottom: 2rem;
+    }
+}
+

@@ -36,13 +36,13 @@ const loginUser = async (event) => {
   if (response.message) {
     console.log(response.message, 'success');
     localStorage.setItem('token', response.token);
-    localStorage.setItem('name', response.user.username);
+    localStorage.setItem('name', response.user.username || response.user.given_name || 'vieras');
     logResponse(
       'loginResponse',
       `localStorage set with token value: ${response.token}`
     );
     setTimeout(function () {
-      window.location.href = 'index.html';
+      window.location.href = 'diary.html';
     }, 3000);
   }
 

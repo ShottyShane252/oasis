@@ -50,7 +50,7 @@ const addEntry = async (entry) => {
     return {entry_id: result[0].insertId};
   } catch (e) {
     console.error('error', e.message);
-    throw new Error(e);
+    return {error: e.message};
   }
 };
 

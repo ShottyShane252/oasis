@@ -6,46 +6,58 @@ import {
   removeEntryById,
 } from '../models/entry-model.js';
 
-const getEntries = async (req, res) => {
+const getEntries = async (req, res, next) => {
   // haetaan kaikkien käyttäjien merkinnät
   //const result = await listAllEntries();
   // haetaan kirjautuneen (token) käyttäjän omat merkinnät
-  const result = await listAllEntriesByUserId(req.user.user_id);
-  if (!result.error) {
-    res.json(result);
-  } else {
-    res.status(500);
-    res.json(result);
-  }
-};
+  try {
+    const result = await listAllEntriesByUserId(req.user.user_id ?? req.user.userId); 
 
-const getEntryById = async (req, res) => {
-  const entry = await findEntryById(req.params.id);
-  if (entry) {
-    res.json(entry);
-  } else {
-    res.sendStatus(404);
-  }
-};
-
-const postEntry = async (req, res) => {
-
-  const {entry_date, mood, weight, sleep_hours, notes} = req.body;
-  // user property (& id) is added to req by authentication middleware
-  const user_id = req.user.user_id;
-
-  // TODO: replace with validation middleware in entry
-  if (entry_date && (weight || mood || sleep_hours || notes) && user_id) {
-    const result = await addEntry({user_id, ...req.body});
-    if (result.entry_id) {
-      res.status(201);
-      res.json({message: 'New entry added.', ...result});
-    } else {
-      res.status(500);
+    if (!result.error) {
       res.json(result);
+    } else {
+      const error = new Error(result.error);
+      error.status = 500;
+      next(error);
     }
-  } else {
-    res.sendStatus(400);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getEntryById = async (req, res, next) => {
+  try {
+    const entry = await findEntryById(req.params.id);
+    if (entry) {
+      res.json(entry);
+    } else {
+      const error = new Error('Entry not found');
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const postEntry = async (req, res, next) => {
+  try {
+    const user_id = req.user.user_id ?? req.user.userId;
+
+    const result = await addEntry({ user_id, ...req.body });
+
+    if (result.entry_id) {
+      res.status(201).json({
+        message: 'New entry added.',
+        ...result,
+      });
+    } else {
+      const error = new Error('Failed to create entry');
+      error.status = 500;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -54,12 +66,22 @@ const putEntry = (req, res) => {
   res.sendStatus(200);
 };
 
-const deleteEntry = async (req, res) => {
-  const affectedRows = await removeEntryById(req.params.id, req.user.user_id);
-  if (affectedRows > 0) {
-    res.json({message: 'entry deleted'});
-  } else {
-    res.status(404).json({message: 'entry not found'});
+const deleteEntry = async (req, res, next) => {
+  try {
+    const affectedRows = await removeEntryById(
+      req.params.id,
+      req.user.user_id ?? req.user.userId
+    );
+
+    if (affectedRows > 0) {
+      res.json({ message: 'entry deleted' });
+    } else {
+      const error = new Error('Entry not found');
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
   }
 };
 
