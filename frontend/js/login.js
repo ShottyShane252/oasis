@@ -24,7 +24,10 @@ const loginUser = async (event) => {
       'Content-type': 'application/json',
     },
   };
-  console.log(options);
+  //Kirjaa käyttäjätunnuksen ja salasanan konsoliin näkyviin
+  //console.log(options);
+  //Kirjaa käyttäjätunnus näkyviin salasana piiloon
+  console.log("Username:", username,"Password:", "*".repeat(password.length));
 
   const response = await fetchData(url, options);
 
@@ -37,10 +40,10 @@ const loginUser = async (event) => {
     console.log(response.message, 'success');
     localStorage.setItem('token', response.token);
     localStorage.setItem('name', response.user.username || response.user.given_name || 'vieras');
-    logResponse(
+    /* logResponse(
       'loginResponse',
       // `localStorage set with token value: ${response.token}`
-    );
+    ); */
     setTimeout(function () {
       window.location.href = 'diary.html';
     }, 3000);
@@ -50,9 +53,9 @@ const loginUser = async (event) => {
   loginForm.reset();
 };
 
-function logResponse(codeblock, text) {
+/* function logResponse(codeblock, text) {
   document.getElementById(codeblock).innerText = text;
-}
+} */
 
 const loginForm = document.querySelector('.loginForm');
 loginForm.addEventListener('submit', loginUser);
