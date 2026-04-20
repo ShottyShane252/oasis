@@ -39,7 +39,7 @@ const loginUser = async (event) => {
     localStorage.setItem('name', response.user.username || response.user.given_name || 'vieras');
     logResponse(
       'loginResponse',
-      `localStorage set with token value: ${response.token}`
+      // `localStorage set with token value: ${response.token}`
     );
     setTimeout(function () {
       window.location.href = 'diary.html';
