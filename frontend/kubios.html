@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="On tärkeää että pidät huolta itsestäsi. Seuraa treeniohjeitamme, tarkastele terveyttäsi HRV tiedon avulla ja voi kokonaisvaltaisesti hyvin. Suuntaa nyt hyvinvointia ja uutta elämääsi kohti."
+    />
+
+    <title>HyteGym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- oma yleinen css -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- tämä viimeiseksi -->
+    <link rel="stylesheet" href="css/kubios.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="" id="logo">HyteGym</a></li>
+        <li><a href="#" class="selected navlink">Koti</a></li>
+        <li><a href="bmi.html" class="navlink">BMI laskuri</a></li>
+        <li>
+          <a href="viikkotehtavat.html" class="navlink">Viikkotehtävät</a>
+        </li>
+        <li><a href="paivakirja.html" class="navlink">Päiväkirja</a></li>
+        <li><a href="kubios.html" class="navlink">Kubios</a></li>
+      </ul>
+      <div>Hei Käyttäjä:&nbsp;<span class="username">Vieras</span></div>
+    </nav>
+
+    <main class="kubios-page">
+      <section class="kubios-hero">
+        <div class="kubios-hero__content">
+          <p class="kubios-eyebrow">HyteGym / Kubios demo</p>
+          <h1 class="kubios-title">
+            Hyvinvointidatan visualisointi käytännössä
+          </h1>
+          <p class="kubios-lead">
+            Tutustu graafikirjastoihin ja hae Kubios-dataa käyttöliittymään.
+            Tällä sivulla voit kokeilla sekä käyttäjätietojen hakua että datan
+            visualisointia eri kirjastoilla.
+          </p>
+        </div>
+      </section>
+
+      <section class="kubios-grid">
+        <article class="kubios-card kubios-card--info">
+          <h2 class="kubios-section-title">Charts käyttöliittymässä</h2>
+
+          <div class="kubios-stack">
+            <div class="kubios-block">
+              <a
+                class="kubios-link"
+                href="https://www.chartjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chart.js official page
+              </a>
+
+              <p class="kubios-text">
+                Chart.js on avoimen lähdekoodin JavaScript-kirjasto, jolla voi
+                tehdä kaavioita HTML5 canvas -elementtiin. Se on kevyt, helppo
+                ottaa käyttöön ja hyvin muokattavissa.
+              </p>
+
+              <ul class="kubios-feature-list">
+                <li class="kubios-feature-item">
+                  Tukee yleisiä kaaviotyyppejä, kuten pylväs-, viiva- ja
+                  piirakkakaavioita
+                </li>
+                <li class="kubios-feature-item">
+                  Animoidut ja interaktiiviset kaaviot
+                </li>
+                <li class="kubios-feature-item">
+                  Muokattavat värit, akselit ja tooltipit
+                </li>
+                <li class="kubios-feature-item">
+                  Toimii suoraan Vanilla JavaScriptin kanssa
+                </li>
+                <li class="kubios-feature-item">
+                  Helppo integroida Vite-projektiin
+                </li>
+              </ul>
+
+              <p class="kubios-note">
+                Hyödyllisiä lisäosia:
+                <span class="kubios-inline-code"
+                  >https://github.com/chartjs/awesome#adapters</span
+                >
+              </p>
+            </div>
+
+            <div class="kubios-chart-card">
+              <h4 class="kubios-chart-title">Esimerkkikaavio</h4>
+              <div class="kubios-canvas-wrap kubios-canvas-wrap--small">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="kubios-card kubios-card--actions">
+          <h2 class="kubios-section-title">Kubios API -testit</h2>
+
+          <div class="kubios-action-group">
+            <h3 class="kubios-subtitle">Get Kubios User Info</h3>
+            <pre class="kubios-code-block">
+GET http://localhost:3000/api/kubios/user-info</pre
+            >
+            <button class="kubios-btn get_user_info">
+              Get user info and console.log
+            </button>
+          </div>
+
+          <div class="kubios-action-group">
+            <h3 class="kubios-subtitle">Get Kubios User Data</h3>
+            <pre class="kubios-code-block">
+GET http://localhost:3000/api/kubios/user-data</pre
+            >
+            <button class="kubios-btn get_user_data">
+              Get user data and draw graphs
+            </button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="kubios-results">
+        <div class="kubios-card">
+          <h2 class="kubios-section-title">Chart.js tulos</h2>
+          <div class="kubios-canvas-wrap">
+            <canvas id="jsChart"></canvas>
+          </div>
+        </div>
+
+        <div class="kubios-card">
+          <h2 class="kubios-section-title">amCharts tulos</h2>
+          <div id="chartdiv" class="kubios-amchart"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Resources -->
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script type="module" src="js/kubios.js"></script>
+    <script type="module" src="js/loggedUser.js"></script>
+  </body>
+</html>
