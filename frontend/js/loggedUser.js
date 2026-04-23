@@ -1,4 +1,27 @@
-let username = localStorage.getItem('name');
-document.querySelector('.username').textContent = username
-  ? username
-  : 'vieras';
+const username = localStorage.getItem('name');
+const token = localStorage.getItem('token');
+
+const usernameElement = document.querySelector('.username');
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+
+if (usernameElement) {
+  usernameElement.textContent =
+    token && username && username !== 'undefined' ? username : 'Vieras';
+}
+
+if (loginBtn) {
+  loginBtn.style.display = token ? 'none' : 'inline-block';
+}
+
+if (logoutBtn) {
+  logoutBtn.style.display = token ? 'inline-block' : 'none';
+}
+
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    window.location.href = 'login.html'; 
+  });
+}
