@@ -20,11 +20,11 @@ async function fetchKubiosData() {
       console.warn('Ei kirjautumistokenia');
       return null;
     }
-    
+
     const response = await fetch(`${API_URL}/kubios/user-data`, {
       headers: getAuthHeaders()
     });
-    
+
     if (!response.ok) {
       if (response.status === 401) {
         console.warn('Kirjautuminen vanhentunut tai ei oikeuksia');
@@ -32,7 +32,7 @@ async function fetchKubiosData() {
       }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    
+
     const data = await response.json();
     console.log('Kubios data haettu:', data);
     return data;
@@ -45,9 +45,9 @@ async function fetchKubiosData() {
 // Muunna Kubios-data (lisätty uudet kentät)
 function parseKubiosData(kubiosData) {
   console.log('Parsitaan dataa');
-  
+
   if (!kubiosData) return [];
-  
+
   let results = [];
   if (kubiosData.results && Array.isArray(kubiosData.results)) {
     results = kubiosData.results;
@@ -56,29 +56,29 @@ function parseKubiosData(kubiosData) {
   } else {
     return [];
   }
-  
+
   if (results.length === 0) return [];
-  
+
   const parsed = [];
-  
+
   for (let i = 0; i < results.length; i++) {
     const item = results[i];
-    
+
     let date = '';
     if (item.measured_timestamp) {
       date = item.measured_timestamp.split('T')[0];
     } else if (item.create_timestamp) {
       date = item.create_timestamp.split('T')[0];
     }
-    
+
     const resultData = item.result || {};
-    
+
     // HRV (RMSSD)
     let rmssd = 0;
     if (resultData.rmssd_ms !== undefined && resultData.rmssd_ms !== null) {
       rmssd = parseFloat(resultData.rmssd_ms.toFixed(1));
     }
-    
+
     // Readiness
     let readiness = 0;
     if (resultData.readiness !== undefined && resultData.readiness !== null) {
@@ -86,37 +86,37 @@ function parseKubiosData(kubiosData) {
       if (readiness < 1) readiness = 1;
       if (readiness > 10) readiness = 10;
     }
-    
+
     // SYKE (Heart Rate)
     let heartRate = 0;
     if (resultData.mean_hr_bpm !== undefined && resultData.mean_hr_bpm !== null) {
       heartRate = Math.round(resultData.mean_hr_bpm);
     }
-    
+
     // Stress Index
     let stressIndex = 0;
     if (resultData.stress_index !== undefined && resultData.stress_index !== null) {
       stressIndex = parseFloat(resultData.stress_index.toFixed(1));
     }
-    
+
     // Recovery (palautuminen)
     let recovery = 0;
     if (resultData.recovery !== undefined && resultData.recovery !== null) {
       recovery = Math.round(resultData.recovery);
     }
-    
+
     // PNS Index (parasympaattinen)
     let pnsIndex = 0;
     if (resultData.pns_index !== undefined && resultData.pns_index !== null) {
       pnsIndex = parseFloat(resultData.pns_index.toFixed(1));
     }
-    
+
     // SNS Index (sympaattinen)
     let snsIndex = 0;
     if (resultData.sns_index !== undefined && resultData.sns_index !== null) {
       snsIndex = parseFloat(resultData.sns_index.toFixed(1));
     }
-    
+
     parsed.push({
       date: date,
       rmssd: rmssd,
@@ -128,7 +128,7 @@ function parseKubiosData(kubiosData) {
       snsIndex: snsIndex
     });
   }
-  
+
   console.log(`Parsittu ${parsed.length} mittausta`);
   return parsed;
 }
@@ -137,11 +137,11 @@ function parseKubiosData(kubiosData) {
 function createHrvChart(data) {
   const canvas = document.getElementById("hrvChart");
   if (!canvas) return;
-  
+
   const ctx = canvas.getContext("2d");
-  
+
   if (hrvChart) hrvChart.destroy();
-  
+
   if (!data || data.length === 0) {
     hrvChart = new Chart(ctx, {
       type: "bar",
@@ -157,10 +157,10 @@ function createHrvChart(data) {
     });
     return;
   }
-  
+
   const dates = data.map(item => item.date?.slice(0, 10) || "Ei päivää");
   const rmssdValues = data.map(item => item.rmssd || 0);
-  
+
   hrvChart = new Chart(ctx, {
     type: "bar",
     data: {
@@ -192,11 +192,11 @@ function createHrvChart(data) {
 function createHeartRateChart(data) {
   const canvas = document.getElementById("heartRateChart");
   if (!canvas) return;
-  
+
   const ctx = canvas.getContext("2d");
-  
+
   if (hrChart) hrChart.destroy();
-  
+
   if (!data || data.length === 0) {
     hrChart = new Chart(ctx, {
       type: "line",
@@ -208,10 +208,10 @@ function createHeartRateChart(data) {
     });
     return;
   }
-  
+
   const dates = data.map(item => item.date?.slice(0, 10) || "Ei päivää");
   const hrValues = data.map(item => item.heartRate || 0);
-  
+
   hrChart = new Chart(ctx, {
     type: "line",
     data: {
@@ -246,11 +246,11 @@ function createHeartRateChart(data) {
 function createReadinessChart(data) {
   const canvas = document.getElementById("readinessChart");
   if (!canvas) return;
-  
+
   const ctx = canvas.getContext("2d");
-  
+
   if (readinessChart) readinessChart.destroy();
-  
+
   if (!data || data.length === 0) {
     readinessChart = new Chart(ctx, {
       type: "doughnut",
@@ -259,28 +259,28 @@ function createReadinessChart(data) {
     });
     return;
   }
-  
+
   const readinessCounts = {
     "Matala (1-3)": 0,
     "Keskitaso (4-7)": 0,
     "Korkea (8-10)": 0
   };
-  
+
   data.forEach(item => {
     const r = item.readiness || 0;
     if (r <= 3) readinessCounts["Matala (1-3)"]++;
     else if (r <= 7) readinessCounts["Keskitaso (4-7)"]++;
     else if (r <= 10) readinessCounts["Korkea (8-10)"]++;
   });
-  
+
   const labels = Object.keys(readinessCounts);
   const values = Object.values(readinessCounts);
   const colors = ["rgba(239, 68, 68, 0.7)", "rgba(245, 158, 11, 0.7)", "rgba(16, 185, 129, 0.7)"];
-  
+
   const filteredLabels = [];
   const filteredValues = [];
   const filteredColors = [];
-  
+
   for (let i = 0; i < labels.length; i++) {
     if (values[i] > 0) {
       filteredLabels.push(labels[i]);
@@ -288,13 +288,13 @@ function createReadinessChart(data) {
       filteredColors.push(colors[i]);
     }
   }
-  
+
   if (filteredValues.length === 0) {
     filteredLabels.push("Ei dataa");
     filteredValues.push(1);
     filteredColors.push("rgba(156, 163, 175, 0.5)");
   }
-  
+
   readinessChart = new Chart(ctx, {
     type: "doughnut",
     data: { labels: filteredLabels, datasets: [{ data: filteredValues, backgroundColor: filteredColors, borderWidth: 0, hoverOffset: 10 }] },
@@ -321,15 +321,15 @@ function createReadinessChart(data) {
 function updateDataTable(data) {
   const tbody = document.getElementById("tableBody");
   if (!tbody) return;
-  
+
   if (!data || data.length === 0) {
     tbody.innerHTML = `<tr><td colspan="6" class="no-data">Ei dataa. Kirjaudu sisään Kubios-tunnuksilla.</td></tr>`;
     return;
   }
-  
+
   let html = "";
   const sortedData = [...data].reverse();
-  
+
   sortedData.forEach(item => {
     html += `
       <tr>
@@ -339,7 +339,7 @@ function updateDataTable(data) {
         <td>${item.heartRate || "-"} bpm</td>
         <td>${item.stressIndex || "-"}</td>
         <td>${item.recovery ? item.recovery + "/100" : "-"}</td>
-      </table>
+      </tr>
     `;
   });
   tbody.innerHTML = html;
@@ -351,19 +351,19 @@ async function loadAndDisplayData() {
     showLoginMessage();
     return;
   }
-  
+
   const kubiosData = await fetchKubiosData();
   if (!kubiosData) {
     showErrorMessage("Ei voitu hakea Kubios-dataa.");
     return;
   }
-  
+
   const parsedData = parseKubiosData(kubiosData);
   if (parsedData.length === 0) {
     showErrorMessage("Ei mittausdataa.");
     return;
   }
-  
+
   createHrvChart(parsedData);
   createHeartRateChart(parsedData);
   createReadinessChart(parsedData);
@@ -408,40 +408,8 @@ function hideMessage() {
   if (msgDiv) msgDiv.remove();
 }
 
-function loadDemoData() {
-  const demoData = [
-    { date: "2024-03-01", rmssd: 42, readiness: 7, heartRate: 68, stressIndex: 6.5, recovery: 75 },
-    { date: "2024-03-02", rmssd: 38, readiness: 6, heartRate: 72, stressIndex: 7.2, recovery: 65 },
-    { date: "2024-03-03", rmssd: 45, readiness: 8, heartRate: 65, stressIndex: 5.1, recovery: 82 },
-    { date: "2024-03-04", rmssd: 35, readiness: 2, heartRate: 78, stressIndex: 8.5, recovery: 45 },
-    { date: "2024-03-05", rmssd: 52, readiness: 9, heartRate: 62, stressIndex: 4.2, recovery: 88 },
-    { date: "2024-03-06", rmssd: 48, readiness: 7, heartRate: 66, stressIndex: 5.8, recovery: 72 },
-    { date: "2024-03-07", rmssd: 55, readiness: 9, heartRate: 60, stressIndex: 3.9, recovery: 90 },
-    { date: "2024-03-08", rmssd: 40, readiness: 4, heartRate: 75, stressIndex: 7.8, recovery: 55 },
-    { date: "2024-03-09", rmssd: 50, readiness: 8, heartRate: 64, stressIndex: 4.8, recovery: 80 },
-    { date: "2024-03-10", rmssd: 44, readiness: 5, heartRate: 70, stressIndex: 6.2, recovery: 68 }
-  ];
-  
-  createHrvChart(demoData);
-  createHeartRateChart(demoData);
-  createReadinessChart(demoData);
-  updateDataTable(demoData);
-  hideMessage();
-}
 
-function clearGraphs() {
-  if (hrvChart) { hrvChart.destroy(); hrvChart = null; }
-  if (hrChart) { hrChart.destroy(); hrChart = null; }
-  if (readinessChart) { readinessChart.destroy(); readinessChart = null; }
-  updateDataTable([]);
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   loadAndDisplayData();
-  
-  const loadDemoBtn = document.getElementById("loadDemoData");
-  const clearBtn = document.getElementById("clearData");
-  
-  if (loadDemoBtn) loadDemoBtn.addEventListener("click", loadDemoData);
-  if (clearBtn) clearBtn.addEventListener("click", clearGraphs);
 });
