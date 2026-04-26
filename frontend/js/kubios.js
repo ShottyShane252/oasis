@@ -1,4 +1,4 @@
-// kubios.js - HRV ja readiness graafit lisäarvoilla
+
 
 let hrvChart = null;
 let readinessChart = null;
@@ -42,7 +42,7 @@ async function fetchKubiosData() {
   }
 }
 
-// Muunna Kubios-data (lisätty uudet kentät)
+//  Kubios data 
 function parseKubiosData(kubiosData) {
   console.log('Parsitaan dataa');
 
@@ -133,7 +133,7 @@ function parseKubiosData(kubiosData) {
   return parsed;
 }
 
-// Luo HRV diagrammi
+// HRV diagrammi
 function createHrvChart(data) {
   const canvas = document.getElementById("hrvChart");
   if (!canvas) return;
@@ -188,7 +188,7 @@ function createHrvChart(data) {
   });
 }
 
-// Luo syke diagrammi (uusi)
+//  syke diagrammi 
 function createHeartRateChart(data) {
   const canvas = document.getElementById("heartRateChart");
   if (!canvas) return;
@@ -242,7 +242,7 @@ function createHeartRateChart(data) {
   });
 }
 
-// Luo readiness ympyrädiagrammi (3 tasoa)
+// readiness ympyrädiagrammi 
 function createReadinessChart(data) {
   const canvas = document.getElementById("readinessChart");
   if (!canvas) return;
@@ -317,7 +317,7 @@ function createReadinessChart(data) {
   });
 }
 
-// Päivitä taulukko (lisätty uudet arvot)
+// päivittää taulukko 
 function updateDataTable(data) {
   const tbody = document.getElementById("tableBody");
   if (!tbody) return;
