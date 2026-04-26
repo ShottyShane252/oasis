@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Oasis Kubios mittaukset" />
+
+  <title>Oasis - Kubios mittaukset</title>
+
+  <!-- oma yleinen css -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet" />
+
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-icon">🌊</span>
+          <span class="logo-text">Oasis</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <span class="username">Vieras</span>
+        <a href="login.html" class="btn btn-primary btn-login">Kirjaudu sisään</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sub-nav">
+    <div class="container nav-links">
+      <a href="home.html">Koti</a>
+      <a href="bmi.html">BMI-laskuri</a>
+      <a href="psqi.html">PSQI</a>
+      <a href="diary.html">Päiväkirja</a>
+      <a href="kubios.html" class="active">Historia</a>
+      <a href="tietoa.html">Tietoa meistä</a>
+    </div>
+  </nav>
+
+  <main class="kubios-page">
+    <section class="kubios-hero">
+      <div class="kubios-hero__content">
+        <p class="kubios-eyebrow">Kubios HRV</p>
+        <h1 class="kubios-title">Omat HRV- ja readiness-mittaukset</h1>
+        <p class="kubios-lead">
+          Tarkastele kubios-mittauksiasi visuaalisessa muodossa. Alla näet
+          viimeisimmät HRV-mittaukset pylväskaaviona, sykekäyrän sekä readiness-tason
+          ympyrädiagrammina.
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- Graafit -->
+    <section class="kubios-graphs">
+      <!-- Pylväsdiagrammi HRV-mittauksista -->
+      <div class="kubios-card">
+        <h2 class="kubios-section-title">
+          📊 HRV-mittaukset (RMSSD)
+        </h2>
+        <p class="kubios-graph-description">
+          Viimeisimmät RMSSD-arvot (ms). Korkeampi arvo kertoo paremmasta
+          palautumisesta ja alhaisemmasta stressitasosta.
+        </p>
+        <div class="kubios-canvas-wrap">
+          <canvas id="hrvChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Viivadiagrammi sykkeestä -->
+      <div class="kubios-card">
+        <h2 class="kubios-section-title">
+          ❤️ Sydämen syke (Heart Rate)
+        </h2>
+        <p class="kubios-graph-description">
+          Keskisyke (bpm) mittauspäivänä. Normaali leposyke on 60-80 bpm.
+        </p>
+        <div class="kubios-canvas-wrap">
+          <canvas id="heartRateChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Ympyrädiagrammi readiness-tasosta -->
+      <div class="kubios-card">
+        <h2 class="kubios-section-title">
+          🎯 Readiness-tason jakautuminen
+        </h2>
+        <p class="kubios-graph-description">
+          Readiness kertoo kehosi valmiudesta suorituksiin. Arvot 1-10,
+          korkeampi on parempi.
+        </p>
+        <div class="kubios-chart-container">
+          <canvas id="readinessChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taulukko data -->
+    <section class="kubios-card kubios-data-table">
+      <h2 class="kubios-section-title">📋 Mittaustiedot</h2>
+      <div class="table-wrapper">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>Päivämäärä</th>
+              <th>RMSSD (ms)</th>
+              <th>Readiness (1-10)</th>
+              <th>Syke (bpm)</th>
+              <th>Stress Index</th>
+              <th>Recovery</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr>
+              <td colspan="6" class="no-data">Ei dataa? Kirjaudu sisään Kubios-tunnuksilla.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chart.js kirjasto -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Kubios JavaScript -->
+  <script type="module" src="js/kubios.js"></script>
+  <script type="module" src="js/loggedUser.js"></script>
+</body>
+
+</html>
