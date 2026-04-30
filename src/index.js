@@ -16,7 +16,7 @@ app.use(cors());
 // parsitaan json data pyynnöstä ja lisätään request-objektiin
 app.use(express.json());
 // tarjoillaan webbisivusto (front-end) palvelimen juuressa
-app.use('/', express.static('public'));
+app.use('/', express.static('frontend'));
 // Oma loggeri middleware, käytössä koko sovelluksen laajuisesti eli käsittee kaikki http-pyynnöt
 app.use(requestLogger);
 
