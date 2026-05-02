@@ -638,79 +638,106 @@ img {
     background-color: #fecaca; /* hoverissa hieman vahvempi punainen */
 }
 
-/* responsiivisuus */
+/*------PSQI-------*/
 
-.form-response {
-    margin-top: 1rem;
-    text-align: center;
+
+/* ---------- PSQI PAGE ---------- */
+
+.psqi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* lisää väli korttien väliin */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* poistaa hover-efektin PSQI korteilta */
+.psqi-section:hover,
+.psqi-result-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+/* vähän pehmeämpi ulkoasu */
+.psqi-section,
+.psqi-result-card {
+    padding: 2rem;
+}
+
+/* otsikot */
+.psqi-section-title {
     color: var(--primary-dark);
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* yksittäinen kysymys */
+.psqi-question {
+    margin-bottom: 1.5rem;
+}
+
+/* kysymysteksti */
+.psqi-question p {
     font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
-/*tabletit*/
-@media (max-width: 900px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .page-title {
-        font-size: 2.2rem;
-    }
-
-    .header-container {
-        padding: 0.8rem 1.2rem;
-    }
-
-    .logo-text {
-        font-size: 1.4rem;
-    }
-
-    .logo-icon {
-        font-size: 1.7rem;
-    }
-
-     .diary-layout {
-        grid-template-columns: 1fr; /* mobiilissa/pienemmällä näytöllä palstat allekkain */
-    }
-
+/* radiobutton ryhmä */
+.psqi-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
-/*puhelimet*/
-@media (max-width: 640px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .page-title {
-        font-size: 1.8rem;
-    }
-
-    .lead-text {
-        font-size: 1.15rem;
-    }
-
-    .btn-login {
-        padding: 0.45rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-nav {
-        justify-content: center;
-    }
-
-    .hero-headline {
-        margin-bottom: 2rem;
-    }
+/* radiot siistimmäksi */
+.psqi-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
 }
 
+/* result box */
+.psqi-result-card {
+    text-align: center;
+}
 
+/* score */
+.psqi-result-score {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* interpretation */
+.psqi-result-text {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* note (Q10) */
+.psqi-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ---------- PSQI RESULT ---------- */
+
+.psqi-latest-result {
+    text-align: center; /* added: centers latest result */
+    margin: 0 auto 2rem auto; /* added: gives space under latest result */
+    padding: 1rem 1.5rem; /* added: makes the box comfortable */
+    max-width: 900px; /* added: matches PSQI form width */
+    background: var(--primary-light); /* added: Oasis light blue background */
+    border: 1px solid var(--border-light); /* added: soft border */
+    border-radius: 16px; /* added: rounded card style */
+    color: var(--primary-dark); /* added: blue text */
+    font-weight: 600; /* added: makes result easy to see */
+    box-shadow: var(--shadow-sm); /* added: soft shadow */
+}
 
 
 /* ---------- KUBIOS PAGE ---------- */
@@ -757,14 +784,6 @@ img {
   line-height: 1.6;
 }
 
-/* Demo napit */
-.kubios-demo-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-}
 
 .kubios-btn {
   background-color: var(--primary-dark);
@@ -919,4 +938,78 @@ nav {
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+
+
+
+/* responsiivisuus */
+
+.form-response {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/*tabletit*/
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .header-container {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .logo-icon {
+        font-size: 1.7rem;
+    }
+
+     .diary-layout {
+        grid-template-columns: 1fr; /* mobiilissa/pienemmällä näytöllä palstat allekkain */
+    }
+
+}
+
+/*puhelimet*/
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .lead-text {
+        font-size: 1.15rem;
+    }
+
+    .btn-login {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+
+    .hero-headline {
+        margin-bottom: 2rem;
+    }
 }
