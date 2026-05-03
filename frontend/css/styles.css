@@ -646,50 +646,60 @@ img {
 .psqi-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* lisää väli korttien väliin */
+    gap: 2rem;
     max-width: 900px;
     margin: 0 auto;
+    padding: 2.5rem;
 }
 
-/* poistaa hover-efektin PSQI korteilta */
-.psqi-section:hover,
-.psqi-result-card:hover {
+.psqi-form:hover {
     transform: none;
     box-shadow: var(--shadow-sm);
 }
 
-/* vähän pehmeämpi ulkoasu */
-.psqi-section,
-.psqi-result-card {
-    padding: 2rem;
+.psqi-section {
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-/* otsikot */
+.psqi-result-card {
+    text-align: center;
+    padding-top: 1rem;
+}
+
 .psqi-section-title {
     color: var(--primary-dark);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
-/* yksittäinen kysymys */
 .psqi-question {
     margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem; /* added: space before the divider line */
+    border-bottom: 1px solid var(--border-light); /* added: line between each question */
 }
 
-/* kysymysteksti */
+.psqi-section:nth-of-type(2) .psqi-question {
+    border-bottom: none; /* poistaa viivat 5a-5j kysymysten välistä */
+    padding-bottom: 0; /* poistaa ylimääräisen alavälin 5a-5j kohdalta */
+}
+
+.psqi-section:nth-of-type(2) {
+    padding-bottom: 1.5rem; /* lisää tilaa Q5-osion alle */
+    border-bottom: 1px solid var(--border-light); /* lisää viivan Q5-kokonaisuuden jälkeen */
+}
+
 .psqi-question p {
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
-/* radiobutton ryhmä */
 .psqi-options {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
 }
 
-/* radiot siistimmäksi */
 .psqi-options label {
     display: flex;
     align-items: center;
@@ -698,30 +708,39 @@ img {
     font-size: 0.95rem;
 }
 
-/* result box */
-.psqi-result-card {
-    text-align: center;
-}
-
-/* score */
 .psqi-result-score {
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-/* interpretation */
 .psqi-result-text {
     color: var(--text-muted);
     margin-bottom: 1rem;
 }
 
-/* note (Q10) */
 .psqi-note {
     margin-top: 1rem;
     font-size: 0.85rem;
     color: var(--text-muted);
     font-style: italic;
+}
+
+.psqi-main-question {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.psqi-form .form-group {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.psqi-section:last-of-type {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
 }
 
 /* ---------- PSQI RESULT ---------- */

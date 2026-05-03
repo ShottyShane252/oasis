@@ -55,35 +55,34 @@
         </p>
       </div>
 
-      <form id="psqiForm" class="psqi-form">
+      <form id="psqiForm" class="card psqi-form">
 
-        <section class="card psqi-section">
-          <h2 class="psqi-section-title">Basic sleep information</h2>
+        <section class="psqi-section">
 
           <div class="form-group">
-            <label for="q1">1. During the past month, when have you usually gone to bed at night?</label>
+            <label for="q1" class="psqi-main-question">1. During the past month, when have you usually gone to bed at night?</label>
             <input type="time" id="q1" name="q1" required>
           </div>
 
           <div class="form-group">
-            <label for="q2">2. During the past month, how long (in minutes) has it usually taken you to fall asleep each
+            <label for="q2" class="psqi-main-question">2. During the past month, how long (in minutes) has it usually taken you to fall asleep each
               night?</label>
             <input type="number" id="q2" name="q2" min="0" required>
           </div>
 
           <div class="form-group">
-            <label for="q3">3. During the past month, when have you usually gotten up in the morning?</label>
+            <label for="q3" class="psqi-main-question">3. During the past month, when have you usually gotten up in the morning?</label>
             <input type="time" id="q3" name="q3" required>
           </div>
 
           <div class="form-group">
-            <label for="q4">4. During the past month, how many hours of actual sleep did you get at night?</label>
+            <label for="q4" class="psqi-main-question">4. During the past month, how many hours of actual sleep did you get at night?</label>
             <input type="number" id="q4" name="q4" min="0" max="24" step="0.5" required>
           </div>
         </section>
 
-        <section class="card psqi-section">
-          <h2 class="psqi-section-title">5. During the past month, how often have you had trouble sleeping because
+        <section class="psqi-section">
+          <h2 class="psqi-section-title psqi-main-question">5. During the past month, how often have you had trouble sleeping because
             you...</h2>
 
           <div class="psqi-question">
@@ -177,9 +176,8 @@
           </div>
 
           <div class="psqi-question">
-            <p>j. other reason(s), please describe</p>
+            <p>j. other reason(s), please describe and how often during the past month have you had trouble sleeping because of this reason?</p>
             <textarea id="q5jText" class="diary-textarea" rows="3"></textarea>
-            <p>How often during the past month have you had trouble sleeping because of this reason?</p>
             <div class="psqi-options">
               <label><input type="radio" name="q5j" value="0" required> Not during the past month</label>
               <label><input type="radio" name="q5j" value="1"> Less than once a week</label>
@@ -189,11 +187,10 @@
           </div>
         </section>
 
-        <section class="card psqi-section">
-          <h2 class="psqi-section-title">Additional questions</h2>
+        <section class="psqi-section">
 
           <div class="psqi-question">
-            <p>6. During the past month, how would you rate your sleep quality overall?</p>
+            <p class="psqi-main-question">6. During the past month, how would you rate your sleep quality overall?</p>
             <div class="psqi-options">
               <label><input type="radio" name="q6" value="0" required> Very good</label>
               <label><input type="radio" name="q6" value="1"> Fairly good</label>
@@ -203,7 +200,7 @@
           </div>
 
           <div class="psqi-question">
-            <p>7. During the past month, how often have you taken medicine (prescribed or “over the counter”) to help
+            <p class="psqi-main-question">7. During the past month, how often have you taken medicine (prescribed or “over the counter”) to help
               you sleep?</p>
             <div class="psqi-options">
               <label><input type="radio" name="q7" value="0" required> Not during the past month</label>
@@ -214,7 +211,7 @@
           </div>
 
           <div class="psqi-question">
-            <p>8. During the past month, how often have you had trouble staying awake while driving, eating meals, or
+            <p class="psqi-main-question">8. During the past month, how often have you had trouble staying awake while driving, eating meals, or
               engaging in social activity?</p>
             <div class="psqi-options">
               <label><input type="radio" name="q8" value="0" required> Not during the past month</label>
@@ -225,7 +222,7 @@
           </div>
 
           <div class="psqi-question">
-            <p>9. During the past month, how much of a problem has it been for you to keep up enthusiasm to get things
+            <p class="psqi-main-question">9. During the past month, how much of a problem has it been for you to keep up enthusiasm to get things
               done?</p>
             <div class="psqi-options">
               <label><input type="radio" name="q9" value="0" required> No problem at all</label>
@@ -236,8 +233,8 @@
           </div>
         </section>
 
-        <section class="card psqi-section">
-          <h2 class="psqi-section-title">10. Do you have a bed partner or room mate?</h2>
+        <section class="psqi-section">
+          <h2 class="psqi-section-title psqi-main-question">10. Do you have a bed partner or room mate?</h2>
 
           <div class="psqi-options">
             <label><input type="radio" name="q10" value="no_partner" required> No bed partner or room mate</label>
@@ -249,7 +246,7 @@
           <p class="psqi-note">Question 10 is not included in the scoring.</p>
         </section>
 
-        <section class="card psqi-result-card">
+        <section class="psqi-result-card">
           <h2 class="psqi-section-title">Your PSQI result</h2>
           <p class="psqi-result-score">Your PSQI score is <span id="psqiScore">-</span> / 21</p>
           <p id="psqiInterpretation" class="psqi-result-text">Complete the questionnaire and press calculate to see your
