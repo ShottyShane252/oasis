@@ -639,8 +639,6 @@ img {
 }
 
 /*------PSQI-------*/
-
-
 /* ---------- PSQI PAGE ---------- */
 
 .psqi-form {
@@ -662,6 +660,12 @@ img {
     border-bottom: none;
 }
 
+.psqi-section:nth-of-type(2),
+.psqi-section:last-of-type {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
 .psqi-result-card {
     text-align: center;
     padding-top: 1rem;
@@ -673,20 +677,23 @@ img {
     font-size: 1.5rem;
 }
 
+.psqi-main-question {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.psqi-form .form-group,
 .psqi-question {
     margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem; /* added: space before the divider line */
-    border-bottom: 1px solid var(--border-light); /* added: line between each question */
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .psqi-section:nth-of-type(2) .psqi-question {
-    border-bottom: none; /* poistaa viivat 5a-5j kysymysten välistä */
-    padding-bottom: 0; /* poistaa ylimääräisen alavälin 5a-5j kohdalta */
-}
-
-.psqi-section:nth-of-type(2) {
-    padding-bottom: 1.5rem; /* lisää tilaa Q5-osion alle */
-    border-bottom: 1px solid var(--border-light); /* lisää viivan Q5-kokonaisuuden jälkeen */
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .psqi-question p {
@@ -726,39 +733,18 @@ img {
     font-style: italic;
 }
 
-.psqi-main-question {
-    color: var(--text-dark);
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.6;
-}
-
-.psqi-form .form-group {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.psqi-section:last-of-type {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-/* ---------- PSQI RESULT ---------- */
-
 .psqi-latest-result {
-    text-align: center; /* added: centers latest result */
-    margin: 0 auto 2rem auto; /* added: gives space under latest result */
-    padding: 1rem 1.5rem; /* added: makes the box comfortable */
-    max-width: 900px; /* added: matches PSQI form width */
-    background: var(--primary-light); /* added: Oasis light blue background */
-    border: 1px solid var(--border-light); /* added: soft border */
-    border-radius: 16px; /* added: rounded card style */
-    color: var(--primary-dark); /* added: blue text */
-    font-weight: 600; /* added: makes result easy to see */
-    box-shadow: var(--shadow-sm); /* added: soft shadow */
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background: var(--primary-light);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
 }
-
-
 /* ---------- KUBIOS PAGE ---------- */
 
 .kubios-page {
