@@ -1,17 +1,17 @@
 const psqiForm = document.querySelector('#psqiForm');
 const psqiScoreElement = document.querySelector('#psqiScore');
 const psqiInterpretationElement = document.querySelector('#psqiInterpretation');
-const latestPsqiElement = document.querySelector('#latestPsqi'); // added: finds latest saved score display
+const latestPsqiElement = document.querySelector('#latestPsqi'); // finds latest saved score display
 
-const getLoggedInUserKey = () => { // added: creates user-specific localStorage key
-  const token = localStorage.getItem('token'); // added: checks if user is logged in
-  const name = localStorage.getItem('name'); // added: gets logged in user's name
+const getLoggedInUserKey = () => { // creates user-specific localStorage key
+  const token = localStorage.getItem('token'); //  checks if user is logged in
+  const name = localStorage.getItem('name'); //gets logged in user's name
 
-  if (!token || !name || name === 'undefined') { // added: if no valid login, do not save
+  if (!token || !name || name === 'undefined') { //if no valid login dont save
     return null;
   }
 
-  return `psqiResult_${name}`; // added: each user gets their own saved PSQI result
+  return `psqiResult_${name}`; // each user gets their own saved PSQI result
 };
 
 const getRadioValue = (name) => {
@@ -96,42 +96,42 @@ const getInterpretation = (score) => {
   return 'Poor sleep quality';
 };
 
-const savePsqiResultForLoggedInUser = (score) => { // added: saves only if user is logged in
-  const userKey = getLoggedInUserKey(); // added: gets user-specific key
+const savePsqiResultForLoggedInUser = (score) => { //  saves only if user is logged in
+  const userKey = getLoggedInUserKey(); // gets user-specific key
 
-  if (!userKey) { // added: if not logged in, do not save
+  if (!userKey) { // if not logged in do not save
     return;
   }
 
   const today = new Date().toISOString().split('T')[0]; // added: saves current date
 
-  const psqiResult = { // added: object stored in localStorage
+  const psqiResult = { //object stored in localStorage
     score: score,
     date: today,
     interpretation: getInterpretation(score),
   };
 
-  localStorage.setItem(userKey, JSON.stringify(psqiResult)); // added: saves result for current user only
+  localStorage.setItem(userKey, JSON.stringify(psqiResult)); //  saves result for current user only
 };
 
-const loadLatestPsqiResult = () => { // added: loads saved score when page opens
-  if (!latestPsqiElement) return; // added: prevents error if element is missing
+const loadLatestPsqiResult = () => { // loads saved score when page opens
+  if (!latestPsqiElement) return; // prevents error
 
-  const userKey = getLoggedInUserKey(); // added: gets current user's storage key
+  const userKey = getLoggedInUserKey();
 
   if (!userKey) { // added: not logged in users do not get saved result
     latestPsqiElement.textContent = 'Log in to save your PSQI result.';
     return;
   }
 
-  const savedResult = localStorage.getItem(userKey); // added: gets saved result for this specific user
+  const savedResult = localStorage.getItem(userKey);
 
-  if (!savedResult) { // added: if current user has no saved score yet
+  if (!savedResult) {
     latestPsqiElement.textContent = 'No saved PSQI result yet.';
     return;
   }
 
-  const result = JSON.parse(savedResult); // added: converts saved JSON back to object
+  const result = JSON.parse(savedResult);
 
   latestPsqiElement.textContent = `Latest saved score: ${result.score} / 21 (${result.date}) - ${result.interpretation}`; // added: shows saved result
 };
