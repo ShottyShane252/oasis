@@ -303,6 +303,18 @@ figcaption {
     box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
 }
 
+.form-error {
+    display: none;
+    color: #dc2626;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 /* BUTTON FULL WIDTH */
 .btn-full {
     width: 100%;

@@ -6,6 +6,10 @@ const loginUser = async (event) => {
   event.preventDefault();
 
   const loginForm = document.querySelector('.loginForm');
+  const loginError = document.querySelector('#loginError');
+
+  loginError.style.display = 'none';
+  loginError.textContent = '';
 
   const username = loginForm.querySelector('input[name=username]').value;
   const password = loginForm.querySelector('input[name=password]').value;
@@ -33,6 +37,10 @@ const loginUser = async (event) => {
 
   if (response.error) {
     console.error('Error login in:', response.error);
+
+    loginError.textContent = 'Käyttäjänimi tai salasana on väärin.';
+    loginError.style.display = 'block';
+
     return;
   }
 
