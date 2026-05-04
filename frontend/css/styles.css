@@ -920,3 +920,158 @@ nav {
     gap: 0.5rem;
   }
 }
+
+
+/*  kotisivu */
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Päivän vinkki -kortti */
+.tip-card {
+  background: linear-gradient(135deg, var(--primary-light), #d4e8f7);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-dark);
+}
+
+.tip-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tip-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.tip-text {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Yhteenvetokortti */
+.summary-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(122, 179, 217, 0.3);
+  transition: var(--transition);
+}
+
+.summary-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Toimintaehdotukset */
+.action-box {
+  background: var(--gray-bg);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-light);
+}
+
+/* Fiilis-valitsin */
+.mood-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background: white;
+  border: 2px solid var(--border-light);
+}
+
+.mood-emoji:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-dark);
+}
+
+.mood-emoji.selected {
+  border-color: var(--primary-dark);
+  background: var(--primary-light);
+  transform: scale(1.1);
+}
+
+/* Neuvo-kortit */
+.advice-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.advice-item:last-child {
+  border-bottom: none;
+}
+
+.advice-icon {
+  font-size: 1.5rem;
+}
+
+/* Latausspinneri */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-dark);
+}
+
+/* Graafin container */
+.kubios-canvas-wrap {
+  height: 300px;
+  position: relative;
+  width: 100%;
+}
+
+/* Tervetuloteksti */
+.greeting-section {
+  margin: 2rem 0 1rem 0;
+}
+
+.greeting-title {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.greeting-subtitle {
+  color: var(--text-muted);
+}
+
+/* Responsiivisuus */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .greeting-title {
+    font-size: 1.5rem;
+  }
+  
+  .summary-value {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis - Koti</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="koti.html">
+          <span class="logo-icon">🌊</span>
+          <span class="logo-text">Oasis</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <span class="username">Vieras</span>
+        <a href="login.html" class="btn btn-primary btn-login" id="loginBtn">Kirjaudu sisään</a>
+        <button class="btn btn-primary btn-login" id="logoutBtn" style="display: none;">Kirjaudu ulos</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sub-nav">
+    <div class="container nav-links">
+      <a href="koti.html" class="active">Koti</a>
+      <a href="bmi.html">BMI-laskuri</a>
+      <a href="psqi.html">PSQI</a>
+      <a href="diary.html">Päiväkirja</a>
+      <a href="historia.html">Historia</a>
+      <a href="tietoa.html">Tietoa meistä</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="greeting-section">
+      <h1 class="greeting-title">Hei, <span id="greetingName">Käyttäjä</span> 👋</h1>
+      <p class="greeting-subtitle">Tässä on päivän yhteenveto ja vinkit hyvinvointiisi.</p>
+    </section>
+
+    <div class="dashboard-grid">
+      <div class="tip-card">
+        <div class="tip-icon">💡</div>
+        <div class="tip-title">Päivän vinkki</div>
+        <div class="tip-text" id="dailyTip">
+          Vältä kofeiinia 6 tuntia ennen nukkumaanmenoa – se parantaa unenlaatua!
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <h3 style="margin-bottom: 1rem;">📊 Yhteenveto mittauksista</h3>
+        <div id="summaryContent">
+          <div class="loading-spinner">Ladataan mittauksia...</div>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <h3 style="margin-bottom: 1rem;">😊 Miltä sinusta tuntuu tänään?</h3>
+        <div class="mood-selector" id="moodSelector">
+          <div class="mood-emoji" data-mood="erinomainen">😄</div>
+          <div class="mood-emoji" data-mood="hyvä">🙂</div>
+          <div class="mood-emoji" data-mood="neutraali">😐</div>
+          <div class="mood-emoji" data-mood="väsynyt">😴</div>
+          <div class="mood-emoji" data-mood="stressaantunut">😫</div>
+        </div>
+        <div id="moodMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
+      </div>
+    </div>
+
+    <div class="summary-card" style="margin-bottom: 2rem;">
+      <h3 style="margin-bottom: 1rem;">📈 Readiness-mittaukset (viimeisimmät)</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+        Readiness kertoo kehosi valmiudesta suorituksiin. Korkeampi arvo = parempi valmius.
+      </p>
+      <div class="kubios-canvas-wrap">
+        <canvas id="readinessGraph"></canvas>
+      </div>
+    </div>
+
+    <div class="summary-card" style="margin-bottom: 2rem;">
+      <h3 style="margin-bottom: 1rem;">🎯 Toimintaehdotukset</h3>
+      <div id="adviceList">
+        <div class="loading-spinner">Ladataan ehdotuksia...</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module">
+    import { fetchData } from '../js/fetch.js';
+    import '../js/loggedUser.js';
+    
+    let readinessChart = null;
+    let currentMood = localStorage.getItem('todayMood') || null;
+    
+    const API_URL = 'http://localhost:3000/api';
+    
+    const getToken = () => localStorage.getItem('token');
+    
+    const getAuthHeaders = () => ({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${getToken()}`
+    });
+    
+    //  hakeeKubios-data
+    const fetchKubiosData = async () => {
+      try {
+        const token = getToken();
+        if (!token) {
+          console.warn('Ei kirjautumistokenia');
+          return null;
+        }
+        
+        const response = await fetch(`${API_URL}/kubios/user-data`, {
+          headers: getAuthHeaders()
+        });
+        
+        if (!response.ok) {
+          if (response.status === 401) {
+            console.warn('Kirjautuminen vanhentunut');
+            return null;
+          }
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Kubios data haettu:', data);
+        return data;
+      } catch (error) {
+        console.error('Kubios datan haku epäonnistui:', error);
+        return null;
+      }
+    };
+    
+    // Muunna data
+    const parseKubiosData = (kubiosData) => {
+      console.log('Parsitaan dataa');
+      
+      if (!kubiosData || !kubiosData.results) return [];
+      
+      const results = kubiosData.results;
+      if (results.length === 0) return [];
+      
+      const parsed = [];
+      
+      for (let i = 0; i < results.length; i++) {
+        const item = results[i];
+        
+        // Päivämäärä
+        let date = '';
+        if (item.measured_timestamp) {
+          date = item.measured_timestamp.split('T')[0];
+        } else if (item.create_timestamp) {
+          date = item.create_timestamp.split('T')[0];
+        }
+        
+        const resultData = item.result || {};
+        
+        // Readiness (0-100 -> 1-10)
+        let readiness = 0;
+        if (resultData.readiness !== undefined && resultData.readiness !== null) {
+          readiness = Math.round(resultData.readiness / 10);
+          if (readiness < 1) readiness = 1;
+          if (readiness > 10) readiness = 10;
+        }
+        
+        // Stress Index
+        let stressIndex = 0;
+        if (resultData.stress_index !== undefined) {
+          stressIndex = parseFloat(resultData.stress_index.toFixed(1));
+        }
+        
+        parsed.push({
+          date: date,
+          readiness: readiness,
+          stressIndex: stressIndex
+        });
+      }
+      
+      // Lajitellaan päivämäärän mukaan
+      parsed.sort((a, b) => a.date.localeCompare(b.date));
+      
+      console.log(`Parsittu ${parsed.length} mittausta`);
+      return parsed;
+    };
+    
+    // readiness graafi
+    const drawReadinessGraph = (data) => {
+      const canvas = document.getElementById('readinessGraph');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      if (readinessChart) readinessChart.destroy();
+      
+      if (!data || data.length === 0) {
+        // Demo data
+        const demoLabels = ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'];
+        const demoValues = [6, 7, 5, 8, 9, 7, 6];
+        readinessChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: demoLabels,
+            datasets: [{
+              label: 'Readiness (1-10)',
+              data: demoValues,
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { min: 0, max: 10, title: { display: true, text: 'Readiness' } } }
+          }
+        });
+        return;
+      }
+      
+      const dates = data.map(item => {
+        if (item.date && item.date.length >= 5) {
+          return item.date.slice(5); // Näytetään "02-06" muodossa
+        }
+        return '?';
+      });
+      const values = data.map(item => item.readiness || 0);
+      
+      readinessChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{
+            label: 'Readiness (1-10)',
+            data: values,
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#3b82f6'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { 
+              min: 0, 
+              max: 10, 
+              title: { display: true, text: 'Readiness (1-10)' },
+              ticks: { stepSize: 1 }
+            },
+            x: { title: { display: true, text: 'Päivämäärä' } }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `Readiness: ${ctx.raw}/10`
+              }
+            }
+          }
+        }
+      });
+    };
+    
+    // Laske keskiarvo
+    const calculateAverage = (values) => {
+      if (!values || values.length === 0) return 0;
+      const sum = values.reduce((a, b) => a + b, 0);
+      return (sum / values.length).toFixed(1);
+    };
+    
+    // Päivitä yhteenveto
+    const updateSummary = (data) => {
+      const container = document.getElementById('summaryContent');
+      if (!data || data.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted);">Ei mittausdataa. Kirjaudu Kubiokseen.</p>';
+        return null;
+      }
+      
+      const readinessValues = data.map(d => d.readiness);
+      const stressValues = data.map(d => d.stressIndex).filter(v => v > 0);
+      const latest = readinessValues[readinessValues.length - 1] || 0;
+      const avgReadiness = calculateAverage(readinessValues);
+      const avgStress = calculateAverage(stressValues);
+      
+      let status = '';
+      if (latest <= 3) status = '💤 Matala - suosittelemme lepoa';
+      else if (latest <= 7) status = '😐 Keskitaso - perustreeni sopii';
+      else status = '💪 Korkea - hyvä päivä treenille!';
+      
+      container.innerHTML = `
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div class="summary-value">${latest}/10</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Viimeisin Readiness</div>
+            <div style="font-size: 0.8rem; margin-top: 0.25rem;">${status}</div>
+          </div>
+          <div>
+            <div class="summary-value">${avgReadiness}/10</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Keskiarvo</div>
+          </div>
+          <div>
+            <div class="summary-value">${avgStress || '-'}</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Stressi (keskiarvo)</div>
+          </div>
+        </div>
+      `;
+      
+      return { avgReadiness, avgStress, latest };
+    };
+    
+    // Toimintaehdotukset
+    const updateAdvice = (readiness, stress, mood) => {
+      const container = document.getElementById('adviceList');
+      const advices = [];
+      
+      if (readiness <= 3) {
+        advices.push({ icon: "😴", text: "Readiness on matala. Ota lepopäivä ja keskity palautumiseen." });
+      } else if (readiness <= 7) {
+        advices.push({ icon: "🚶", text: "Readiness keskitaso. Kävelylenkki tai kevyt treeni sopii hyvin." });
+        advices.push({ icon: "💧", text: "Muista juoda tarpeeksi vettä ja nukkua 7-8 tuntia." });
+      } else {
+        advices.push({ icon: "🏃", text: "Readiness korkea! Hyvä päivä tehokkaalle treenille." });
+        advices.push({ icon: "🥗", text: "Syö hyvä ateria ennen treeniä." });
+      }
+      
+      if (stress > 8) {
+        advices.push({ icon: "🧘", text: "Stressitasosi on korkea. Kokeile hengitysharjoituksia." });
+      }
+      
+      const hour = new Date().getHours();
+      if (hour >= 18) {
+        advices.unshift({ icon: "☕", text: "Vältä kofeiinia nyt – se voi häiritä yöunta." });
+      } else if (hour >= 14) {
+        advices.unshift({ icon: "☕", text: "Harkitse kofeiinin vähentämistä iltapäivällä." });
+      }
+      
+      if (mood === 'väsynyt') {
+        advices.push({ icon: "😴", text: "Olo on väsynyt? Mene nukkumaan tänään aikaisemmin." });
+      } else if (mood === 'stressaantunut') {
+        advices.push({ icon: "🎵", text: "Stressiä? Kuuntele rauhoittavaa musiikkia." });
+      } else if (mood === 'erinomainen') {
+        advices.push({ icon: "⭐", text: "Mahtava fiilis! Jatka samaan malliin!" });
+      }
+      
+      container.innerHTML = advices.map(a => `
+        <div class="advice-item">
+          <div class="advice-icon">${a.icon}</div>
+          <div>${a.text}</div>
+        </div>
+      `).join('');
+      
+      if (advices.length === 0) {
+        container.innerHTML = '<div class="advice-item"><div class="advice-icon">💡</div><div>Hyvää päivänjatkoa!</div></div>';
+      }
+    };
+    
+    // Päivän vinkki
+    const setDailyTip = () => {
+      const hour = new Date().getHours();
+      let tip = "";
+      if (hour < 12) {
+        tip = "🌅 Hyvää aamua! Juo lasillinen vettä heti herättyäsi – saat aineenvaihdunnan käyntiin!";
+      } else if (hour < 18) {
+        tip = "☀️ Pidä 5 minuutin hengityshetki keskellä päivää – se vähentää stressiä!";
+      } else {
+        tip = "🌙 Vältä kofeiinia 6 tuntia ennen nukkumaanmenoa – se parantaa unenlaatua!";
+      }
+      document.getElementById('dailyTip').textContent = tip;
+    };
+    
+    // Fiilis-valitsin
+    const initMood = (avgReadiness, avgStress) => {
+      const buttons = document.querySelectorAll('.mood-emoji');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          const mood = btn.dataset.mood;
+          localStorage.setItem('todayMood', mood);
+          const messages = {
+            erinomainen: "Mahtavaa! Jatka samaan malliin! 💪",
+            hyvä: "Hyvä fiilis on hyväksi terveydelle! 🙌",
+            neutraali: "Neutraali päivä on ihan ok. Pieni hetki itselle tekisi hyvää. 🌿",
+            väsynyt: "Lepo on tärkeää. Mene tänään ajoissa nukkumaan. 😴",
+            stressaantunut: "Stressi on osa elämää. Hengitä syvään ja ota pienin askelin. 🧘"
+          };
+          document.getElementById('moodMessage').innerHTML = messages[mood] || "";
+          updateAdvice(avgReadiness, avgStress, mood);
+        });
+        
+        if (currentMood && btn.dataset.mood === currentMood) {
+          btn.classList.add('selected');
+        }
+      });
+    };
+    
+    // Pääfunktio
+    const init = async () => {
+      // Näytä käyttäjänimi (loggedUser.js hoitaa tämän, mutta päivitetään greeting)
+      const username = localStorage.getItem('name');
+      if (username && username !== 'undefined') {
+        document.getElementById('greetingName').textContent = username;
+      }
+      
+      setDailyTip();
+      
+      const data = await fetchKubiosData();
+      const parsedData = parseKubiosData(data);
+      
+      if (parsedData.length > 0) {
+        drawReadinessGraph(parsedData);
+        const summary = updateSummary(parsedData);
+        if (summary) {
+          updateAdvice(summary.avgReadiness, summary.avgStress, currentMood);
+          initMood(summary.avgReadiness, summary.avgStress);
+        }
+      } else {
+        document.getElementById('summaryContent').innerHTML = '<p style="color: var(--text-muted);">Ei mittausdataa. Kirjaudu Kubiokseen ja tee mittauksia.</p>';
+        drawReadinessGraph(null); // Näyttää demo graafin
+        initMood(5, 5);
+        updateAdvice(5, 5, currentMood);
+      }
+    };
+    
+    init();
+  </script>
+</body>
+</html>
