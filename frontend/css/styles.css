@@ -638,81 +638,117 @@ img {
     background-color: #fecaca; /* hoverissa hieman vahvempi punainen */
 }
 
-/* responsiivisuus */
+/*------PSQI-------*/
+/* ---------- PSQI PAGE ---------- */
 
-.form-response {
-    margin-top: 1rem;
+.psqi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem;
+}
+
+.psqi-form:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.psqi-section {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.psqi-section:nth-of-type(2),
+.psqi-section:last-of-type {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.psqi-result-card {
     text-align: center;
+    padding-top: 1rem;
+}
+
+.psqi-section-title {
     color: var(--primary-dark);
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.psqi-main-question {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.psqi-form .form-group,
+.psqi-question {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.psqi-section:nth-of-type(2) .psqi-question {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.psqi-question p {
     font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
-/*tabletit*/
-@media (max-width: 900px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .page-title {
-        font-size: 2.2rem;
-    }
-
-    .header-container {
-        padding: 0.8rem 1.2rem;
-    }
-
-    .logo-text {
-        font-size: 1.4rem;
-    }
-
-    .logo-icon {
-        font-size: 1.7rem;
-    }
-
-     .diary-layout {
-        grid-template-columns: 1fr; /* mobiilissa/pienemmällä näytöllä palstat allekkain */
-    }
-
+.psqi-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
-/*puhelimet*/
-@media (max-width: 640px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .page-title {
-        font-size: 1.8rem;
-    }
-
-    .lead-text {
-        font-size: 1.15rem;
-    }
-
-    .btn-login {
-        padding: 0.45rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-nav {
-        justify-content: center;
-    }
-
-    .hero-headline {
-        margin-bottom: 2rem;
-    }
+.psqi-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
 }
 
+.psqi-result-score {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
 
+.psqi-result-text {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
 
+.psqi-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
 
+.psqi-latest-result {
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background: var(--primary-light);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.psqi-q10-followup {
+    margin: 1.5rem 0 1rem 0;
+}
 /* ---------- KUBIOS PAGE ---------- */
 
 .kubios-page {
@@ -757,14 +793,6 @@ img {
   line-height: 1.6;
 }
 
-/* Demo napit */
-.kubios-demo-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-}
 
 .kubios-btn {
   background-color: var(--primary-dark);
@@ -919,4 +947,78 @@ nav {
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+
+
+
+/* responsiivisuus */
+
+.form-response {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/*tabletit*/
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .header-container {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .logo-icon {
+        font-size: 1.7rem;
+    }
+
+     .diary-layout {
+        grid-template-columns: 1fr; /* mobiilissa/pienemmällä näytöllä palstat allekkain */
+    }
+
+}
+
+/*puhelimet*/
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .lead-text {
+        font-size: 1.15rem;
+    }
+
+    .btn-login {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+
+    .hero-headline {
+        margin-bottom: 2rem;
+    }
 }
