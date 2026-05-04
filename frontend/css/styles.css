@@ -745,6 +745,10 @@ img {
     font-weight: 600;
     box-shadow: var(--shadow-sm);
 }
+
+.psqi-q10-followup {
+    margin: 1.5rem 0 1rem 0;
+}
 /* ---------- KUBIOS PAGE ---------- */
 
 .kubios-page {
