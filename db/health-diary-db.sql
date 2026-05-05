@@ -25,6 +25,22 @@ CREATE TABLE DiaryEntries (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+CREATE TABLE PsqiResults (
+    psqi_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    score INT NOT NULL,
+    interpretation VARCHAR(100),
+    component1 INT,
+    component2 INT,
+    component3 INT,
+    component4 INT,
+    component5 INT,
+    component6 INT,
+    component7 INT,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
 CREATE TABLE Medications (
     medication_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,

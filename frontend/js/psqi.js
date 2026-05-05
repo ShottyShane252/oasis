@@ -1,17 +1,20 @@
 const psqiForm = document.querySelector('#psqiForm');
 const psqiScoreElement = document.querySelector('#psqiScore');
 const psqiInterpretationElement = document.querySelector('#psqiInterpretation');
-const latestPsqiElement = document.querySelector('#latestPsqi'); // finds latest saved score display
+const latestPsqiElement = document.querySelector('#latestPsqi');
 
-const getLoggedInUserKey = () => { // creates user-specific localStorage key
-  const token = localStorage.getItem('token'); //  checks if user is logged in
-  const name = localStorage.getItem('name'); //gets logged in user's name
+const apiUrl = 'http://localhost:3000/api/psqi'; // LISÄTTY: PSQI backend endpoint
 
-  if (!token || !name || name === 'undefined') { //if no valid login dont save
-    return null;
-  }
+const getToken = () => localStorage.getItem('token'); // LISÄTTY: hakee kirjautumistokenin
 
-  return `psqiResult_${name}`; // each user gets their own saved PSQI result
+const getAuthHeaders = () => ({ // LISÄTTY: tekee Authorization-headerit backendille
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${getToken()}`,
+});
+
+const isLoggedIn = () => { // LISÄTTY: tarkistaa onko käyttäjä kirjautunut
+  const token = getToken();
+  return token && token !== 'undefined';
 };
 
 const getRadioValue = (name) => {
@@ -96,47 +99,52 @@ const getInterpretation = (score) => {
   return 'Poor sleep quality';
 };
 
-const savePsqiResultForLoggedInUser = (score) => { //  saves only if user is logged in
-  const userKey = getLoggedInUserKey(); // gets user-specific key
-
-  if (!userKey) { // if not logged in do not save
+const savePsqiResultToBackend = async (psqiResult) => { // MUUTETTU: tallentaa backendin kautta tietokantaan
+  if (!isLoggedIn()) { // LISÄTTY: jos ei ole kirjautunut, ei tallenneta
     return;
   }
 
-  const today = new Date().toISOString().split('T')[0]; // added: saves current date
+  const response = await fetch(apiUrl, { // LISÄTTY: POST /api/psqi
+    method: 'POST',
+    headers: getAuthHeaders(),
+    body: JSON.stringify(psqiResult),
+  });
 
-  const psqiResult = { //object stored in localStorage
-    score: score,
-    date: today,
-    interpretation: getInterpretation(score),
-  };
-
-  localStorage.setItem(userKey, JSON.stringify(psqiResult)); //  saves result for current user only
+  if (!response.ok) { // LISÄTTY: virhe backend-tallennuksessa
+    console.error('PSQI result save failed');
+  }
 };
 
-const loadLatestPsqiResult = () => { // loads saved score when page opens
-  if (!latestPsqiElement) return; // prevents error
+const loadLatestPsqiResult = async () => { // MUUTETTU: hakee viimeisimmän tuloksen backendistä
+  if (!latestPsqiElement) return;
 
-  const userKey = getLoggedInUserKey();
-
-  if (!userKey) { // added: not logged in users do not get saved result
+  if (!isLoggedIn()) { // MUUTETTU: kirjautumaton ei näe tallennettua tulosta
     latestPsqiElement.textContent = 'Log in to save your PSQI result.';
     return;
   }
 
-  const savedResult = localStorage.getItem(userKey);
+  const response = await fetch(`${apiUrl}/latest`, { // LISÄTTY: GET /api/psqi/latest
+    headers: getAuthHeaders(),
+  });
 
-  if (!savedResult) {
+  if (!response.ok) { // LISÄTTY: jos tulosta ei löydy tai haku epäonnistuu
     latestPsqiElement.textContent = 'No saved PSQI result yet.';
     return;
   }
 
-  const result = JSON.parse(savedResult);
+  const result = await response.json(); // LISÄTTY: muunnetaan backend-vastaus JSONiksi
 
-  latestPsqiElement.textContent = `Latest saved score: ${result.score} / 21 (${result.date}) - ${result.interpretation}`; // added: shows saved result
+  if (!result || !result.score) { // LISÄTTY: varmistus tyhjälle vastaukselle
+    latestPsqiElement.textContent = 'No saved PSQI result yet.';
+    return;
+  }
+
+  const date = result.created_at ? result.created_at.split('T')[0] : 'No date'; // LISÄTTY: näytettävä päivämäärä
+
+  latestPsqiElement.textContent = `Latest saved score: ${result.score} / 21 (${date}) - ${result.interpretation}`; // MUUTETTU: näyttää tietokannasta haetun tuloksen
 };
 
-const calculatePsqiScore = (event) => {
+const calculatePsqiScore = async (event) => { // MUUTETTU: async koska tallennetaan backendille
   event.preventDefault();
 
   const q1 = document.querySelector('#q1').value;
@@ -191,10 +199,22 @@ const calculatePsqiScore = (event) => {
   psqiScoreElement.textContent = globalScore;
   psqiInterpretationElement.textContent = `Your PSQI score is ${globalScore}. You have ${interpretation}.`;
 
-  savePsqiResultForLoggedInUser(globalScore); // added: saves only for logged in user
-  loadLatestPsqiResult(); // added: refreshes top latest result after calculation
+  const psqiResult = { // LISÄTTY: data joka lähetetään backendille
+    score: globalScore,
+    interpretation: interpretation,
+    component1: component1,
+    component2: component2,
+    component3: component3,
+    component4: component4,
+    component5: component5,
+    component6: component6,
+    component7: component7,
+  };
+
+  await savePsqiResultToBackend(psqiResult); // MUUTETTU: tallentaa tietokantaan jos käyttäjä on kirjautunut
+  await loadLatestPsqiResult(); // MUUTETTU: päivittää yläosan uusimmalla tietokantatuloksella
 };
 
 psqiForm.addEventListener('submit', calculatePsqiScore);
 
-document.addEventListener('DOMContentLoaded', loadLatestPsqiResult); // added: shows saved result when page loads
+document.addEventListener('DOMContentLoaded', loadLatestPsqiResult); // MUUTETTU: hakee viimeisimmän tuloksen backendistä
