@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oasis - Koti</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -94,21 +94,21 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script type="module">
-    import { fetchData } from '../js/fetch.js';
-    import '../js/loggedUser.js';
-    
+    import { fetchData } from './js/fetch.js';
+    import './js/loggedUser.js';
+
     let readinessChart = null;
     let currentMood = localStorage.getItem('todayMood') || null;
-    
+
     const API_URL = 'http://localhost:3000/api';
-    
+
     const getToken = () => localStorage.getItem('token');
-    
+
     const getAuthHeaders = () => ({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${getToken()}`
     });
-    
+
     //  hakeeKubios-data
     const fetchKubiosData = async () => {
       try {
@@ -117,11 +117,11 @@
           console.warn('Ei kirjautumistokenia');
           return null;
         }
-        
+
         const response = await fetch(`${API_URL}/kubios/user-data`, {
           headers: getAuthHeaders()
         });
-        
+
         if (!response.ok) {
           if (response.status === 401) {
             console.warn('Kirjautuminen vanhentunut');
@@ -129,7 +129,7 @@
           }
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         console.log('Kubios data haettu:', data);
         return data;
@@ -138,21 +138,21 @@
         return null;
       }
     };
-    
+
     // Muunna data
     const parseKubiosData = (kubiosData) => {
       console.log('Parsitaan dataa');
-      
+
       if (!kubiosData || !kubiosData.results) return [];
-      
+
       const results = kubiosData.results;
       if (results.length === 0) return [];
-      
+
       const parsed = [];
-      
+
       for (let i = 0; i < results.length; i++) {
         const item = results[i];
-        
+
         // Päivämäärä
         let date = '';
         if (item.measured_timestamp) {
@@ -160,9 +160,9 @@
         } else if (item.create_timestamp) {
           date = item.create_timestamp.split('T')[0];
         }
-        
+
         const resultData = item.result || {};
-        
+
         // Readiness (0-100 -> 1-10)
         let readiness = 0;
         if (resultData.readiness !== undefined && resultData.readiness !== null) {
@@ -170,35 +170,35 @@
           if (readiness < 1) readiness = 1;
           if (readiness > 10) readiness = 10;
         }
-        
+
         // Stress Index
         let stressIndex = 0;
         if (resultData.stress_index !== undefined) {
           stressIndex = parseFloat(resultData.stress_index.toFixed(1));
         }
-        
+
         parsed.push({
           date: date,
           readiness: readiness,
           stressIndex: stressIndex
         });
       }
-      
+
       // Lajitellaan päivämäärän mukaan
       parsed.sort((a, b) => a.date.localeCompare(b.date));
-      
+
       console.log(`Parsittu ${parsed.length} mittausta`);
       return parsed;
     };
-    
+
     // readiness graafi
     const drawReadinessGraph = (data) => {
       const canvas = document.getElementById('readinessGraph');
       if (!canvas) return;
-      
+
       const ctx = canvas.getContext('2d');
       if (readinessChart) readinessChart.destroy();
-      
+
       if (!data || data.length === 0) {
         // Demo data
         const demoLabels = ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'];
@@ -226,7 +226,7 @@
         });
         return;
       }
-      
+
       const dates = data.map(item => {
         if (item.date && item.date.length >= 5) {
           return item.date.slice(5); // Näytetään "02-06" muodossa
@@ -234,7 +234,7 @@
         return '?';
       });
       const values = data.map(item => item.readiness || 0);
-      
+
       readinessChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -255,9 +255,9 @@
           responsive: true,
           maintainAspectRatio: false,
           scales: {
-            y: { 
-              min: 0, 
-              max: 10, 
+            y: {
+              min: 0,
+              max: 10,
               title: { display: true, text: 'Readiness (1-10)' },
               ticks: { stepSize: 1 }
             },
@@ -273,14 +273,14 @@
         }
       });
     };
-    
+
     // Laske keskiarvo
     const calculateAverage = (values) => {
       if (!values || values.length === 0) return 0;
       const sum = values.reduce((a, b) => a + b, 0);
       return (sum / values.length).toFixed(1);
     };
-    
+
     // Päivitä yhteenveto
     const updateSummary = (data) => {
       const container = document.getElementById('summaryContent');
@@ -288,18 +288,18 @@
         container.innerHTML = '<p style="color: var(--text-muted);">Ei mittausdataa. Kirjaudu Kubiokseen.</p>';
         return null;
       }
-      
+
       const readinessValues = data.map(d => d.readiness);
       const stressValues = data.map(d => d.stressIndex).filter(v => v > 0);
       const latest = readinessValues[readinessValues.length - 1] || 0;
       const avgReadiness = calculateAverage(readinessValues);
       const avgStress = calculateAverage(stressValues);
-      
+
       let status = '';
       if (latest <= 3) status = '💤 Matala - suosittelemme lepoa';
       else if (latest <= 7) status = '😐 Keskitaso - perustreeni sopii';
       else status = '💪 Korkea - hyvä päivä treenille!';
-      
+
       container.innerHTML = `
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
           <div>
@@ -317,15 +317,15 @@
           </div>
         </div>
       `;
-      
+
       return { avgReadiness, avgStress, latest };
     };
-    
+
     // Toimintaehdotukset
     const updateAdvice = (readiness, stress, mood) => {
       const container = document.getElementById('adviceList');
       const advices = [];
-      
+
       if (readiness <= 3) {
         advices.push({ icon: "😴", text: "Readiness on matala. Ota lepopäivä ja keskity palautumiseen." });
       } else if (readiness <= 7) {
@@ -335,18 +335,18 @@
         advices.push({ icon: "🏃", text: "Readiness korkea! Hyvä päivä tehokkaalle treenille." });
         advices.push({ icon: "🥗", text: "Syö hyvä ateria ennen treeniä." });
       }
-      
+
       if (stress > 8) {
         advices.push({ icon: "🧘", text: "Stressitasosi on korkea. Kokeile hengitysharjoituksia." });
       }
-      
+
       const hour = new Date().getHours();
       if (hour >= 18) {
         advices.unshift({ icon: "☕", text: "Vältä kofeiinia nyt – se voi häiritä yöunta." });
       } else if (hour >= 14) {
         advices.unshift({ icon: "☕", text: "Harkitse kofeiinin vähentämistä iltapäivällä." });
       }
-      
+
       if (mood === 'väsynyt') {
         advices.push({ icon: "😴", text: "Olo on väsynyt? Mene nukkumaan tänään aikaisemmin." });
       } else if (mood === 'stressaantunut') {
@@ -354,19 +354,19 @@
       } else if (mood === 'erinomainen') {
         advices.push({ icon: "⭐", text: "Mahtava fiilis! Jatka samaan malliin!" });
       }
-      
+
       container.innerHTML = advices.map(a => `
         <div class="advice-item">
           <div class="advice-icon">${a.icon}</div>
           <div>${a.text}</div>
         </div>
       `).join('');
-      
+
       if (advices.length === 0) {
         container.innerHTML = '<div class="advice-item"><div class="advice-icon">💡</div><div>Hyvää päivänjatkoa!</div></div>';
       }
     };
-    
+
     // Päivän vinkki
     const setDailyTip = () => {
       const hour = new Date().getHours();
@@ -380,7 +380,7 @@
       }
       document.getElementById('dailyTip').textContent = tip;
     };
-    
+
     // Fiilis-valitsin
     const initMood = (avgReadiness, avgStress) => {
       const buttons = document.querySelectorAll('.mood-emoji');
@@ -400,13 +400,13 @@
           document.getElementById('moodMessage').innerHTML = messages[mood] || "";
           updateAdvice(avgReadiness, avgStress, mood);
         });
-        
+
         if (currentMood && btn.dataset.mood === currentMood) {
           btn.classList.add('selected');
         }
       });
     };
-    
+
     // Pääfunktio
     const init = async () => {
       // Näytä käyttäjänimi (loggedUser.js hoitaa tämän, mutta päivitetään greeting)
@@ -414,12 +414,12 @@
       if (username && username !== 'undefined') {
         document.getElementById('greetingName').textContent = username;
       }
-      
+
       setDailyTip();
-      
+
       const data = await fetchKubiosData();
       const parsedData = parseKubiosData(data);
-      
+
       if (parsedData.length > 0) {
         drawReadinessGraph(parsedData);
         const summary = updateSummary(parsedData);
@@ -434,7 +434,7 @@
         updateAdvice(5, 5, currentMood);
       }
     };
-    
+
     init();
   </script>
 </body>
