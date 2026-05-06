@@ -7,80 +7,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
-  
-  <style>
-    /* Asettelu vierekkäin */
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    /* Artikkelin tyyli */
-    .article-card {
-      background: linear-gradient(135deg, #f0f9ff, #e6f4ff);
-      border-radius: 20px;
-      padding: 1.5rem;
-      border-left: 4px solid #3b82f6;
-    }
-    
-    .article-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: #1e293b;
-    }
-    
-    .article-text {
-      font-size: 0.9rem;
-      color: #475569;
-      line-height: 1.5;
-    }
-    
-    .article-source {
-      font-size: 0.7rem;
-      color: #94a3b8;
-      margin-top: 0.75rem;
-      text-align: right;
-    }
-    
-    /* Fiilis-historia */
-    .mood-history {
-      margin-top: 1rem;
-      max-height: 200px;
-      overflow-y: auto;
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 0.75rem;
-    }
-    
-    .mood-history-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem;
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 0.85rem;
-    }
-    
-    .mood-history-item:last-child {
-      border-bottom: none;
-    }
-    
-    .mood-emoji-history {
-      font-size: 1.2rem;
-    }
-    
-    @media (max-width: 768px) {
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -105,37 +34,38 @@
       <a href="bmi.html">BMI-laskuri</a>
       <a href="psqi.html">PSQI</a>
       <a href="diary.html">Päiväkirja</a>
-      <a href="historia.html">Historia</a>
+      <a href="kubios.html">Historia</a>
       <a href="tietoa.html">Tietoa meistä</a>
     </div>
   </nav>
 
-  <main class="container">
+  <main class="container" style="padding-top: 2rem;">
+
     <section class="greeting-section">
       <h1 class="greeting-title">Hei, <span id="greetingName">Käyttäjä</span> 👋</h1>
       <p class="greeting-subtitle">Tässä on päivän vinkit ja hyvinvointimittauksesi.</p>
     </section>
 
-    <!-- Kaksi palstaa: Päivän vinkki ja Artikkeli -->
-    <div class="two-columns">
-      <!-- Päivän vinkki -kortti -->
-      <div class="tip-card">
-        <div class="tip-icon">💡</div>
-        <div class="tip-title">Päivän vinkki</div>
-        <div class="tip-text" id="dailyTip">
-          Ladataan vinkkiä...
+    <div class="koti-two-columns">
+      <div class="koti-tip-card">
+        <div class="koti-tip-header">
+          <span class="koti-tip-icon">💡</span>
+          <span class="koti-tip-title">Päivän vinkki</span>
         </div>
+        <div class="koti-tip-text" id="dailyTip">Ladataan vinkkiä...</div>
       </div>
 
-      <!-- Artikkeli osio -->
-      <div class="article-card" id="articleCard">
-        <div class="article-title" id="articleTitle">📖 Päivän artikkeli</div>
-        <div class="article-text" id="articleText">Ladataan artikkelia...</div>
-        <div class="article-source" id="articleSource"></div>
+      <div class="koti-article-card">
+        <div class="koti-article-title" id="articleTitle">📖 Päivän tutkimus</div>
+        <div id="articleContent" class="koti-article-content">
+          <div class="koti-article-loading">🔍 Haetaan tuoreita tutkimuksia...</div>
+        </div>
+        <div class="koti-article-meta" id="articleMeta">
+          <span class="koti-article-source" id="articleSource"></span>
+        </div>
       </div>
     </div>
 
-    <!-- Readiness graafi -->
     <div class="summary-card" style="margin-bottom: 2rem;">
       <h3 style="margin-bottom: 1rem;">📈 Readiness-mittaukset (viimeisimmät)</h3>
       <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
@@ -146,11 +76,9 @@
       </div>
     </div>
 
-    <!-- Miltä sinusta tuntuu tänään? + historia -->
     <div class="summary-card" style="margin-bottom: 2rem;">
       <h3 style="margin-bottom: 1rem;">😊 Miltä sinusta tuntuu tänään?</h3>
       
-      <!-- Fiilis-valitsin (huonosta hyvään) -->
       <div class="mood-selector" id="moodSelector">
         <div class="mood-emoji" data-mood="erittain_huono" data-value="1">😫</div>
         <div class="mood-emoji" data-mood="huono" data-value="2">😞</div>
@@ -160,10 +88,9 @@
       </div>
       <div id="moodMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
       
-      <!-- Aiemmat fiilikset -->
       <div style="margin-top: 1.5rem;">
         <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">📅 Aiemmat fiilikset</h4>
-        <div id="moodHistory" class="mood-history">
+        <div id="moodHistory" class="koti-mood-history">
           <div style="text-align: center; color: #94a3b8;">Ei tallennettuja fiiliksiä</div>
         </div>
       </div>
@@ -171,371 +98,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script type="module">
-    import { fetchData } from './js/fetch.js';
-    import './js/loggedUser.js';
-
-    let readinessChart = null;
-    
-    // Fiilis - käännökset
-    const moodEmojis = {
-      'erittain_huono': '😫',
-      'huono': '😞',
-      'neutraali': '😐',
-      'hyva': '🙂',
-      'erittain_hyva': '😄'
-    };
-    
-    const moodTexts = {
-      'erittain_huono': 'Erittäin huono',
-      'huono': 'Huono',
-      'neutraali': 'Neutraali',
-      'hyva': 'Hyvä',
-      'erittain_hyva': 'Erittäin hyvä'
-    };
-
-    const API_URL = 'http://localhost:3000/api';
-
-    const getToken = () => localStorage.getItem('token');
-
-    const getAuthHeaders = () => ({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${getToken()}`
-    });
-
-    // Artikkelit (uniaiheisia)
-    const articles = [
-      {
-        title: "💤 Miksi uni on tärkeää?",
-        text: "Uni on välttämätöntä kehon palautumiselle, muistin toiminnalle ja immuunijärjestelmälle. Aikuiset tarvitsevat 7-9 tuntia unta yössä.",
-        source: "Lähde: Terveyskirjasto"
-      },
-      {
-        title: "🌙 Näin saat parempaa unta",
-        text: "Pidä säännöllinen unirytmi, vältä kofeiinia illalla, pidä makuuhuone pimeänä ja viileänä, ja vältä ruutuja tunti ennen nukkumaanmenoa.",
-        source: "Lähde: Uniliitto"
-      },
-      {
-        title: "🧠 Unen vaikutus aivoihin",
-        text: "Unen aikana aivot puhdistavat kuona-aineita ja vahvistavat muistijälkiä. Huono uni heikentää keskittymistä ja oppimiskykyä.",
-        source: "Lähde: Aivotutkimus"
-      },
-      {
-        title: "💪 Uni ja palautuminen",
-        text: "Syvä uni on tärkeintä lihasten palautumiselle ja kasvuhormonin eritykselle. Urheilijat tarvitsevat jopa 9-10 tuntia unta.",
-        source: "Lähde: Valmentaja"
-      },
-      {
-        title: "📱 Kännykkä ja uni",
-        text: "Sininen valo tabletista ja puhelimesta estää melatoniinin tuotantoa. Laita laitteet pois vähintään tunti ennen nukkumaanmenoa.",
-        source: "Lähde: Uniterveys"
-      },
-      {
-        title: "🧘 Rentoutumistekniikat uneen",
-        text: "Hengitysharjoitukset, kehon skannaus ja meditaatio auttavat rauhoittumaan ennen nukkumaanmenoa. Kokeile 5 minuutin rauhoittumishetkeä.",
-        source: "Lähde: Mielenterveystalo"
-      }
-    ];
-    
-    // Päivän vinkit (laajempi lista)
-    const tips = [
-      { text: "Vältä kofeiinia 6 tuntia ennen nukkumaanmenoa – se parantaa unenlaatua!", time: "yleinen" },
-      { text: "Juo lasillinen vettä heti herättyäsi – saat aineenvaihdunnan käyntiin!", time: "aamu" },
-      { text: "Pidä 5 minuutin hengityshetki keskellä päivää – se vähentää stressiä!", time: "keskipäivä" },
-      { text: "Älä katso ruutua tuntiin ennen nukkumaanmenoa – uni tulee paremmin!", time: "ilta" },
-      { text: "Kevyt venyttely ennen nukkumaanmenoa auttaa palautumisessa!", time: "ilta" },
-      { text: "Mene nukkumaan ja herää samaan aikaan joka päivä – se parantaa unen laatua!", time: "yleinen" },
-      { text: "Syö viimeinen ateria 2-3 tuntia ennen nukkumaanmenoa!", time: "ilta" },
-      { text: "Pidä makuuhuone viileänä (18-20°C) – se auttaa nukahtamaan!", time: "yleinen" }
-    ];
-    
-    let currentTip = null;
-    let currentArticle = null;
-
-    // Hae Kubios-data
-    const fetchKubiosData = async () => {
-      try {
-        const token = getToken();
-        if (!token) {
-          console.warn('Ei kirjautumistokenia');
-          return null;
-        }
-
-        const response = await fetch(`${API_URL}/kubios/user-data`, {
-          headers: getAuthHeaders()
-        });
-
-        if (!response.ok) {
-          if (response.status === 401) {
-            console.warn('Kirjautuminen vanhentunut');
-            return null;
-          }
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Kubios data haettu:', data);
-        return data;
-      } catch (error) {
-        console.error('Kubios datan haku epäonnistui:', error);
-        return null;
-      }
-    };
-
-    // Muunna data
-    const parseKubiosData = (kubiosData) => {
-      console.log('Parsitaan dataa');
-
-      if (!kubiosData || !kubiosData.results) return [];
-
-      const results = kubiosData.results;
-      if (results.length === 0) return [];
-
-      const parsed = [];
-
-      for (let i = 0; i < results.length; i++) {
-        const item = results[i];
-
-        let date = '';
-        if (item.measured_timestamp) {
-          date = item.measured_timestamp.split('T')[0];
-        } else if (item.create_timestamp) {
-          date = item.create_timestamp.split('T')[0];
-        }
-
-        const resultData = item.result || {};
-
-        let readiness = 0;
-        if (resultData.readiness !== undefined && resultData.readiness !== null) {
-          readiness = Math.round(resultData.readiness / 10);
-          if (readiness < 1) readiness = 1;
-          if (readiness > 10) readiness = 10;
-        }
-
-        parsed.push({
-          date: date,
-          readiness: readiness
-        });
-      }
-
-      parsed.sort((a, b) => a.date.localeCompare(b.date));
-      console.log(`Parsittu ${parsed.length} mittausta`);
-      return parsed;
-    };
-
-    // Readiness graafi
-    const drawReadinessGraph = (data) => {
-      const canvas = document.getElementById('readinessGraph');
-      if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      if (readinessChart) readinessChart.destroy();
-
-      if (!data || data.length === 0) {
-        const demoLabels = ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'];
-        const demoValues = [6, 7, 5, 8, 9, 7, 6];
-        readinessChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: demoLabels,
-            datasets: [{
-              label: 'Readiness (1-10)',
-              data: demoValues,
-              borderColor: '#3b82f6',
-              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-              borderWidth: 2,
-              fill: true,
-              tension: 0.3,
-              pointRadius: 4
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { y: { min: 0, max: 10, title: { display: true, text: 'Readiness' } } }
-          }
-        });
-        return;
-      }
-
-      const dates = data.map(item => {
-        if (item.date && item.date.length >= 5) {
-          return item.date.slice(5);
-        }
-        return '?';
-      });
-      const values = data.map(item => item.readiness || 0);
-
-      readinessChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [{
-            label: 'Readiness (1-10)',
-            data: values,
-            borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.3,
-            pointRadius: 4,
-            pointBackgroundColor: '#3b82f6'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: { min: 0, max: 10, title: { display: true, text: 'Readiness (1-10)' }, ticks: { stepSize: 1 } },
-            x: { title: { display: true, text: 'Päivämäärä' } }
-          },
-          plugins: {
-            tooltip: { callbacks: { label: (ctx) => `Readiness: ${ctx.raw}/10` } }
-          }
-        }
-      });
-    };
-
-    // Päivän vinkki (pysyy samana kirjautumiskerran)
-    const setDailyTip = () => {
-      const hour = new Date().getHours();
-      let filtered = tips;
-      if (hour < 12) filtered = tips.filter(t => t.time === "yleinen" || t.time === "aamu");
-      else if (hour < 18) filtered = tips.filter(t => t.time === "yleinen" || t.time === "keskipäivä");
-      else filtered = tips.filter(t => t.time === "yleinen" || t.time === "ilta");
-      
-      if (!currentTip) {
-        currentTip = filtered[Math.floor(Math.random() * filtered.length)];
-      }
-      document.getElementById('dailyTip').textContent = currentTip.text;
-    };
-    
-    // Päivän artikkeli (pysyy samana kirjautumiskerran)
-    const setDailyArticle = () => {
-      if (!currentArticle) {
-        currentArticle = articles[Math.floor(Math.random() * articles.length)];
-      }
-      document.getElementById('articleTitle').textContent = currentArticle.title;
-      document.getElementById('articleText').textContent = currentArticle.text;
-      document.getElementById('articleSource').textContent = currentArticle.source;
-    };
-    
-    // Tallenna fiilis
-    const saveMood = (mood, moodValue) => {
-      const today = new Date().toISOString().split('T')[0];
-      
-      let moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || [];
-      moodHistory = moodHistory.filter(item => item.date !== today);
-      
-      moodHistory.push({
-        date: today,
-        mood: mood,
-        moodValue: moodValue,
-        emoji: moodEmojis[mood]
-      });
-      
-      moodHistory.sort((a, b) => b.date.localeCompare(a.date));
-      if (moodHistory.length > 30) moodHistory = moodHistory.slice(0, 30);
-      
-      localStorage.setItem('moodHistory', JSON.stringify(moodHistory));
-      displayMoodHistory();
-      
-      const messages = {
-        'erittain_huono': "Toivottavasti huominen on parempi! 💙",
-        'huono': "Toivottavasti saat levättyä ja olo helpottaa. 🌙",
-        'neutraali': "Neutraali päivä on ihan ok. Pieni hetki itselle tekisi hyvää. 🌿",
-        'hyva': "Hyvä fiilis on hyväksi terveydelle! 🙌",
-        'erittain_hyva': "Mahtavaa! Jatka samaan malliin! 💪"
-      };
-      document.getElementById('moodMessage').innerHTML = messages[mood] || "Kiitos palautteesta!";
-    };
-    
-    // Näytä aiemmat fiilikset
-    const displayMoodHistory = () => {
-      const container = document.getElementById('moodHistory');
-      let moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || [];
-      
-      if (moodHistory.length === 0) {
-        container.innerHTML = '<div style="text-align: center; color: #94a3b8;">Ei tallennettuja fiiliksiä</div>';
-        return;
-      }
-      
-      const latest = moodHistory.slice(0, 10);
-      container.innerHTML = latest.map(item => `
-        <div class="mood-history-item">
-          <span>${item.date}</span>
-          <span class="mood-emoji-history">${item.emoji} ${moodTexts[item.mood]}</span>
-        </div>
-      `).join('');
-    };
-    
-    // Fiilis-valitsin
-    const initMoodSelector = () => {
-      const buttons = document.querySelectorAll('.mood-emoji');
-      displayMoodHistory();
-      
-      const today = new Date().toISOString().split('T')[0];
-      let moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || [];
-      const todaysMood = moodHistory.find(item => item.date === today);
-      
-      if (todaysMood) {
-        buttons.forEach(btn => {
-          if (btn.dataset.mood === todaysMood.mood) {
-            btn.classList.add('selected');
-          }
-        });
-        const messages = {
-          'erittain_huono': "Toivottavasti huominen on parempi! 💙",
-          'huono': "Toivottavasti saat levättyä ja olo helpottaa. 🌙",
-          'neutraali': "Neutraali päivä on ihan ok. Pieni hetki itselle tekisi hyvää. 🌿",
-          'hyva': "Hyvä fiilis on hyväksi terveydelle! 🙌",
-          'erittain_hyva': "Mahtavaa! Jatka samaan malliin! 💪"
-        };
-        document.getElementById('moodMessage').innerHTML = messages[todaysMood.mood] || "";
-      }
-      
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          const mood = btn.dataset.mood;
-          const moodValue = parseInt(btn.dataset.value);
-          saveMood(mood, moodValue);
-        });
-      });
-    };
-
-    // Pääfunktio
-    const init = async () => {
-      let username = localStorage.getItem('name');
-      if (!username) username = localStorage.getItem('username');
-      if (username && username !== 'undefined' && username !== 'null') {
-        document.getElementById('greetingName').textContent = username;
-      }
-
-      setDailyTip();
-      setDailyArticle();
-
-      const token = getToken();
-      if (!token) {
-        drawReadinessGraph(null);
-        initMoodSelector();
-        return;
-      }
-
-      const data = await fetchKubiosData();
-      const parsedData = parseKubiosData(data);
-
-      if (parsedData.length > 0) {
-        drawReadinessGraph(parsedData);
-      } else {
-        drawReadinessGraph(null);
-      }
-      
-      initMoodSelector();
-    };
-
-    init();
-  </script>
+  <script type="module" src="js/koti.js"></script>
+  <script type="module" src="js/loggedUser.js"></script>
 </body>
 </html>

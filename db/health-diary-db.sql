@@ -46,6 +46,19 @@ CREATE TABLE Exercises (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+
+-- Fiilikset-taulukko (miltä sinusta tuntuu -toimintoa varten)
+CREATE TABLE moods (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  mood VARCHAR(50) NOT NULL,
+  mood_value INT NOT NULL,
+  date DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  UNIQUE KEY unique_user_date (user_id, date)
+);
+
 -- Insert sample data
 
 INSERT INTO Users (username, password, email, created_at, user_level) VALUES

@@ -1,5 +1,3 @@
-
-
 let hrvChart = null;
 let readinessChart = null;
 let hrChart = null;
@@ -323,7 +321,7 @@ function updateDataTable(data) {
   if (!tbody) return;
 
   if (!data || data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" class="no-data">Ei dataa. Kirjaudu sisään Kubios-tunnuksilla.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" class="no-data">Ei dataa. Kirjaudu sisään Kubios-tunnuksilla.<table></tr>`;
     return;
   }
 
@@ -408,7 +406,79 @@ function hideMessage() {
   if (msgDiv) msgDiv.remove();
 }
 
+// ========== LISÄTTY KOTISIVULLE ==========
+// Readiness graafi (vain readiness - kotisivua varten)
+function drawReadinessGraph(data, canvasId = 'readinessGraph') {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
 
+  const ctx = canvas.getContext('2d');
+  
+  // Tuhotaan vanha chart jos on olemassa
+  if (readinessChart) {
+    readinessChart.destroy();
+  }
+
+  if (!data || data.length === 0) {
+    const demoLabels = ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'];
+    const demoValues = [6, 7, 5, 8, 9, 7, 6];
+    readinessChart = new Chart(ctx, {
+      type: 'line',
+      data: { 
+        labels: demoLabels, 
+        datasets: [{ 
+          label: 'Readiness (1-10)', 
+          data: demoValues, 
+          borderColor: '#3b82f6', 
+          backgroundColor: 'rgba(59,130,246,0.1)', 
+          fill: true, 
+          tension: 0.3,
+          pointRadius: 4
+        }] 
+      },
+      options: { 
+        responsive: true, 
+        maintainAspectRatio: false, 
+        scales: { y: { min: 0, max: 10, title: { display: true, text: 'Readiness' } } } 
+      }
+    });
+    return;
+  }
+
+  const dates = data.map(item => item.date?.slice(5) || '?');
+  const values = data.map(item => item.readiness || 0);
+  
+  readinessChart = new Chart(ctx, {
+    type: 'line',
+    data: { 
+      labels: dates, 
+      datasets: [{ 
+        label: 'Readiness (1-10)', 
+        data: values, 
+        borderColor: '#3b82f6', 
+        backgroundColor: 'rgba(59,130,246,0.1)', 
+        fill: true, 
+        tension: 0.3, 
+        pointRadius: 4,
+        pointBackgroundColor: '#3b82f6'
+      }] 
+    },
+    options: { 
+      responsive: true, 
+      maintainAspectRatio: false, 
+      scales: { 
+        y: { min: 0, max: 10, title: { display: true, text: 'Readiness (1-10)' }, ticks: { stepSize: 1 } },
+        x: { title: { display: true, text: 'Päivämäärä' } }
+      },
+      plugins: {
+        tooltip: { callbacks: { label: (ctx) => `Readiness: ${ctx.raw}/10` } }
+      }
+    }
+  });
+}
+
+// Exportit kotisivua varten (lisätty, ei poistettu mitään)
+export { fetchKubiosData, parseKubiosData, drawReadinessGraph };
 
 document.addEventListener("DOMContentLoaded", () => {
   loadAndDisplayData();
