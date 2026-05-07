@@ -53,7 +53,7 @@ const loginUser = async (event) => {
       // `localStorage set with token value: ${response.token}`
     ); */
     setTimeout(function () {
-      window.location.href = 'diary.html';
+      window.location.href = 'koti.html';
     }, 3000);
   }
 

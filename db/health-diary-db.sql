@@ -71,7 +71,7 @@ CREATE TABLE moods (
   mood_value INT NOT NULL,
   date DATE NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
   UNIQUE KEY unique_user_date (user_id, date)
 );
 
