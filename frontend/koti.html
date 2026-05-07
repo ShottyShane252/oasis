@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis - Koti</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="koti.html">
+          <span class="logo-icon">🌊</span>
+          <span class="logo-text">Oasis</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <span class="username">Vieras</span>
+        <a href="login.html" class="btn btn-primary btn-login" id="loginBtn">Kirjaudu sisään</a>
+        <button class="btn btn-primary btn-login" id="logoutBtn" style="display: none;">Kirjaudu ulos</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sub-nav">
+    <div class="container nav-links">
+      <a href="koti.html" class="active">Koti</a>
+      <a href="bmi.html">BMI-laskuri</a>
+      <a href="psqi.html">PSQI</a>
+      <a href="diary.html">Päiväkirja</a>
+      <a href="kubios.html">Historia</a>
+      <a href="tietoa.html">Tietoa meistä</a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 2rem;">
+
+    <section class="greeting-section">
+      <h1 class="greeting-title">Hei, <span id="greetingName">Käyttäjä</span> 👋</h1>
+      <p class="greeting-subtitle">Tässä on päivän vinkit ja hyvinvointimittauksesi.</p>
+    </section>
+
+    <div class="koti-two-columns">
+      <div class="koti-tip-card">
+        <div class="koti-tip-header">
+          <span class="koti-tip-icon">💡</span>
+          <span class="koti-tip-title">Päivän vinkki</span>
+        </div>
+        <div class="koti-tip-text" id="dailyTip">Ladataan vinkkiä...</div>
+      </div>
+
+      <div class="koti-article-card">
+        <div class="koti-article-title" id="articleTitle">📖 Päivän tutkimus</div>
+        <div id="articleContent" class="koti-article-content">
+          <div class="koti-article-loading">🔍 Haetaan tuoreita tutkimuksia...</div>
+        </div>
+        <div class="koti-article-meta" id="articleMeta">
+          <span class="koti-article-source" id="articleSource"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-card" style="margin-bottom: 2rem;">
+      <h3 style="margin-bottom: 1rem;">📈 Readiness-mittaukset (viimeisimmät)</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+        Readiness kertoo kehosi valmiudesta suorituksiin. Korkeampi arvo = parempi valmius.
+      </p>
+      <div class="kubios-canvas-wrap">
+        <canvas id="readinessGraph"></canvas>
+      </div>
+    </div>
+
+    <div class="summary-card" style="margin-bottom: 2rem;">
+      <h3 style="margin-bottom: 1rem;">😊 Miltä sinusta tuntuu tänään?</h3>
+      
+      <div class="mood-selector" id="moodSelector">
+        <div class="mood-emoji" data-mood="erittain_huono" data-value="1">😫</div>
+        <div class="mood-emoji" data-mood="huono" data-value="2">😞</div>
+        <div class="mood-emoji" data-mood="neutraali" data-value="3">😐</div>
+        <div class="mood-emoji" data-mood="hyva" data-value="4">🙂</div>
+        <div class="mood-emoji" data-mood="erittain_hyva" data-value="5">😄</div>
+      </div>
+      <div id="moodMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
+      
+      <div style="margin-top: 1.5rem;">
+        <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">📅 Aiemmat fiilikset</h4>
+        <div id="moodHistory" class="koti-mood-history">
+          <div style="text-align: center; color: #94a3b8;">Ei tallennettuja fiiliksiä</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/koti.js"></script>
+  <script type="module" src="js/loggedUser.js"></script>
+</body>
+</html>

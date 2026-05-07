@@ -6,7 +6,10 @@ import requestLogger from './middlewares/logger.js';
 import entryRouter from './routes/entry-router.js';
 import {errorHandler, notFoundHandler} from './middlewares/error-handlers.js';
 import kubiosRouter from './routes/kubios-router.js';
+import moodRouter from './routes/mood-router.js';  // LISÄTTY
 import psqiRouter from './routes/psqi-router.js'; // LISÄTTY
+
+
 const hostname = '127.0.0.1';
 const app = express();
 const port = 3000;
@@ -38,11 +41,13 @@ app.use('/api/items', itemRouter);
 //Kubios data router
 app.use('/api/kubios', kubiosRouter);
 
-// jos pyyntö ei "mätsää" minkään ylläolevan reitin kanssa, kyseessä on 404-tilanne
+// Moods router (miltä sinusta tuntuu) - LISÄTTY
+app.use('/api/moods', moodRouter);
+
+
 app.use(notFoundHandler);
 // virheenkäsittelijälle ohjataa kaikki pyynnöt, jossa mukana on error objekti
 app.use(errorHandler);
-
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
