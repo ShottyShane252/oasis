@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oasis - Koti</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+  rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -78,7 +78,7 @@
 
     <div class="summary-card" style="margin-bottom: 2rem;">
       <h3 style="margin-bottom: 1rem;">😊 Miltä sinusta tuntuu tänään?</h3>
-      
+
       <div class="mood-selector" id="moodSelector">
         <div class="mood-emoji" data-mood="erittain_huono" data-value="1">😫</div>
         <div class="mood-emoji" data-mood="huono" data-value="2">😞</div>
@@ -87,7 +87,7 @@
         <div class="mood-emoji" data-mood="erittain_hyva" data-value="5">😄</div>
       </div>
       <div id="moodMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
-      
+
       <div style="margin-top: 1.5rem;">
         <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">📅 Aiemmat fiilikset</h4>
         <div id="moodHistory" class="koti-mood-history">
@@ -96,6 +96,12 @@
       </div>
     </div>
   </main>
+
+    <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Oasis – Hyvinvointia elämään</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script type="module" src="js/koti.js"></script>
