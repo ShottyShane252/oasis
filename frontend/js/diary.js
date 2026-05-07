@@ -13,6 +13,10 @@ const headers = {
   Authorization: `Bearer ${token}`
 };
 
+const formatDate = (dateString) => {
+  return new Date(dateString).toLocaleDateString('fi-FI');
+};
+
 const renderEntries = (entries) => {
   entriesList.innerHTML = '';
 
@@ -22,7 +26,7 @@ const renderEntries = (entries) => {
     div.classList.add('entry-card');
 
     div.innerHTML = `
-  <h4>${entry.entry_date}</h4>
+  <h4>${formatDate(entry.entry_date)}</h4>
   <p>Mood: ${entry.mood}</p>
   <p>Sleep: ${entry.sleep_hours} hours</p>
   <p>Weight: ${entry.weight ?? '-'} kg</p>
@@ -65,7 +69,7 @@ const getEntryById = async (id) => {
   }
 
   alert(
-    `Date: ${entry.entry_date}\nMood: ${entry.mood}\nSleep: ${entry.sleep_hours} hours\nWeight: ${entry.weight ?? '-'} kg\nNotes: ${entry.notes}`
+ `Date: ${formatDate(entry.entry_date)}\nMood: ${entry.mood}\nSleep: ${entry.sleep_hours} hours\nWeight: ${entry.weight ?? '-'} kg\nNotes: ${entry.notes}`
   );
 };
 
