@@ -406,7 +406,7 @@ function hideMessage() {
   if (msgDiv) msgDiv.remove();
 }
 
-// ========== LISÄTTY KOTISIVULLE ==========
+
 // Readiness graafi (vain readiness - kotisivua varten)
 function drawReadinessGraph(data, canvasId = 'readinessGraph') {
   const canvas = document.getElementById(canvasId);
