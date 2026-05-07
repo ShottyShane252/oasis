@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-07T18:08:52.553561" rpa="false" schemaversion="5">
-<suite id="s1" name="Login" source="C:\Users\Hanad\OneDrive\Työpöytä\oasis\tests\front\login.robot">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-08T00:36:12.629059" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Projects\oasis\tests\front\login.robot">
 <test id="s1-t1" name="Login Fails With Wrong Credentials" line="13">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-05-07T18:08:53.058099" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Hanad\\OneDrive\\Ty\u00f6p\u00f6yt\u00e4\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\f2ad8324-5dac-4f38-b767-42afc9634b7c"}</msg>
-<msg time="2026-05-07T18:08:53.109727" level="INFO">Starting Browser process C:\Users\Hanad\OneDrive\Työpöytä\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50347</msg>
-<msg time="2026-05-07T18:08:55.123092" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Hanad\\OneDrive\\Työpöytä\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\f2ad8324-5dac-4f38-b767-42afc9634b7c"}</msg>
+<msg time="2026-05-08T00:36:13.023796" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\dbdde7a0-8602-449b-86ec-e2d9873ac763"}</msg>
+<msg time="2026-05-08T00:36:13.063157" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:63046</msg>
+<msg time="2026-05-08T00:36:14.472977" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\dbdde7a0-8602-449b-86ec-e2d9873ac763"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-05-07T18:08:53.056991" elapsed="2.067000"/>
+<status status="PASS" start="2026-05-08T00:36:13.022990" elapsed="1.450350"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-05-07T18:08:56.112517" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/login.html</msg>
-<msg time="2026-05-07T18:08:56.112658" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-05-08T00:36:17.292772" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/login.html</msg>
+<msg time="2026-05-08T00:36:17.292913" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${LOGIN_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-05-07T18:08:55.142052" elapsed="0.970910"/>
+<status status="PASS" start="2026-05-08T00:36:14.476327" elapsed="2.816933"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-07T18:08:56.115420" level="INFO">Types the text 'wronguser' in the given field.</msg>
+<msg time="2026-05-08T00:36:17.294897" level="INFO">Types the text 'wronguser' in the given field.</msg>
 <arg>id=username</arg>
 <arg>${INVALID_USERNAME}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:08:56.114188" elapsed="0.164464"/>
+<status status="PASS" start="2026-05-08T00:36:17.293816" elapsed="0.095543"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-07T18:08:56.280171" level="INFO">Types the text 'wrongpass' in the given field.</msg>
+<msg time="2026-05-08T00:36:17.390439" level="INFO">Types the text 'wrongpass' in the given field.</msg>
 <arg>id=password</arg>
 <arg>${INVALID_PASSWORD}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:08:56.279220" elapsed="0.089756"/>
+<status status="PASS" start="2026-05-08T00:36:17.389739" elapsed="0.045766"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-05-07T18:08:56.371464" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<msg time="2026-05-08T00:36:17.436505" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:08:56.370175" elapsed="0.487846"/>
+<status status="PASS" start="2026-05-08T00:36:17.435926" elapsed="0.084488"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
-<msg time="2026-05-07T18:08:57.208870" level="INFO">Waited for Element with selector id=loginError at state visible</msg>
+<msg time="2026-05-08T00:36:18.374317" level="INFO">Waited for Element with selector id=loginError at state visible</msg>
 <arg>id=loginError</arg>
 <arg>visible</arg>
 <arg>timeout=5s</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<status status="PASS" start="2026-05-07T18:08:56.859545" elapsed="0.349595"/>
+<status status="PASS" start="2026-05-08T00:36:17.521409" elapsed="0.853079"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-05-07T18:08:57.263569" level="INFO">Text: 'Käyttäjänimi tai salasana on väärin.'</msg>
+<msg time="2026-05-08T00:36:18.418053" level="INFO">Text: 'Käyttäjänimi tai salasana on väärin.'</msg>
 <arg>id=loginError</arg>
 <arg>contains</arg>
 <arg>Käyttäjänimi tai salasana on väärin.</arg>
@@ -67,145 +67,145 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:08:57.209700" elapsed="0.054018"/>
+<status status="PASS" start="2026-05-08T00:36:18.374950" elapsed="0.043212"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-05-07T18:09:02.265355" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-05-08T00:36:23.419678" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-05-07T18:08:57.264215" elapsed="5.001509"/>
+<status status="PASS" start="2026-05-08T00:36:18.418618" elapsed="5.001337"/>
 </kw>
 <kw name="Close Browser" owner="Browser" type="TEARDOWN">
-<msg time="2026-05-07T18:09:02.851762" level="INFO">Closed browser</msg>
+<msg time="2026-05-08T00:36:23.869514" level="INFO">Closed browser</msg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-05-07T18:09:02.266618" elapsed="0.585639"/>
+<status status="PASS" start="2026-05-08T00:36:23.421354" elapsed="0.448318"/>
 </kw>
-<status status="PASS" start="2026-05-07T18:08:53.055333" elapsed="9.798056"/>
+<status status="PASS" start="2026-05-08T00:36:13.021450" elapsed="10.848552"/>
 </test>
 <test id="s1-t2" name="Login Succeeds With Correct Credentials And Can Logout" line="26">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-05-07T18:09:02.870870" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Hanad\\OneDrive\\Ty\u00f6p\u00f6yt\u00e4\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\e5388ad6-0ceb-42b4-93be-82cec18f1e35"}</msg>
-<msg time="2026-05-07T18:09:03.365560" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Hanad\\OneDrive\\Työpöytä\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\e5388ad6-0ceb-42b4-93be-82cec18f1e35"}</msg>
+<msg time="2026-05-08T00:36:23.880579" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\90de671c-7d51-4b07-8e8d-7052c0adf626"}</msg>
+<msg time="2026-05-08T00:36:24.202063" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\login\\browser\\traces\\temp\\90de671c-7d51-4b07-8e8d-7052c0adf626"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-05-07T18:09:02.868912" elapsed="0.497243"/>
+<status status="PASS" start="2026-05-08T00:36:23.879053" elapsed="0.323260"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-05-07T18:09:04.252199" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/login.html</msg>
-<msg time="2026-05-07T18:09:04.252363" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-05-08T00:36:26.979504" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/login.html</msg>
+<msg time="2026-05-08T00:36:26.979605" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${LOGIN_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-05-07T18:09:03.399597" elapsed="0.852984"/>
+<status status="PASS" start="2026-05-08T00:36:24.211254" elapsed="2.768493"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-07T18:09:04.256094" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
+<msg time="2026-05-08T00:36:26.981147" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
 <arg>id=username</arg>
 <arg>${TEST_USERNAME}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:09:04.253987" elapsed="0.231791"/>
+<status status="PASS" start="2026-05-08T00:36:26.980185" elapsed="0.117613"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-07T18:09:04.489009" level="INFO">Types the text 'Chippi123' in the given field.</msg>
+<msg time="2026-05-08T00:36:27.099198" level="INFO">Types the text 'Chippi123' in the given field.</msg>
 <arg>id=password</arg>
 <arg>${TEST_PASSWORD}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:09:04.486970" elapsed="0.062352"/>
+<status status="PASS" start="2026-05-08T00:36:27.098330" elapsed="0.036194"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-05-07T18:09:04.551010" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<msg time="2026-05-08T00:36:27.135533" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:09:04.549940" elapsed="0.340014"/>
+<status status="PASS" start="2026-05-08T00:36:27.134931" elapsed="0.057337"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-05-07T18:09:09.893647" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-05-08T00:36:32.193726" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-05-07T18:09:04.891447" elapsed="5.002478"/>
+<status status="PASS" start="2026-05-08T00:36:27.192708" elapsed="5.001237"/>
 </kw>
 <kw name="Get Url" owner="Browser">
-<msg time="2026-05-07T18:09:09.901824" level="INFO">${url} = http://localhost:3000/diary.html</msg>
+<msg time="2026-05-08T00:36:32.198819" level="INFO">${url} = http://localhost:3000/koti.html</msg>
 <var>${url}</var>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
-<status status="PASS" start="2026-05-07T18:09:09.895010" elapsed="0.007231"/>
+<status status="PASS" start="2026-05-08T00:36:32.194484" elapsed="0.004390"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${url}</arg>
-<arg>/diary.html</arg>
+<arg>/koti.html</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-05-07T18:09:09.905638" elapsed="0.001779"/>
+<status status="PASS" start="2026-05-08T00:36:32.199402" elapsed="0.000876"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
-<msg time="2026-05-07T18:09:09.936481" level="INFO">Waited for Element with selector id=logoutBtn at state visible</msg>
+<msg time="2026-05-08T00:36:32.235219" level="INFO">Waited for Element with selector id=logoutBtn at state visible</msg>
 <arg>id=logoutBtn</arg>
 <arg>visible</arg>
 <arg>timeout=5s</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<status status="PASS" start="2026-05-07T18:09:09.908754" elapsed="0.027884"/>
+<status status="PASS" start="2026-05-08T00:36:32.200747" elapsed="0.034659"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-05-07T18:09:09.938612" level="INFO">Clicks the element 'id=logoutBtn'.</msg>
+<msg time="2026-05-08T00:36:32.236644" level="INFO">Clicks the element 'id=logoutBtn'.</msg>
 <arg>id=logoutBtn</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-07T18:09:09.937066" elapsed="0.073678"/>
+<status status="PASS" start="2026-05-08T00:36:32.236040" elapsed="0.069410"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-05-07T18:09:15.013321" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-05-08T00:36:37.308696" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-05-07T18:09:10.012159" elapsed="5.001445"/>
+<status status="PASS" start="2026-05-08T00:36:32.305912" elapsed="5.003097"/>
 </kw>
 <kw name="Get Url" owner="Browser">
-<msg time="2026-05-07T18:09:15.020345" level="INFO">${logoutUrl} = http://localhost:3000/login.html</msg>
+<msg time="2026-05-08T00:36:37.318625" level="INFO">${logoutUrl} = http://localhost:3000/login.html</msg>
 <var>${logoutUrl}</var>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
-<status status="PASS" start="2026-05-07T18:09:15.014705" elapsed="0.005760"/>
+<status status="PASS" start="2026-05-08T00:36:37.310095" elapsed="0.008658"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${logoutUrl}</arg>
 <arg>/login.html</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-05-07T18:09:15.021426" elapsed="0.003306"/>
+<status status="PASS" start="2026-05-08T00:36:37.319697" elapsed="0.001443"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-05-07T18:09:18.027754" level="INFO">Slept 3 seconds.</msg>
+<msg time="2026-05-08T00:36:40.327923" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-05-07T18:09:15.025927" elapsed="3.002048"/>
+<status status="PASS" start="2026-05-08T00:36:37.322361" elapsed="3.005791"/>
 </kw>
 <kw name="Close Browser" owner="Browser" type="TEARDOWN">
-<msg time="2026-05-07T18:09:18.465463" level="INFO">Closed browser</msg>
+<msg time="2026-05-08T00:36:40.735457" level="INFO">Closed browser</msg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-05-07T18:09:18.028974" elapsed="0.436658"/>
+<status status="PASS" start="2026-05-08T00:36:40.329178" elapsed="0.406440"/>
 </kw>
-<status status="PASS" start="2026-05-07T18:09:02.864333" elapsed="15.601536"/>
+<status status="PASS" start="2026-05-08T00:36:23.876140" elapsed="16.859725"/>
 </test>
-<status status="PASS" start="2026-05-07T18:08:52.557038" elapsed="25.913876"/>
+<status status="PASS" start="2026-05-08T00:36:12.631662" elapsed="28.108736"/>
 </suite>
 <statistics>
 <total>

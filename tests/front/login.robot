@@ -35,7 +35,7 @@ Login Succeeds With Correct Credentials And Can Logout
     Sleep    5s
 
     ${url}=    Get Url
-    Should Contain    ${url}    /diary.html
+    Should Contain    ${url}    /koti.html
 
     Wait For Elements State    id=logoutBtn    visible    timeout=5s
     Click    id=logoutBtn
