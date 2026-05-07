@@ -423,7 +423,8 @@ img {
 }
 
 .bmi-image-wrapper {
-    margin: 2rem 0 3rem 0;
+    margin: 1.5rem auto 2rem auto;
+    max-width: 900px;
 }
 
 .bmi-image-card {
@@ -435,9 +436,10 @@ img {
 }
 
 .bmi-image {
-    max-width: 100%;
-    max-height: 500px;
+    max-width: 420%;
+    max-height: 300px;
     border-radius: 16px;
+    object-fit: contain;
 }
 
 .bmi-caption {
@@ -1107,11 +1109,11 @@ nav {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .greeting-title {
     font-size: 1.5rem;
   }
-  
+
   .summary-value {
     font-size: 1.5rem;
   }
@@ -1775,30 +1777,30 @@ nav {
     flex-direction: column-reverse;
     text-align: center;
   }
-  
+
   .about-title {
     font-size: 2rem;
   }
-  
+
   .story-text h2,
   .about-team h2,
   .about-values h2,
   .about-contact h2 {
     font-size: 1.5rem;
   }
-  
+
   .placeholder-image {
     width: 150px;
     height: 150px;
     font-size: 6rem;
   }
-  
+
   .contact-grid {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
+
   .team-grid-2 {
     max-width: 100%;
   }
