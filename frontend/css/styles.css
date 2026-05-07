@@ -962,6 +962,161 @@ nav {
 }
 
 
+<<<<<<< HEAD
+/*  kotisivu */
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Päivän vinkki -kortti */
+.tip-card {
+  background: linear-gradient(135deg, var(--primary-light), #d4e8f7);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-dark);
+}
+
+.tip-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tip-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.tip-text {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Yhteenvetokortti */
+.summary-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(122, 179, 217, 0.3);
+  transition: var(--transition);
+}
+
+.summary-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Toimintaehdotukset */
+.action-box {
+  background: var(--gray-bg);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-light);
+}
+
+/* Fiilis-valitsin */
+.mood-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background: white;
+  border: 2px solid var(--border-light);
+}
+
+.mood-emoji:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-dark);
+}
+
+.mood-emoji.selected {
+  border-color: var(--primary-dark);
+  background: var(--primary-light);
+  transform: scale(1.1);
+}
+
+/* Neuvo-kortit */
+.advice-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.advice-item:last-child {
+  border-bottom: none;
+}
+
+.advice-icon {
+  font-size: 1.5rem;
+}
+
+/* Latausspinneri */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-dark);
+}
+
+/* Graafin container */
+.kubios-canvas-wrap {
+  height: 300px;
+  position: relative;
+  width: 100%;
+}
+
+/* Tervetuloteksti */
+.greeting-section {
+  margin: 2rem 0 1rem 0;
+}
+
+.greeting-title {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.greeting-subtitle {
+  color: var(--text-muted);
+}
+
+/* Responsiivisuus */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .greeting-title {
+    font-size: 1.5rem;
+  }
+  
+  .summary-value {
+    font-size: 1.5rem;
+  }
+}
+=======
 
 /* responsiivisuus */
 
@@ -1033,4 +1188,286 @@ nav {
     .hero-headline {
         margin-bottom: 2rem;
     }
+}
+>>>>>>> d414e1b77fc13af76f4fd37347ec374703f6aabc
+
+/* ========== KOTISIVUN TYYLIT (koti.html) ========== */
+
+/* ========== KOTISIVUN TYYLIT (koti.html) ========== */
+
+/* Kotisivun oma container */
+.koti-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Asettelu vierekkäin */
+.koti-two-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.koti-two-columns > * {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Päivän vinkki */
+.koti-tip-card {
+  background: linear-gradient(135deg, var(--primary-light), #d4e8f7);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.koti-tip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.koti-tip-icon {
+  font-size: 1.8rem;
+}
+
+.koti-tip-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
+.koti-tip-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.4;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Artikkelin tyyli */
+.koti-article-card {
+  background: linear-gradient(135deg, #f0f9ff, #e6f4ff);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.koti-article-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.koti-article-title a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.koti-article-title a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Artikkelin tekstialue - korkeampi ja scrollattava */
+.koti-article-content {
+  flex: 1;
+  max-height: 480px;
+  overflow-y: auto;
+  margin-bottom: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.koti-article-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Scrollbar tyylit */
+.koti-article-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.koti-article-content::-webkit-scrollbar-track {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+.koti-article-content::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+.koti-article-content::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.koti-article-meta {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.75rem;
+}
+
+.koti-article-source {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.koti-read-more {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.koti-read-more:hover {
+  text-decoration: underline;
+}
+
+/* Artikkelin lataustila */
+.koti-article-loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-dark);
+}
+
+.koti-article-error {
+  text-align: center;
+  padding: 2rem;
+  color: #ef4444;
+}
+
+/* Fiilis-historia */
+.koti-mood-history {
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--gray-bg);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.koti-mood-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.85rem;
+}
+
+.koti-mood-history-item:last-child {
+  border-bottom: none;
+}
+
+.koti-mood-emoji-history {
+  font-size: 1.2rem;
+}
+
+/* Yhteenvetokortti */
+.summary-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(122, 179, 217, 0.3);
+  transition: var(--transition);
+}
+
+.summary-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Fiilis-valitsin */
+.mood-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background: white;
+  border: 2px solid var(--border-light);
+}
+
+.mood-emoji:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-dark);
+}
+
+.mood-emoji.selected {
+  border-color: var(--primary-dark);
+  background: var(--primary-light);
+  transform: scale(1.1);
+}
+
+/* Latausspinneri */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-dark);
+}
+
+/* Tervetuloteksti */
+.greeting-section {
+  margin: 1rem 0 1rem 0;
+}
+
+.greeting-title {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.greeting-subtitle {
+  color: var(--text-muted);
+}
+
+/* Responsiivisuus */
+@media (max-width: 768px) {
+  .koti-two-columns {
+    flex-direction: column;
+  }
+  .koti-tip-text {
+    font-size: 0.95rem;
+  }
+  .koti-article-content {
+    max-height: 350px;
+  }
+  .greeting-title {
+    font-size: 1.5rem;
+  }
 }
