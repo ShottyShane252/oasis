@@ -62,10 +62,11 @@
             <div class="form-group">
               <label for="mood">Mieliala</label>
               <select id="mood" class="diary-select" required>
-                <option value="great">Great</option>
-                <option value="good">Good</option>
-                <option value="okay">Okay</option>
-                <option value="bad">Bad</option>
+                <option value="" disabled selected>Valitse mieliala</option>
+                <option value="great">Erinomainen</option>
+                <option value="good">Hyvä</option>
+                <option value="okay">Neutraali</option>
+                <option value="bad">Huono</option>
               </select>
             </div>
 
@@ -86,6 +87,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-full">Tallenna merkintä</button>
+            <p id="diaryResponse" class="form-response"></p>
           </form>
         </div>
 

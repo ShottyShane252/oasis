@@ -5,6 +5,7 @@ const apiUrl = 'http://localhost:3000/api/entries';
 
 const entriesList = document.querySelector('.entries-list');
 const diaryForm = document.querySelector('#diaryForm');
+const diaryResponse = document.querySelector('#diaryResponse');
 
 const token = localStorage.getItem('token');
 
@@ -17,22 +18,33 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('fi-FI');
 };
 
+const moodTranslations = {
+  great: 'Erinomainen',
+  good: 'Hyvä',
+  okay: 'Neutraali',
+  bad: 'Huono'
+};
+
 const renderEntries = (entries) => {
   entriesList.innerHTML = '';
 
-  entries.forEach(entry => {
+  const sortedEntries = [...entries].sort((a, b) => {
+    return new Date(b.entry_date) - new Date(a.entry_date);
+  });
+
+  sortedEntries.forEach(entry => {
 
     const div = document.createElement('div');
     div.classList.add('entry-card');
 
     div.innerHTML = `
   <h4>${formatDate(entry.entry_date)}</h4>
-  <p>Mood: ${entry.mood}</p>
-  <p>Sleep: ${entry.sleep_hours} hours</p>
-  <p>Weight: ${entry.weight ?? '-'} kg</p>
-  <p>${entry.notes}</p>
-  <button data-id="${entry.entry_id}" class="view-btn">View</button>
-  <button data-id="${entry.entry_id}" class="delete-btn">Delete</button>
+  <p>Mieliala: ${moodTranslations[entry.mood] || entry.mood}</p>
+  <p>Uni: ${entry.sleep_hours ?? '-'} tuntia</p>
+  <p>Paino: ${entry.weight ?? '-'} kg</p>
+  <p>${entry.notes || ''}</p>
+  <button data-id="${entry.entry_id}" class="view-btn">Näytä</button>
+  <button data-id="${entry.entry_id}" class="delete-btn">Poista</button>
 `;
 
     entriesList.appendChild(div);
@@ -69,7 +81,7 @@ const getEntryById = async (id) => {
   }
 
   alert(
- `Date: ${formatDate(entry.entry_date)}\nMood: ${entry.mood}\nSleep: ${entry.sleep_hours} hours\nWeight: ${entry.weight ?? '-'} kg\nNotes: ${entry.notes}`
+    `Päivämäärä: ${formatDate(entry.entry_date)}\nMieliala: ${moodTranslations[entry.mood] || entry.mood}\nUni: ${entry.sleep_hours ?? '-'} tuntia\nPaino: ${entry.weight ?? '-'} kg\nMuistiinpanot: ${entry.notes || ''}`
   );
 };
 
@@ -101,14 +113,17 @@ const addEntry = async (event) => {
 
   const response = await fetchData(apiUrl, options);
 
-  if (response.error) {
-    console.error(response.error);
-    return;
-  }
+if (response.error) {
+  console.error(response.error);
+  return;
+}
 
-  diaryForm.reset();
+diaryResponse.textContent = 'Merkintä tallennettu onnistuneesti!';
+diaryResponse.style.color = '#16a34a';
 
-  getEntries();
+diaryForm.reset();
+
+getEntries();
 };
 
 const deleteEntry = async (id) => {
