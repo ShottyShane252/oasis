@@ -169,7 +169,7 @@ const fetchResearchArticle = async () => {
       
       if (summaryData?.result?.[articleId]) {
         const article = summaryData.result[articleId];
-        let abstract = article.abstract || `This research article is relevant to ${randomTerm}.`;
+        let abstract = article.abstract || `Tutkimus liittyy aiheeseen: ${randomTerm}.`;
         let shortAbstract = abstract.length > 1500 ? abstract.substring(0, 1500) + '...' : abstract;
         return {
           title: article.title || 'Untitled Research',

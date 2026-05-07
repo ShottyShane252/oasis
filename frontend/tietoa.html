@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis - Tietoa meistä</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-icon">🌊</span>
+          <span class="logo-text">Oasis</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <span class="username">Vieras</span>
+        <a href="login.html" id="loginBtn" class="btn btn-primary btn-login">Kirjaudu sisään</a>
+        <button id="logoutBtn" class="btn btn-primary btn-login" style="display: none;">Kirjaudu ulos</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sub-nav">
+    <div class="container nav-links">
+      <a href="koti.html">Koti</a>
+      <a href="bmi.html">BMI-laskuri</a>
+      <a href="psqi.html">PSQI</a>
+      <a href="diary.html">Päiväkirja</a>
+      <a href="kubios.html">Historia</a>
+      <a href="tietoa.html" class="active">Tietoa meistä</a>
+    </div>
+  </nav>
+
+  <main class="about-page">
+    <div class="about-container">
+      <!-- Hero osio -->
+      <section class="about-hero">
+        <h1 class="about-title">Tietoa meistä</h1>
+        <p class="about-subtitle">Oasis - Hyvinvointisi kumppani</p>
+      </section>
+
+      <!-- Tarina osio -->
+      <section class="about-story">
+        <div class="story-text">
+          <h2>Tarina</h2>
+          <p>
+            Oasis syntyi tarpeesta auttaa opiskelijoita ymmärtämään ja parantamaan untaan. Uni on yksi tärkeimmistä tekijöistä oppimisen, jaksamisen ja hyvinvoinnin kannalta, mutta moni opiskelija ei tiedä miten uni vaikuttaa kehoon tai miten unenlaatua voi mitata ja parantaa.</p>
+          <p> Sovellus yhdistää HRV-mittaukset, päiväkirjan ja BMI-laskurin yhdeksi kokonaisuudeksi.</p>
+        </div>
+        <div class="story-image">
+          <div class="placeholder-image">🌊</div>
+        </div>
+      </section>
+
+      <!-- Tiimi osio - 2 henkilöä -->
+      <section class="about-team">
+        <h2>Tiimimme</h2>
+        <div class="team-grid team-grid-2">
+          <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Daauud Ismail</h3>
+            <p class="team-role">Full Stack -kehittäjä</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Hanad Mahamuud</h3>
+            <p class="team-role">Full Stack -kehittäjä</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Arvot osio -->
+      <section class="about-values">
+        <h2>Arvomme</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🔒</div>
+            <h3>Tietoturva</h3>
+            <p>Käyttäjien tiedot ovat turvassa. Emme koskaan jaa tietoja kolmansille osapuolille.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">📊</div>
+            <h3>Tieteellisyys</h3>
+            <p>Sovellus perustuu tutkittuun tietoon ja hyvinvointimittauksiin.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💚</div>
+            <h3>Lähestyttävyys</h3>
+            <p>Hyvinvoinnin seurannan pitää olla helppoa ja ymmärrettävää kaikille.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Yhteystiedot osio -->
+      <section class="about-contact">
+        <h2>Ota yhteyttä</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <p>info@oasis.fi</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <p>+358 50 123 4567</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <p>Helsinki, Suomi</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Oasis</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/loggedUser.js"></script>
+</body>
+</html>
