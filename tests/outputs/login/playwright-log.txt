@@ -1,0 +1,83 @@
+{"level":30,"time":"2026-05-06T16:40:57.723Z","pid":11476,"hostname":"Shotgun","msg":"Listening on 127.0.0.1:49940"}
+{"level":30,"time":"2026-05-06T16:40:57.948Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-06T16:40:59.111Z","pid":11476,"hostname":"Shotgun","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-06T16:40:59.112Z","pid":11476,"hostname":"Shotgun","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-06T16:40:59.112Z","pid":11476,"hostname":"Shotgun","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-06T16:40:59.158Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-06T16:40:59.158Z","pid":11476,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@e4dbac204f80bd2752c2e13a135f8422\"},\"name\":\"chromium\",\"id\":\"browser=0ca9632c-8b71-4353-b3b5-ea8c1492df9f\",\"headless\":false}"}
+{"level":30,"time":"2026-05-06T16:40:59.196Z","pid":11476,"hostname":"Shotgun","msg":"Setting default timeout for context context=0064eea1-3a3f-44e9-bef2-4a802dec6b94 to 10000"}
+{"level":30,"time":"2026-05-06T16:40:59.196Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=0064eea1-3a3f-44e9-bef2-4a802dec6b94"}
+{"level":30,"time":"2026-05-06T16:40:59.491Z","pid":11476,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-06T16:40:59.492Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:00.057Z","pid":11476,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-06T16:41:00.064Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-06T16:41:00.065Z","pid":11476,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=username in page."}
+{"level":30,"time":"2026-05-06T16:41:00.163Z","pid":11476,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-06T16:41:00.180Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.185Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.189Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.189Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.191Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.191Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.199Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.199Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.205Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=0064eea1-3a3f-44e9-bef2-4a802dec6b94"}
+{"level":30,"time":"2026-05-06T16:41:00.205Z","pid":11476,"hostname":"Shotgun","msg":"Changing current active page: page=7141cf7e-c2d2-4768-a987-177392289748"}
+{"level":30,"time":"2026-05-06T16:41:00.205Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:00.209Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:00.229Z","pid":11476,"hostname":"Shotgun","msg":"Removed page=fbea8864-5661-414b-9c3f-eaa9752b6bf0 from context=0064eea1-3a3f-44e9-bef2-4a802dec6b94 page stack"}
+{"level":30,"time":"2026-05-06T16:41:00.232Z","pid":11476,"hostname":"Shotgun","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:00.241Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.242Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:00.247Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-05-06T16:41:00.247Z","pid":11476,"hostname":"Shotgun","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-05-06T16:41:00.271Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-06T16:41:00.271Z","pid":11476,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@e4dbac204f80bd2752c2e13a135f8422\"},\"name\":\"chromium\",\"id\":\"browser=0ca9632c-8b71-4353-b3b5-ea8c1492df9f\",\"headless\":false}"}
+{"level":30,"time":"2026-05-06T16:41:00.337Z","pid":11476,"hostname":"Shotgun","msg":"Setting default timeout for context context=6288a745-5097-4dcd-8c25-cf9788fa677e to 10000"}
+{"level":30,"time":"2026-05-06T16:41:00.337Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=6288a745-5097-4dcd-8c25-cf9788fa677e"}
+{"level":30,"time":"2026-05-06T16:41:00.526Z","pid":11476,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-06T16:41:00.526Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:01.055Z","pid":11476,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-06T16:41:01.068Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.075Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.078Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.079Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.081Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.082Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.086Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.086Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.089Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=6288a745-5097-4dcd-8c25-cf9788fa677e"}
+{"level":30,"time":"2026-05-06T16:41:01.089Z","pid":11476,"hostname":"Shotgun","msg":"Changing current active page: page=d5ad7ab1-8072-4a2d-bbac-cfce0f8df190"}
+{"level":30,"time":"2026-05-06T16:41:01.089Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:01.093Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:01.107Z","pid":11476,"hostname":"Shotgun","msg":"Removed page=1a213aec-2064-4fca-b706-5b5253bb30aa from context=6288a745-5097-4dcd-8c25-cf9788fa677e page stack"}
+{"level":30,"time":"2026-05-06T16:41:01.109Z","pid":11476,"hostname":"Shotgun","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:01.120Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.120Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.125Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-05-06T16:41:01.125Z","pid":11476,"hostname":"Shotgun","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-05-06T16:41:01.141Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-06T16:41:01.142Z","pid":11476,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@e4dbac204f80bd2752c2e13a135f8422\"},\"name\":\"chromium\",\"id\":\"browser=0ca9632c-8b71-4353-b3b5-ea8c1492df9f\",\"headless\":false}"}
+{"level":30,"time":"2026-05-06T16:41:01.200Z","pid":11476,"hostname":"Shotgun","msg":"Setting default timeout for context context=2a297a7f-743f-40e7-a19f-e2632d8f4392 to 10000"}
+{"level":30,"time":"2026-05-06T16:41:01.201Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=2a297a7f-743f-40e7-a19f-e2632d8f4392"}
+{"level":30,"time":"2026-05-06T16:41:01.406Z","pid":11476,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-06T16:41:01.406Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:01.934Z","pid":11476,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-06T16:41:01.958Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.967Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.970Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.970Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.973Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.973Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.975Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.975Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:01.977Z","pid":11476,"hostname":"Shotgun","msg":"Changed active context: context=2a297a7f-743f-40e7-a19f-e2632d8f4392"}
+{"level":30,"time":"2026-05-06T16:41:01.977Z","pid":11476,"hostname":"Shotgun","msg":"Changing current active page: page=5470a2b4-5d58-4a8a-bcff-d847f8d53c9f"}
+{"level":30,"time":"2026-05-06T16:41:01.977Z","pid":11476,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-06T16:41:01.983Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:02.000Z","pid":11476,"hostname":"Shotgun","msg":"Removed page=7a8b4d0b-bdcb-442d-aba3-997b0e4afb9c from context=2a297a7f-743f-40e7-a19f-e2632d8f4392 page stack"}
+{"level":30,"time":"2026-05-06T16:41:02.002Z","pid":11476,"hostname":"Shotgun","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-05-06T16:41:02.017Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:02.017Z","pid":11476,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-06T16:41:03.203Z","pid":11476,"hostname":"Shotgun","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-06T16:41:03.464Z","pid":11476,"hostname":"Shotgun","msg":"End of node method closeAllBrowsers"}
