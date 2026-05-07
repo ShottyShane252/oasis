@@ -33,12 +33,16 @@ const moodTexts = {
   'erittain_hyva': 'Erittäin hyvä'
 };
 
+const formatDate = (dateString) => {
+  return new Date(dateString).toLocaleDateString('fi-FI');
+};
+
 // Mood funktiot
 const saveMoodToBackend = async (mood, moodValue, date) => {
   try {
     const token = getToken();
     if (!token) return false;
-    
+
     const response = await fetch(`${API_URL}/moods`, {
       method: 'POST',
       headers: getAuthHeaders(),
@@ -67,7 +71,7 @@ const fetchMoodsFromBackend = async () => {
 const saveMood = async (mood, moodValue) => {
   const today = new Date().toISOString().split('T')[0];
   const saved = await saveMoodToBackend(mood, moodValue, today);
-  
+
   if (saved) {
     await displayMoodHistory();
     const messages = {
@@ -84,16 +88,16 @@ const saveMood = async (mood, moodValue) => {
 const displayMoodHistory = async () => {
   const container = document.getElementById('moodHistory');
   let moods = await fetchMoodsFromBackend();
-  
+
   if (moods.length === 0) {
     container.innerHTML = '<div style="text-align: center; color: #94a3b8;">Ei tallennettuja fiiliksiä</div>';
     return;
   }
-  
+
   const latest = moods.slice(0, 10);
   container.innerHTML = latest.map(item => `
     <div class="koti-mood-history-item">
-      <span>${item.date}</span>
+      <span>${formatDate(item.date)}</span>
       <span class="koti-mood-emoji-history">${moodEmojis[item.mood] || '😐'} ${moodTexts[item.mood] || item.mood}</span>
     </div>
   `).join('');
@@ -108,14 +112,14 @@ const checkTodayMood = async () => {
 const initMoodSelector = async () => {
   const buttons = document.querySelectorAll('.mood-emoji');
   await displayMoodHistory();
-  
+
   const todaysMood = await checkTodayMood();
   if (todaysMood) {
-    buttons.forEach(btn => { 
+    buttons.forEach(btn => {
       if (btn.dataset.mood === todaysMood.mood) btn.classList.add('selected');
     });
   }
-  
+
   buttons.forEach(btn => {
     btn.addEventListener('click', async () => {
       buttons.forEach(b => b.classList.remove('selected'));
@@ -158,7 +162,7 @@ const fetchResearchArticle = async () => {
     const searchUrl = `${PUBMED_API}?db=pubmed&term=${encodeURIComponent(randomTerm)}&retmax=30&sort=relevance&retmode=json`;
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
-    
+
     if (searchData?.esearchresult?.idlist?.length > 0) {
       const idList = searchData.esearchresult.idlist;
       const randomIndex = Math.floor(Math.random() * Math.min(idList.length, 15));
@@ -166,7 +170,7 @@ const fetchResearchArticle = async () => {
       const summaryUrl = `${PUBMED_SUMMARY}?db=pubmed&id=${articleId}&retmode=json`;
       const summaryResponse = await fetch(summaryUrl);
       const summaryData = await summaryResponse.json();
-      
+
       if (summaryData?.result?.[articleId]) {
         const article = summaryData.result[articleId];
         let abstract = article.abstract || `Tutkimus liittyy aiheeseen: ${randomTerm}.`;
@@ -191,21 +195,21 @@ const setDailyArticle = async () => {
   const articleContentElem = document.getElementById('articleContent');
   const articleMetaElem = document.getElementById('articleMeta');
   const articleSourceElem = document.getElementById('articleSource');
-  
+
   articleContentElem.innerHTML = '<div class="koti-article-loading">🔍 Haetaan tuoreita tutkimuksia...</div>';
   const article = await fetchResearchArticle();
-  
+
   if (!article) {
     articleContentElem.innerHTML = '<div class="koti-article-error">⚠️ Tutkimusten haku epäonnistui.</div>';
     articleTitleElem.innerHTML = '📖 Tutkimuksia ei voitu hakea';
     articleSourceElem.innerHTML = '';
     return;
   }
-  
+
   articleTitleElem.innerHTML = `📖 <a href="${article.link}" target="_blank">${article.title}</a>`;
   articleContentElem.innerHTML = `<div class="koti-article-text">${article.abstract}</div>`;
   articleSourceElem.innerHTML = article.source;
-  
+
   if (!articleMetaElem.querySelector('.koti-read-more')) {
     const readMoreLink = document.createElement('a');
     readMoreLink.href = article.link;
@@ -222,17 +226,17 @@ const init = async () => {
   if (username && username !== 'undefined' && username !== 'null') {
     document.getElementById('greetingName').textContent = username;
   }
-  
+
   setDailyTip();
   await setDailyArticle();
-  
+
   const token = getToken();
   if (!token) {
     drawReadinessGraph(null);
     initMoodSelector();
     return;
   }
-  
+
   const kubiosData = await fetchKubiosData();
   const parsedData = parseKubiosData(kubiosData);
   drawReadinessGraph(parsedData.length > 0 ? parsedData : null);
