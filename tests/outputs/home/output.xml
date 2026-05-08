@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-08T11:39:17.756147" rpa="false" schemaversion="5">
+<suite id="s1" name="Home" source="C:\Projects\oasis\tests\front\home.robot">
+<test id="s1-t1" name="Logged User Can View Home Page And Select Mood" line="12">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-05-08T11:39:18.108540" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\home\\browser\\traces\\temp\\22536256-dfda-4d4c-a252-c9c96e54bb65"}</msg>
+<msg time="2026-05-08T11:39:18.143337" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:55949</msg>
+<msg time="2026-05-08T11:39:19.457474" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\home\\browser\\traces\\temp\\22536256-dfda-4d4c-a252-c9c96e54bb65"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-05-08T11:39:18.107604" elapsed="1.350208"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-05-08T11:39:20.221704" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/login.html</msg>
+<msg time="2026-05-08T11:39:20.221849" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-05-08T11:39:19.462958" elapsed="0.759392"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-08T11:39:20.224650" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
+<arg>id=username</arg>
+<arg>${TEST_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:20.223169" elapsed="0.120824"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>id=password</arg>
+<arg>$TEST_PASSWORD</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:20.344934" elapsed="0.040023"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-08T11:39:20.386061" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:20.385405" elapsed="0.065787"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-08T11:39:24.393436" level="INFO">Waited for Element with selector css=.greeting-title at state visible</msg>
+<arg>css=.greeting-title</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-08T11:39:20.451679" elapsed="3.941905"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-08T11:39:24.435817" level="INFO">Text: 'Hei, Chippi 👋'</msg>
+<arg>css=.greeting-title</arg>
+<arg>contains</arg>
+<arg>Hei</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:24.394112" elapsed="0.041818"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-08T11:39:24.480159" level="INFO">Text: '📈 Readiness-mittaukset (viimeisimmät)'</msg>
+<arg>text=📈 Readiness-mittaukset (viimeisimmät)</arg>
+<arg>contains</arg>
+<arg>Readiness-mittaukset</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:24.436309" elapsed="0.044306"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-08T11:39:24.512680" level="INFO">Text: '😊 Miltä sinusta tuntuu tänään?'</msg>
+<arg>text=😊 Miltä sinusta tuntuu tänään?</arg>
+<arg>contains</arg>
+<arg>Miltä sinusta tuntuu tänään?</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:24.482372" elapsed="0.030421"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-08T11:39:24.513844" level="INFO">Clicks the element 'css=.mood-emoji[data-mood="hyva"]'.</msg>
+<arg>css=.mood-emoji[data-mood="hyva"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-08T11:39:24.513302" elapsed="0.036606"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-08T11:39:29.767141" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-05-08T11:39:29.767358" level="INFO">See also file:///C:/Projects/oasis/tests/outputs/home/playwright-log.txt for additional details.</msg>
+<msg time="2026-05-08T11:39:29.767956" level="FAIL">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('.mood-emoji[data-mood="hyva"].selected') to be visible
+</msg>
+<arg>css=.mood-emoji[data-mood="hyva"].selected</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2026-05-08T11:39:24.550300" elapsed="5.222766">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('.mood-emoji[data-mood="hyva"].selected') to be visible
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-05-08T11:39:29.773472" elapsed="0.000139"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-05-08T11:39:30.146305" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-08T11:39:29.774483" elapsed="0.371977"/>
+</kw>
+<status status="FAIL" start="2026-05-08T11:39:18.106077" elapsed="12.040613">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('.mood-emoji[data-mood="hyva"].selected') to be visible
+</status>
+</test>
+<status status="FAIL" start="2026-05-08T11:39:17.758997" elapsed="12.392841"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Home" id="s1" pass="0" fail="1" skip="0">Home</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

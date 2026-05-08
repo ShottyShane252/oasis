@@ -1,0 +1,64 @@
+{"level":30,"time":"2026-05-08T08:28:51.433Z","pid":14528,"hostname":"Shotgun","msg":"Listening on 127.0.0.1:64789"}
+{"level":30,"time":"2026-05-08T08:28:51.774Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-08T08:28:52.049Z","pid":14528,"hostname":"Shotgun","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-08T08:28:52.049Z","pid":14528,"hostname":"Shotgun","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-08T08:28:52.050Z","pid":14528,"hostname":"Shotgun","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-08T08:28:52.083Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-08T08:28:52.083Z","pid":14528,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@9b7e4c1e95221ff962dcc07d61b9e28e\"},\"name\":\"chromium\",\"id\":\"browser=a579fc4f-1d47-40ec-8d01-9d3f8b7f32e8\",\"headless\":false}"}
+{"level":30,"time":"2026-05-08T08:28:52.123Z","pid":14528,"hostname":"Shotgun","msg":"Setting default timeout for context context=bfffc0e7-d2a6-439a-9983-4bbf14decca1 to 10000"}
+{"level":30,"time":"2026-05-08T08:28:52.124Z","pid":14528,"hostname":"Shotgun","msg":"Changed active context: context=bfffc0e7-d2a6-439a-9983-4bbf14decca1"}
+{"level":30,"time":"2026-05-08T08:28:52.351Z","pid":14528,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-08T08:28:52.351Z","pid":14528,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-08T08:28:52.992Z","pid":14528,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-08T08:28:52.997Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-08T08:28:52.997Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=weight in page."}
+{"level":30,"time":"2026-05-08T08:28:53.073Z","pid":14528,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-08T08:28:53.078Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-08T08:28:53.078Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=height in page."}
+{"level":30,"time":"2026-05-08T08:28:53.110Z","pid":14528,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-08T08:28:53.114Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T08:28:53.114Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=button[type=\"submit\"] in page."}
+{"level":30,"time":"2026-05-08T08:28:53.313Z","pid":14528,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T08:28:53.317Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-08T08:28:53.317Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.bmi-score in page."}
+{"level":30,"time":"2026-05-08T08:28:53.353Z","pid":14528,"hostname":"Shotgun","msg":"Retrieved text for element css=.bmi-score containing 24.7"}
+{"level":30,"time":"2026-05-08T08:28:53.353Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-08T08:28:53.358Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-08T08:28:53.358Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.analysis in page."}
+{"level":30,"time":"2026-05-08T08:28:53.380Z","pid":14528,"hostname":"Shotgun","msg":"Retrieved text for element css=.analysis containing Normaaliksi on valittu se painoindeksin alue, jossa ihmisen terveys on parhaimmillaan. Normaali painoindeksin alue on välillä 18,5–25. Jos painoindeksi on pienempi kuin 18,5 tai suurempi kuin 25, sairauksien vaara suurenee. Painoindeksiä voidaan käyttää 18 vuoden iästä lähtien."}
+{"level":30,"time":"2026-05-08T08:28:53.380Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-08T08:28:56.586Z","pid":14528,"hostname":"Shotgun","msg":"Removed page=2606ec50-e903-4394-a1fd-4322c36e58b2 from context=bfffc0e7-d2a6-439a-9983-4bbf14decca1 page stack"}
+{"level":30,"time":"2026-05-08T08:28:58.429Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-08T08:28:58.953Z","pid":14528,"hostname":"Shotgun","msg":"End of node method closeBrowser"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-05-08T08:28:58.964Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T08:28:58.964Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-05-08T08:28:58.971Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T08:28:58.971Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T08:28:59.029Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-08T08:28:59.029Z","pid":14528,"hostname":"Shotgun","msg":"End of node method closeAllBrowsers"}
