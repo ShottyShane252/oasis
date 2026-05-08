@@ -1,3 +1,7 @@
+/*
+Tekoälyä on käytetty tämän koodin ideoinnin ja muokkaamisen apuna.
+*/
+
 let hrvChart = null;
 let readinessChart = null;
 let hrChart = null;
@@ -483,3 +487,4 @@ export { fetchKubiosData, parseKubiosData, drawReadinessGraph };
 document.addEventListener("DOMContentLoaded", () => {
   loadAndDisplayData();
 });
+
