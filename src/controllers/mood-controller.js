@@ -45,3 +45,8 @@ export const getMoods = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+
+/*
+Tekoälyä on käytetty tämän koodin ideoinnin ja muokkaamisen apuna.
+*/

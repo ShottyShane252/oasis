@@ -1,3 +1,8 @@
+/*
+Tekoälyä on käytetty tämän koodin ideoinnin ja muokkaamisen apuna.
+*/
+
+
 // koti.js
 import { fetchKubiosData, parseKubiosData, drawReadinessGraph } from './kubios.js';
 
@@ -244,3 +249,6 @@ const init = async () => {
 };
 
 init();
+
+
+
