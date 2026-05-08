@@ -1,3 +1,8 @@
+/*
+  PSQI-lomakkeen rakenteessa ja validoinnissa
+  on hyödynnetty tekoälyä Frontendissa sekä backendissa (ChatGPT).
+*/
+
 const psqiForm = document.querySelector('#psqiForm');
 const psqiScoreElement = document.querySelector('#psqiScore');
 const psqiInterpretationElement = document.querySelector('#psqiInterpretation');

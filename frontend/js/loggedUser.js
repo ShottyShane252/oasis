@@ -1,3 +1,8 @@
+/*
+  loggedUser.js tiedoston kehityksessä on hyödynnetty
+  tekoälyä (ChatGPT) kirjautumistilan hallinnan
+  ja käyttöliittymäpäivitysten tukena.
+*/
 const username = localStorage.getItem('name');
 const token = localStorage.getItem('token');
 
@@ -22,6 +27,6 @@ if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-    window.location.href = 'login.html'; 
+    window.location.href = 'login.html';
   });
 }
