@@ -1,35 +1,35 @@
-{"level":30,"time":"2026-05-08T08:28:51.433Z","pid":14528,"hostname":"Shotgun","msg":"Listening on 127.0.0.1:64789"}
-{"level":30,"time":"2026-05-08T08:28:51.774Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method newBrowser"}
-{"level":30,"time":"2026-05-08T08:28:52.049Z","pid":14528,"hostname":"Shotgun","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
-{"level":30,"time":"2026-05-08T08:28:52.049Z","pid":14528,"hostname":"Shotgun","msg":"Adding 0 contexts to browser"}
-{"level":30,"time":"2026-05-08T08:28:52.050Z","pid":14528,"hostname":"Shotgun","msg":"End of node method newBrowser"}
-{"level":30,"time":"2026-05-08T08:28:52.083Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method newPage"}
-{"level":30,"time":"2026-05-08T08:28:52.083Z","pid":14528,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@9b7e4c1e95221ff962dcc07d61b9e28e\"},\"name\":\"chromium\",\"id\":\"browser=a579fc4f-1d47-40ec-8d01-9d3f8b7f32e8\",\"headless\":false}"}
-{"level":30,"time":"2026-05-08T08:28:52.123Z","pid":14528,"hostname":"Shotgun","msg":"Setting default timeout for context context=bfffc0e7-d2a6-439a-9983-4bbf14decca1 to 10000"}
-{"level":30,"time":"2026-05-08T08:28:52.124Z","pid":14528,"hostname":"Shotgun","msg":"Changed active context: context=bfffc0e7-d2a6-439a-9983-4bbf14decca1"}
-{"level":30,"time":"2026-05-08T08:28:52.351Z","pid":14528,"hostname":"Shotgun","msg":"Video path: undefined"}
-{"level":30,"time":"2026-05-08T08:28:52.351Z","pid":14528,"hostname":"Shotgun","msg":"Changed active page"}
-{"level":30,"time":"2026-05-08T08:28:52.992Z","pid":14528,"hostname":"Shotgun","msg":"End of node method newPage"}
-{"level":30,"time":"2026-05-08T08:28:52.997Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method typeText"}
-{"level":30,"time":"2026-05-08T08:28:52.997Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=weight in page."}
-{"level":30,"time":"2026-05-08T08:28:53.073Z","pid":14528,"hostname":"Shotgun","msg":"End of node method typeText"}
-{"level":30,"time":"2026-05-08T08:28:53.078Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method typeText"}
-{"level":30,"time":"2026-05-08T08:28:53.078Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=height in page."}
-{"level":30,"time":"2026-05-08T08:28:53.110Z","pid":14528,"hostname":"Shotgun","msg":"End of node method typeText"}
-{"level":30,"time":"2026-05-08T08:28:53.114Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-08T08:28:53.114Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=button[type=\"submit\"] in page."}
-{"level":30,"time":"2026-05-08T08:28:53.313Z","pid":14528,"hostname":"Shotgun","msg":"End of node method click"}
-{"level":30,"time":"2026-05-08T08:28:53.317Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getText"}
-{"level":30,"time":"2026-05-08T08:28:53.317Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.bmi-score in page."}
-{"level":30,"time":"2026-05-08T08:28:53.353Z","pid":14528,"hostname":"Shotgun","msg":"Retrieved text for element css=.bmi-score containing 24.7"}
-{"level":30,"time":"2026-05-08T08:28:53.353Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getText"}
-{"level":30,"time":"2026-05-08T08:28:53.358Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getText"}
-{"level":30,"time":"2026-05-08T08:28:53.358Z","pid":14528,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.analysis in page."}
-{"level":30,"time":"2026-05-08T08:28:53.380Z","pid":14528,"hostname":"Shotgun","msg":"Retrieved text for element css=.analysis containing Normaaliksi on valittu se painoindeksin alue, jossa ihmisen terveys on parhaimmillaan. Normaali painoindeksin alue on välillä 18,5–25. Jos painoindeksi on pienempi kuin 18,5 tai suurempi kuin 25, sairauksien vaara suurenee. Painoindeksiä voidaan käyttää 18 vuoden iästä lähtien."}
-{"level":30,"time":"2026-05-08T08:28:53.380Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getText"}
-{"level":30,"time":"2026-05-08T08:28:56.586Z","pid":14528,"hostname":"Shotgun","msg":"Removed page=2606ec50-e903-4394-a1fd-4322c36e58b2 from context=bfffc0e7-d2a6-439a-9983-4bbf14decca1 page stack"}
-{"level":30,"time":"2026-05-08T08:28:58.429Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method closeBrowser"}
-{"level":30,"time":"2026-05-08T08:28:58.953Z","pid":14528,"hostname":"Shotgun","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-09T12:39:39.264Z","pid":16924,"hostname":"Shotgun","msg":"Listening on 127.0.0.1:50274"}
+{"level":30,"time":"2026-05-09T12:39:39.630Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-09T12:39:41.217Z","pid":16924,"hostname":"Shotgun","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-09T12:39:41.218Z","pid":16924,"hostname":"Shotgun","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-09T12:39:41.219Z","pid":16924,"hostname":"Shotgun","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-09T12:39:41.236Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-09T12:39:41.237Z","pid":16924,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d36398aa9e95fcb083e93604c5c2c7bf\"},\"name\":\"chromium\",\"id\":\"browser=f8333000-7a49-4c77-a04c-e4a66cf3764a\",\"headless\":false}"}
+{"level":30,"time":"2026-05-09T12:39:41.284Z","pid":16924,"hostname":"Shotgun","msg":"Setting default timeout for context context=f96c1cc3-c82d-4c40-9d78-41e1da89be57 to 10000"}
+{"level":30,"time":"2026-05-09T12:39:41.285Z","pid":16924,"hostname":"Shotgun","msg":"Changed active context: context=f96c1cc3-c82d-4c40-9d78-41e1da89be57"}
+{"level":30,"time":"2026-05-09T12:39:41.771Z","pid":16924,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-09T12:39:41.772Z","pid":16924,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-09T12:39:42.614Z","pid":16924,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-09T12:39:42.621Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-09T12:39:42.621Z","pid":16924,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=weight in page."}
+{"level":30,"time":"2026-05-09T12:39:42.734Z","pid":16924,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-09T12:39:42.742Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-09T12:39:42.742Z","pid":16924,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=height in page."}
+{"level":30,"time":"2026-05-09T12:39:42.798Z","pid":16924,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-09T12:39:42.804Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-09T12:39:42.805Z","pid":16924,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=button[type=\"submit\"] in page."}
+{"level":30,"time":"2026-05-09T12:39:43.030Z","pid":16924,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-09T12:39:43.034Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-09T12:39:43.035Z","pid":16924,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.bmi-score in page."}
+{"level":30,"time":"2026-05-09T12:39:43.083Z","pid":16924,"hostname":"Shotgun","msg":"Retrieved text for element css=.bmi-score containing 24.7"}
+{"level":30,"time":"2026-05-09T12:39:43.083Z","pid":16924,"hostname":"Shotgun","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-09T12:39:43.089Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-09T12:39:43.089Z","pid":16924,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.analysis in page."}
+{"level":30,"time":"2026-05-09T12:39:43.124Z","pid":16924,"hostname":"Shotgun","msg":"Retrieved text for element css=.analysis containing Normaaliksi on valittu se painoindeksin alue, jossa ihmisen terveys on parhaimmillaan. Normaali painoindeksin alue on välillä 18,5–25. Jos painoindeksi on pienempi kuin 18,5 tai suurempi kuin 25, sairauksien vaara suurenee. Painoindeksiä voidaan käyttää 18 vuoden iästä lähtien."}
+{"level":30,"time":"2026-05-09T12:39:43.124Z","pid":16924,"hostname":"Shotgun","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-09T12:39:45.974Z","pid":16924,"hostname":"Shotgun","msg":"Removed page=16812f32-ac5b-476f-a494-1b25c1d777c0 from context=f96c1cc3-c82d-4c40-9d78-41e1da89be57 page stack"}
+{"level":30,"time":"2026-05-09T12:39:48.137Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-09T12:39:48.428Z","pid":16924,"hostname":"Shotgun","msg":"End of node method closeBrowser"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
@@ -43,8 +43,8 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1701:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
 =============================================================
-{"level":30,"time":"2026-05-08T08:28:58.964Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-08T08:28:58.964Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-09T12:39:48.443Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-09T12:39:48.444Z","pid":16924,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
@@ -58,7 +58,7 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1701:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
 =============================================================
-{"level":30,"time":"2026-05-08T08:28:58.971Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-08T08:28:58.971Z","pid":14528,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-08T08:28:59.029Z","pid":14528,"hostname":"Shotgun","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2026-05-08T08:28:59.029Z","pid":14528,"hostname":"Shotgun","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-09T12:39:48.454Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-09T12:39:48.454Z","pid":16924,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-09T12:39:49.568Z","pid":16924,"hostname":"Shotgun","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-09T12:39:49.568Z","pid":16924,"hostname":"Shotgun","msg":"End of node method closeAllBrowsers"}

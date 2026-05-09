@@ -1,4 +1,8 @@
 # Oasis – Hyvinvointisovellus
+
+## Tekoälyn käyttö projektissa
+Projektissa on hyödynnetty tekoälyä osassa ohjelmistokehitystä, kuten käyttöliittymän ideoinnissa, PSQI-lomakkeen toteutuksessa, joidenkin JavaScript-toimintojen kehittämisessä sekä virheiden korjauksessa ja dokumentoinnissa.
+
 ## Kuvaus
 Oasis on opiskelijoille suunnattu hyvinvointisovellus, jonka tavoitteena on auttaa käyttäjiä seuraamaan omaa hyvinvointiaan, unen laatua ja palautumista.
 
