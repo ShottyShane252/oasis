@@ -6,7 +6,7 @@ let hrvChart = null;
 let readinessChart = null;
 let hrChart = null;
 
-const API_URL = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api';
+const API_URL = 'https://daauudi.switzerlandnorth.cloudapp.azure.com/api';
 
 const getToken = () => localStorage.getItem('token');
 

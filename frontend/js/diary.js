@@ -1,7 +1,7 @@
 import { fetchData } from './fetch.js';
 
 
-const apiUrl = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api/entries';
+const apiUrl = 'https://daauudi.switzerlandnorth.cloudapp.azure.com/api/entries';
 
 const entriesList = document.querySelector('.entries-list');
 const diaryForm = document.querySelector('#diaryForm');

@@ -19,7 +19,7 @@ const loginUser = async (event) => {
     password: password,
   };
 
-  const url = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api/users/login';
+  const url = 'https://daauudi.switzerlandnorth.cloudapp.azure.com/api/users/login';
 
   const options = {
     body: JSON.stringify(bodyData),

@@ -8,7 +8,7 @@ const psqiScoreElement = document.querySelector('#psqiScore');
 const psqiInterpretationElement = document.querySelector('#psqiInterpretation');
 const latestPsqiElement = document.querySelector('#latestPsqi');
 
-const apiUrl = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api/psqi'; // LISÄTTY: PSQI backend endpoint
+const apiUrl = 'https://daauudi.switzerlandnorth.cloudapp.azure.com/api/psqi'; // LISÄTTY: PSQI backend endpoint
 
 const getToken = () => localStorage.getItem('token'); // LISÄTTY: hakee kirjautumistokenin
 
