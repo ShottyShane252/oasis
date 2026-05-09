@@ -8,7 +8,7 @@ import { fetchData } from '../js/fetch.js';
 const getUserInfo = async () => {
   console.log('Käyttäjän INFO Kubioksesta');
 
-  const url = 'http://localhost:3000/api/kubios/user-info';
+  const url = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api/kubios/user-info';
   const token = localStorage.getItem('token');
   const headers = { Authorization: `Bearer ${token}` };
   const options = {
@@ -27,7 +27,7 @@ const getUserInfo = async () => {
 const getUserData = async () => {
   console.log('Käyttäjän DATA Kubioksesta');
 
-  const url = 'http://localhost:3000/api/kubios/user-data';
+  const url = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api/kubios/user-data';
   const token = localStorage.getItem('token');
   const headers = { Authorization: `Bearer ${token}` };
   const options = {

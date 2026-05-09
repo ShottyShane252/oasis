@@ -6,7 +6,7 @@ let hrvChart = null;
 let readinessChart = null;
 let hrChart = null;
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api';
 
 const getToken = () => localStorage.getItem('token');
 
@@ -44,7 +44,7 @@ async function fetchKubiosData() {
   }
 }
 
-//  Kubios data 
+//  Kubios data
 function parseKubiosData(kubiosData) {
   console.log('Parsitaan dataa');
 
@@ -190,7 +190,7 @@ function createHrvChart(data) {
   });
 }
 
-//  syke diagrammi 
+//  syke diagrammi
 function createHeartRateChart(data) {
   const canvas = document.getElementById("heartRateChart");
   if (!canvas) return;
@@ -244,7 +244,7 @@ function createHeartRateChart(data) {
   });
 }
 
-// readiness ympyrädiagrammi 
+// readiness ympyrädiagrammi
 function createReadinessChart(data) {
   const canvas = document.getElementById("readinessChart");
   if (!canvas) return;
@@ -319,7 +319,7 @@ function createReadinessChart(data) {
   });
 }
 
-// päivittää taulukko 
+// päivittää taulukko
 function updateDataTable(data) {
   const tbody = document.getElementById("tableBody");
   if (!tbody) return;
@@ -417,7 +417,7 @@ function drawReadinessGraph(data, canvasId = 'readinessGraph') {
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  
+
   // Tuhotaan vanha chart jos on olemassa
   if (readinessChart) {
     readinessChart.destroy();
@@ -428,22 +428,22 @@ function drawReadinessGraph(data, canvasId = 'readinessGraph') {
     const demoValues = [6, 7, 5, 8, 9, 7, 6];
     readinessChart = new Chart(ctx, {
       type: 'line',
-      data: { 
-        labels: demoLabels, 
-        datasets: [{ 
-          label: 'Readiness (1-10)', 
-          data: demoValues, 
-          borderColor: '#3b82f6', 
-          backgroundColor: 'rgba(59,130,246,0.1)', 
-          fill: true, 
+      data: {
+        labels: demoLabels,
+        datasets: [{
+          label: 'Readiness (1-10)',
+          data: demoValues,
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59,130,246,0.1)',
+          fill: true,
           tension: 0.3,
           pointRadius: 4
-        }] 
+        }]
       },
-      options: { 
-        responsive: true, 
-        maintainAspectRatio: false, 
-        scales: { y: { min: 0, max: 10, title: { display: true, text: 'Readiness' } } } 
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { min: 0, max: 10, title: { display: true, text: 'Readiness' } } }
       }
     });
     return;
@@ -451,26 +451,26 @@ function drawReadinessGraph(data, canvasId = 'readinessGraph') {
 
   const dates = data.map(item => item.date?.slice(5) || '?');
   const values = data.map(item => item.readiness || 0);
-  
+
   readinessChart = new Chart(ctx, {
     type: 'line',
-    data: { 
-      labels: dates, 
-      datasets: [{ 
-        label: 'Readiness (1-10)', 
-        data: values, 
-        borderColor: '#3b82f6', 
-        backgroundColor: 'rgba(59,130,246,0.1)', 
-        fill: true, 
-        tension: 0.3, 
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'Readiness (1-10)',
+        data: values,
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.1)',
+        fill: true,
+        tension: 0.3,
         pointRadius: 4,
         pointBackgroundColor: '#3b82f6'
-      }] 
+      }]
     },
-    options: { 
-      responsive: true, 
-      maintainAspectRatio: false, 
-      scales: { 
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
         y: { min: 0, max: 10, title: { display: true, text: 'Readiness (1-10)' }, ticks: { stepSize: 1 } },
         x: { title: { display: true, text: 'Päivämäärä' } }
       },

@@ -6,7 +6,7 @@ Tekoälyä on käytetty tämän koodin ideoinnin ja muokkaamisen apuna.
 // koti.js
 import { fetchKubiosData, parseKubiosData, drawReadinessGraph } from './kubios.js';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://daauudi.switzerlandnorth.cloudapp.azure.com/api';
 const getToken = () => localStorage.getItem('token');
 const getAuthHeaders = () => ({
   'Content-Type': 'application/json',
