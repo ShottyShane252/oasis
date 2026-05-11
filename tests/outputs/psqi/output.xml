@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-11T17:21:51.731083" rpa="false" schemaversion="5">
+<suite id="s1" name="Psqi" source="C:\Projects\oasis\tests\front\psqi.robot">
+<test id="s1-t1" name="Logged User Can Complete PSQI Questionnaire" line="11">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-05-11T17:21:52.053362" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\psqi\\browser\\traces\\temp\\bec0ec4f-f8d3-4c93-b15d-ccb9ed1b8ddf"}</msg>
+<msg time="2026-05-11T17:21:52.099374" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:52755</msg>
+<msg time="2026-05-11T17:21:53.592275" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\psqi\\browser\\traces\\temp\\bec0ec4f-f8d3-4c93-b15d-ccb9ed1b8ddf"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-05-11T17:21:52.052060" elapsed="1.540967"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-05-11T17:21:54.714487" level="INFO">Successfully initialized new page object and opened url: https://daauudi.switzerlandnorth.cloudapp.azure.com/login.html</msg>
+<msg time="2026-05-11T17:21:54.714605" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-05-11T17:21:53.604809" elapsed="1.109980"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T17:21:54.716745" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
+<arg>id=username</arg>
+<arg>${TEST_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:54.715396" elapsed="0.182774"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>id=password</arg>
+<arg>$TEST_PASSWORD</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:54.898652" elapsed="0.056166"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:54.956777" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:54.955713" elapsed="0.074782"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-11T17:21:59.247504" level="INFO">Waited for Element with selector css=.greeting-title at state visible</msg>
+<arg>css=.greeting-title</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-11T17:21:55.030977" elapsed="4.216762"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:59.249145" level="INFO">Clicks the element 'text=PSQI'.</msg>
+<arg>text=PSQI</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.248303" elapsed="0.259624"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-11T17:21:59.561968" level="INFO">Waited for Element with selector id=psqiForm at state visible</msg>
+<arg>id=psqiForm</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.508711" elapsed="0.053537"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-05-11T17:21:59.563625" level="INFO">Fills the text '23:00' in the given field.</msg>
+<arg>id=q1</arg>
+<arg>23:00</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.562813" elapsed="0.079554"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T17:21:59.646195" level="INFO">Types the text '20' in the given field.</msg>
+<arg>id=q2</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.644837" elapsed="0.048770"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-05-11T17:21:59.697984" level="INFO">Fills the text '07:00' in the given field.</msg>
+<arg>id=q3</arg>
+<arg>07:00</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.695320" elapsed="0.025815"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T17:21:59.726419" level="INFO">Types the text '7' in the given field.</msg>
+<arg>id=q4</arg>
+<arg>7</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.724923" elapsed="0.046371"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:59.777981" level="INFO">Clicks the element 'css=input[name="q5a"][value="1"]'.</msg>
+<arg>css=input[name="q5a"][value="1"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.775345" elapsed="0.066520"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:59.844515" level="INFO">Clicks the element 'css=input[name="q5b"][value="1"]'.</msg>
+<arg>css=input[name="q5b"][value="1"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.843099" elapsed="0.056290"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:59.901175" level="INFO">Clicks the element 'css=input[name="q5c"][value="0"]'.</msg>
+<arg>css=input[name="q5c"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.900103" elapsed="0.066911"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:21:59.970676" level="INFO">Clicks the element 'css=input[name="q5d"][value="0"]'.</msg>
+<arg>css=input[name="q5d"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:21:59.969168" elapsed="0.056970"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.028456" level="INFO">Clicks the element 'css=input[name="q5e"][value="0"]'.</msg>
+<arg>css=input[name="q5e"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.027278" elapsed="0.041526"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.069903" level="INFO">Clicks the element 'css=input[name="q5f"][value="0"]'.</msg>
+<arg>css=input[name="q5f"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.069263" elapsed="0.047350"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.117616" level="INFO">Clicks the element 'css=input[name="q5g"][value="0"]'.</msg>
+<arg>css=input[name="q5g"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.117034" elapsed="0.037431"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.156740" level="INFO">Clicks the element 'css=input[name="q5h"][value="0"]'.</msg>
+<arg>css=input[name="q5h"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.155528" elapsed="0.111929"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.268749" level="INFO">Clicks the element 'css=input[name="q5i"][value="0"]'.</msg>
+<arg>css=input[name="q5i"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.268053" elapsed="0.050312"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.319691" level="INFO">Clicks the element 'css=input[name="q5j"][value="0"]'.</msg>
+<arg>css=input[name="q5j"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.318897" elapsed="0.050716"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.370891" level="INFO">Clicks the element 'css=input[name="q6"][value="1"]'.</msg>
+<arg>css=input[name="q6"][value="1"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.370205" elapsed="0.048559"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.419989" level="INFO">Clicks the element 'css=input[name="q7"][value="0"]'.</msg>
+<arg>css=input[name="q7"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.419376" elapsed="0.048979"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.469625" level="INFO">Clicks the element 'css=input[name="q8"][value="0"]'.</msg>
+<arg>css=input[name="q8"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.468890" elapsed="0.049618"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.519615" level="INFO">Clicks the element 'css=input[name="q9"][value="0"]'.</msg>
+<arg>css=input[name="q9"][value="0"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.519026" elapsed="0.049880"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.570606" level="INFO">Clicks the element 'css=input[name="q10"][value="no_partner"]'.</msg>
+<arg>css=input[name="q10"][value="no_partner"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.569726" elapsed="0.050767"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.620847" elapsed="0.072351"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T17:22:00.695256" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.693808" elapsed="0.050698"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-11T17:22:02.747021" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-11T17:22:00.745069" elapsed="2.002439"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-11T17:22:02.795013" level="INFO">Text: '4'</msg>
+<arg>id=psqiScore</arg>
+<arg>not contains</arg>
+<arg>-</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:02.748701" elapsed="0.046450"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-11T17:22:02.817199" level="INFO">Text: 'Your PSQI score is 4. You have Good sleep quality.'</msg>
+<arg>id=psqiInterpretation</arg>
+<arg>contains</arg>
+<arg>Your PSQI score is</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T17:22:02.795689" elapsed="0.021736"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-11T17:22:07.818837" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-11T17:22:02.817922" elapsed="5.001228"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-05-11T17:22:08.298268" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-11T17:22:07.821003" elapsed="0.477479"/>
+</kw>
+<status status="PASS" start="2026-05-11T17:21:52.050705" elapsed="16.248133"/>
+</test>
+<status status="PASS" start="2026-05-11T17:21:51.733149" elapsed="16.575421"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Psqi" id="s1" pass="1" fail="0" skip="0">Psqi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
