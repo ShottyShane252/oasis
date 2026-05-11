@@ -36,6 +36,12 @@ npm install
 npm run dev
 ```
 
+## Testaus
+
+Sovellukselle on toteutettu Robot Framework -automaatiotestejä. Testauksen dokumentaatio, testitapaukset ja raporttilinkit löytyvät erillisestä dokumentista:
+
+[Testausdokumentaatio](docs/testaus.md)
+
 
 ## Koti-sivu
 ![Oasis kotisivu](/frontend/images/home_ss.png)
