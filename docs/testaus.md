@@ -47,6 +47,32 @@ Testien raportit ja lokit tallennetaan erillisiin tests/outputs/-kansioihin, jot
 
 Testien suunnittelussa, Robot Framework -syntaksin korjaamisessa ja dokumentaation muotoilussa on hyödynnetty tekoälyä. Lopulliset testit on kuitenkin ajettu ja tarkistettu projektiryhmän toimesta.
 
+
+## Testiraportit
+
+### Login-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/login/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/login/log.html)
+
+### BMI-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/bmi/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/bmi/log.html)
+
+### Home-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/home/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/home/log.html)
+
+### Diary-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/diary/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/diary/log.html)
+
+### Kubios-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/kubios/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/kubios/log.html)
+
+### PSQI-testi
+- [Report](https://shottyshane252.github.io/oasis/tests/outputs/psqi/report.html)
+- [Log](https://shottyshane252.github.io/oasis/tests/outputs/psqi/log.html)
 ## Testien ajaminen
 
 Yksittäiset testit voidaan ajaa seuraavilla komennoilla:
