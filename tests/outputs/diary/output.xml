@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-11T16:51:43.360019" rpa="false" schemaversion="5">
+<suite id="s1" name="Diary" source="C:\Projects\oasis\tests\front\diary.robot">
+<test id="s1-t1" name="Logged User Can Add View And Delete Diary Entry" line="12">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-05-11T16:51:43.735837" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\diary\\browser\\traces\\temp\\a260320d-d6d0-4960-8813-437a2e753396"}</msg>
+<msg time="2026-05-11T16:51:43.776162" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50061</msg>
+<msg time="2026-05-11T16:51:45.700847" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\diary\\browser\\traces\\temp\\a260320d-d6d0-4960-8813-437a2e753396"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-05-11T16:51:43.734776" elapsed="1.975058"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-05-11T16:51:48.427493" level="INFO">Successfully initialized new page object and opened url: https://daauudi.switzerlandnorth.cloudapp.azure.com/login.html</msg>
+<msg time="2026-05-11T16:51:48.427642" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-05-11T16:51:45.726685" elapsed="2.701149"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T16:51:48.429127" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
+<arg>id=username</arg>
+<arg>${TEST_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:48.428287" elapsed="0.202198"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>id=password</arg>
+<arg>$TEST_PASSWORD</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:48.630949" elapsed="0.065635"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T16:51:48.697670" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:48.697066" elapsed="0.064547"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-11T16:51:52.702430" level="INFO">Waited for Element with selector css=.greeting-title at state visible</msg>
+<arg>css=.greeting-title</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-11T16:51:48.762236" elapsed="3.940678"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T16:51:52.705875" level="INFO">Clicks the element 'text=Päiväkirja'.</msg>
+<arg>text=Päiväkirja</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:52.704883" elapsed="0.225380"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-11T16:51:52.977297" level="INFO">Waited for Element with selector id=diaryForm at state visible</msg>
+<arg>id=diaryForm</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-11T16:51:52.930877" elapsed="0.046647"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-05-11T16:51:52.978874" level="INFO">Fills the text '2026-05-10' in the given field.</msg>
+<arg>id=entryDate</arg>
+<arg>2026-05-10</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:52.978133" elapsed="0.031222"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-05-11T16:51:53.011164" level="INFO">Selects the option(s) good by attribute SelectAttribute.value from element id=mood.</msg>
+<arg>id=mood</arg>
+<arg>value</arg>
+<arg>good</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.010163" elapsed="0.074388"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T16:51:53.085945" level="INFO">Types the text '8' in the given field.</msg>
+<arg>id=sleep</arg>
+<arg>8</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.085061" elapsed="0.079870"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T16:51:53.166859" level="INFO">Types the text '75' in the given field.</msg>
+<arg>id=weight</arg>
+<arg>75</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.165952" elapsed="0.041619"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-11T16:51:53.209056" level="INFO">Types the text 'Robot testimerkintä' in the given field.</msg>
+<arg>id=notes</arg>
+<arg>${TEST_NOTE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.208211" elapsed="0.107223"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T16:51:53.316801" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.315955" elapsed="0.073992"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-11T16:51:55.393568" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-11T16:51:53.391283" elapsed="2.002953"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-11T16:51:55.427969" level="INFO">Text: '11.5.2026\n\nMieliala: Hyvä\n\nUni: 3 tuntia\n\nPaino: 21.50 kg\n\ntoimii\n\nNäytä Poista\n10.5.2026\n\nMieliala: Hyvä\n\nUni: 8 tuntia\n\nPaino: 75.00 kg\n\nRobot testimerkintä\n\nNäytä Poista\n10.5.2026\n\nMieliala: Hyvä\n\nUni: 8 tuntia\n\nPaino: 75.00 kg\n\nRobot testimerkintä\n\nNäytä Poista'</msg>
+<arg>css=.entries-list</arg>
+<arg>contains</arg>
+<arg>${TEST_NOTE}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:55.395538" elapsed="0.032636"/>
+</kw>
+<kw name="Handle Future Dialogs" owner="Browser">
+<arg>action=accept</arg>
+<tag>PageContent</tag>
+<doc>Handle next dialog on page with ``action``.</doc>
+<status status="PASS" start="2026-05-11T16:51:55.429013" elapsed="0.003771"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T16:51:55.435725" level="INFO">Clicks the element 'css=.entry-card:first-child .view-btn'.</msg>
+<arg>css=.entry-card:first-child .view-btn</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:55.434665" elapsed="0.055235"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-11T16:51:55.492128" level="INFO">Clicks the element 'css=.entry-card:first-child .delete-btn'.</msg>
+<arg>css=.entry-card:first-child .delete-btn</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-11T16:51:55.490675" elapsed="0.076227"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-11T16:51:57.569264" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-11T16:51:55.567791" elapsed="2.001753"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-05-11T16:51:58.112279" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-11T16:51:57.571681" elapsed="0.540783"/>
+</kw>
+<status status="PASS" start="2026-05-11T16:51:43.733187" elapsed="14.379659"/>
+</test>
+<status status="PASS" start="2026-05-11T16:51:43.362038" elapsed="14.759372"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Diary" id="s1" pass="1" fail="0" skip="0">Diary</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -3,7 +3,7 @@ Library    Browser
 Test Teardown    Close Browser
 
 *** Variables ***
-${BASE_URL}    http://localhost:3000
+${BASE_URL}    https://daauudi.switzerlandnorth.cloudapp.azure.com
 ${BMI_URL}     ${BASE_URL}/bmi.html
 
 *** Test Cases ***

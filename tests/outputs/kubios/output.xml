@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-10T23:37:14.620526" rpa="false" schemaversion="5">
+<suite id="s1" name="Kubios" source="C:\Projects\oasis\tests\front\kubios.robot">
+<test id="s1-t1" name="Logged User Can Open History Page And Inspect Graphs" line="11">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-05-10T23:37:15.139968" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\kubios\\browser\\traces\\temp\\53b40d52-7539-4b7f-a264-d4bc30c1eb36"}</msg>
+<msg time="2026-05-10T23:37:15.190245" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:58052</msg>
+<msg time="2026-05-10T23:37:16.739855" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\kubios\\browser\\traces\\temp\\53b40d52-7539-4b7f-a264-d4bc30c1eb36"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-05-10T23:37:15.138247" elapsed="1.607151"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-05-10T23:37:19.845125" level="INFO">Successfully initialized new page object and opened url: https://daauudi.switzerlandnorth.cloudapp.azure.com/login.html</msg>
+<msg time="2026-05-10T23:37:19.845222" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-05-10T23:37:16.756238" elapsed="3.089172"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-05-10T23:37:19.846828" level="INFO">Types the text 'chippic93@gmail.com' in the given field.</msg>
+<arg>id=username</arg>
+<arg>${TEST_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-05-10T23:37:19.845882" elapsed="0.187501"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>id=password</arg>
+<arg>$TEST_PASSWORD</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2026-05-10T23:37:20.033858" elapsed="0.060783"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-10T23:37:20.095917" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-10T23:37:20.095159" elapsed="0.084529"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T23:37:23.182134" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T23:37:20.180438" elapsed="3.001848"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-05-10T23:37:23.183494" level="INFO">Clicks the element 'text=Historia'.</msg>
+<arg>text=Historia</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-10T23:37:23.182755" elapsed="1.273358"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-10T23:37:24.583602" level="INFO">Waited for Element with selector css=.kubios-title at state visible</msg>
+<arg>css=.kubios-title</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.457327" elapsed="0.126895"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-05-10T23:37:24.713136" level="INFO">Text: 'Omat HRV- ja readiness-mittaukset'</msg>
+<arg>css=.kubios-title</arg>
+<arg>contains</arg>
+<arg>HRV</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.585050" elapsed="0.128294"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-10T23:37:24.725667" level="INFO">Waited for Element with selector css=#hrvChart at state visible</msg>
+<arg>css=#hrvChart</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.713998" elapsed="0.012049"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-10T23:37:24.742179" level="INFO">Waited for Element with selector css=#heartRateChart at state visible</msg>
+<arg>css=#heartRateChart</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.727002" elapsed="0.015579"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-05-10T23:37:24.758988" level="INFO">Waited for Element with selector css=#readinessChart at state visible</msg>
+<arg>css=#readinessChart</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.743401" elapsed="0.016185"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=.kubios-data-table</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.760661" elapsed="0.034578"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T23:37:26.796821" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T23:37:24.795725" elapsed="2.001217"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=.site-footer</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-05-10T23:37:26.797398" elapsed="0.022372"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T23:37:31.821171" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T23:37:26.820231" elapsed="5.001091"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-05-10T23:37:32.320350" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-10T23:37:31.822073" elapsed="0.498466"/>
+</kw>
+<status status="PASS" start="2026-05-10T23:37:15.136177" elapsed="17.184832"/>
+</test>
+<status status="PASS" start="2026-05-10T23:37:14.623157" elapsed="17.706038"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Kubios" id="s1" pass="1" fail="0" skip="0">Kubios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

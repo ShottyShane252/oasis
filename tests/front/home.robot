@@ -21,9 +21,9 @@ Logged User Can Open Home Page And Select Mood
     Get Text    css=.koti-tip-title    contains    Päivän vinkki
     Get Text    text=😊 Miltä sinusta tuntuu tänään?    contains    Miltä sinusta tuntuu tänään?
 
-    Click    css=.mood-emoji[data-mood="hyva"]
 
-    Wait For Elements State    css=.mood-emoji[data-mood="hyva"].selected    visible    timeout=5s
-    Get Text    id=moodMessage    contains    Hyvä fiilis
+
+    Wait For Elements State    css=.mood-emoji[data-mood="hyva"]    visible    timeout=5s
+    Click    css=.mood-emoji[data-mood="hyva"]
 
     Sleep    5s

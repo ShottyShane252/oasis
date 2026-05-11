@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-09T15:39:37.354424" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-05-10T22:52:08.774383" rpa="false" schemaversion="5">
 <suite id="s1" name="Bmi" source="C:\Projects\oasis\tests\front\bmi.robot">
 <test id="s1-t1" name="User Can Calculate BMI" line="10">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-05-09T15:39:38.013541" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\bmi\\browser\\traces\\temp\\cdd56f78-b7ee-4cf0-9b98-128d9e84bc49"}</msg>
-<msg time="2026-05-09T15:39:38.057937" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50274</msg>
-<msg time="2026-05-09T15:39:41.227065" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\bmi\\browser\\traces\\temp\\cdd56f78-b7ee-4cf0-9b98-128d9e84bc49"}</msg>
+<msg time="2026-05-10T22:52:09.226605" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Projects\\oasis\\tests\\outputs\\bmi\\browser\\traces\\temp\\e8784e59-c900-4da3-a5ba-4fe93c2213d5"}</msg>
+<msg time="2026-05-10T22:52:09.275907" level="INFO">Starting Browser process C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:65467</msg>
+<msg time="2026-05-10T22:52:10.801458" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Projects\\oasis\\tests\\outputs\\bmi\\browser\\traces\\temp\\e8784e59-c900-4da3-a5ba-4fe93c2213d5"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-05-09T15:39:38.012024" elapsed="3.215537"/>
+<status status="PASS" start="2026-05-10T22:52:09.225328" elapsed="1.576763"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-05-09T15:39:42.617044" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/bmi.html</msg>
-<msg time="2026-05-09T15:39:42.617160" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-05-10T22:52:13.618061" level="INFO">Successfully initialized new page object and opened url: https://daauudi.switzerlandnorth.cloudapp.azure.com/bmi.html</msg>
+<msg time="2026-05-10T22:52:13.618186" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${BMI_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-05-09T15:39:41.231125" elapsed="1.386311"/>
+<status status="PASS" start="2026-05-10T22:52:10.826284" elapsed="2.792169"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-09T15:39:42.618982" level="INFO">Types the text '80' in the given field.</msg>
+<msg time="2026-05-10T22:52:13.621262" level="INFO">Types the text '80' in the given field.</msg>
 <arg>id=weight</arg>
 <arg>80</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-09T15:39:42.618117" elapsed="0.118756"/>
+<status status="PASS" start="2026-05-10T22:52:13.619066" elapsed="0.119450"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-05-09T15:39:42.739883" level="INFO">Types the text '180' in the given field.</msg>
+<msg time="2026-05-10T22:52:13.740568" level="INFO">Types the text '180' in the given field.</msg>
 <arg>id=height</arg>
 <arg>180</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-05-09T15:39:42.738053" elapsed="0.062637"/>
+<status status="PASS" start="2026-05-10T22:52:13.739299" elapsed="0.052725"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-05-09T15:39:42.802384" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<msg time="2026-05-10T22:52:13.793425" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-09T15:39:42.801360" elapsed="0.231341"/>
+<status status="PASS" start="2026-05-10T22:52:13.792534" elapsed="0.276301"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-05-09T15:39:43.085883" level="INFO">Text: '24.7'</msg>
+<msg time="2026-05-10T22:52:14.161364" level="INFO">Text: '24.7'</msg>
 <arg>css=.bmi-score</arg>
 <arg>contains</arg>
 <arg>24.7</arg>
@@ -57,10 +57,10 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-09T15:39:43.033167" elapsed="0.052913"/>
+<status status="PASS" start="2026-05-10T22:52:14.069528" elapsed="0.092474"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-05-09T15:39:43.128730" level="INFO">Text: 'Normaaliksi on valittu se painoindeksin alue, jossa ihmisen terveys on parhaimmillaan. Normaali painoindeksin alue on välillä 18,5–25. Jos painoindeksi on pienempi kuin 18,5 tai suurempi kuin 25, sairauksien vaara suurenee. Painoindeksiä voidaan käyttää 18 vuoden iästä lähtien.'</msg>
+<msg time="2026-05-10T22:52:14.201790" level="INFO">Text: 'Normaaliksi on valittu se painoindeksin alue, jossa ihmisen terveys on parhaimmillaan. Normaali painoindeksin alue on välillä 18,5–25. Jos painoindeksi on pienempi kuin 18,5 tai suurempi kuin 25, sairauksien vaara suurenee. Painoindeksiä voidaan käyttää 18 vuoden iästä lähtien.'</msg>
 <arg>css=.analysis</arg>
 <arg>contains</arg>
 <arg>Normaali</arg>
@@ -68,24 +68,24 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-05-09T15:39:43.086559" elapsed="0.042426"/>
+<status status="PASS" start="2026-05-10T22:52:14.162766" elapsed="0.039289"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-05-09T15:39:48.131430" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-05-10T22:52:19.205695" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-05-09T15:39:43.129859" elapsed="5.001830"/>
+<status status="PASS" start="2026-05-10T22:52:14.202796" elapsed="5.003078"/>
 </kw>
 <kw name="Close Browser" owner="Browser" type="TEARDOWN">
-<msg time="2026-05-09T15:39:48.431264" level="INFO">Closed browser</msg>
+<msg time="2026-05-10T22:52:19.885766" level="INFO">Closed browser</msg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-05-09T15:39:48.133202" elapsed="0.298336"/>
+<status status="PASS" start="2026-05-10T22:52:19.206642" elapsed="0.679301"/>
 </kw>
-<status status="PASS" start="2026-05-09T15:39:38.010897" elapsed="10.421344"/>
+<status status="PASS" start="2026-05-10T22:52:09.223659" elapsed="10.662793"/>
 </test>
-<status status="PASS" start="2026-05-09T15:39:37.358077" elapsed="11.090488"/>
+<status status="PASS" start="2026-05-10T22:52:08.776918" elapsed="11.124939"/>
 </suite>
 <statistics>
 <total>

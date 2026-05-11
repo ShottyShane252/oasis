@@ -1,0 +1,98 @@
+{"level":30,"time":"2026-05-11T13:51:44.810Z","pid":27160,"hostname":"Shotgun","msg":"Listening on 127.0.0.1:50061"}
+{"level":30,"time":"2026-05-11T13:51:45.351Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-11T13:51:45.692Z","pid":27160,"hostname":"Shotgun","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-11T13:51:45.692Z","pid":27160,"hostname":"Shotgun","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-11T13:51:45.693Z","pid":27160,"hostname":"Shotgun","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-11T13:51:45.728Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-11T13:51:45.728Z","pid":27160,"hostname":"Shotgun","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@46c78b026048262c61ec8e580e5ec5ad\"},\"name\":\"chromium\",\"id\":\"browser=dfa38d77-21a7-4307-ade2-a2d18ad11b23\",\"headless\":false}"}
+{"level":30,"time":"2026-05-11T13:51:45.770Z","pid":27160,"hostname":"Shotgun","msg":"Setting default timeout for context context=817b08bf-3595-4b2b-a7c4-9964dedfb6a0 to 10000"}
+{"level":30,"time":"2026-05-11T13:51:45.771Z","pid":27160,"hostname":"Shotgun","msg":"Changed active context: context=817b08bf-3595-4b2b-a7c4-9964dedfb6a0"}
+{"level":30,"time":"2026-05-11T13:51:45.998Z","pid":27160,"hostname":"Shotgun","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-11T13:51:45.998Z","pid":27160,"hostname":"Shotgun","msg":"Changed active page"}
+{"level":30,"time":"2026-05-11T13:51:48.420Z","pid":27160,"hostname":"Shotgun","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-11T13:51:48.425Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:48.426Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=username in page."}
+{"level":30,"time":"2026-05-11T13:51:48.623Z","pid":27160,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:48.628Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:48.628Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2026-05-11T13:51:48.690Z","pid":27160,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:48.694Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-11T13:51:48.694Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=button[type=\"submit\"] in page."}
+{"level":30,"time":"2026-05-11T13:51:48.754Z","pid":27160,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-11T13:51:48.761Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-11T13:51:48.761Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.greeting-title in page."}
+{"level":30,"time":"2026-05-11T13:51:52.695Z","pid":27160,"hostname":"Shotgun","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-11T13:51:52.702Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-11T13:51:52.703Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with text=Päiväkirja in page."}
+{"level":30,"time":"2026-05-11T13:51:52.923Z","pid":27160,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-11T13:51:52.928Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-11T13:51:52.928Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=diaryForm in page."}
+{"level":30,"time":"2026-05-11T13:51:52.970Z","pid":27160,"hostname":"Shotgun","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-11T13:51:52.975Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-11T13:51:52.975Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=entryDate in page."}
+{"level":30,"time":"2026-05-11T13:51:53.001Z","pid":27160,"hostname":"Shotgun","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-11T13:51:53.008Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-11T13:51:53.008Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=mood in page."}
+{"level":30,"time":"2026-05-11T13:51:53.078Z","pid":27160,"hostname":"Shotgun","msg":"Option entries: 5"}
+{"level":30,"time":"2026-05-11T13:51:53.078Z","pid":27160,"hostname":"Shotgun","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-11T13:51:53.078Z","pid":27160,"hostname":"Shotgun","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-11T13:51:53.084Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.085Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=sleep in page."}
+{"level":30,"time":"2026-05-11T13:51:53.157Z","pid":27160,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.163Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.163Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=weight in page."}
+{"level":30,"time":"2026-05-11T13:51:53.199Z","pid":27160,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.205Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.205Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with id=notes in page."}
+{"level":30,"time":"2026-05-11T13:51:53.308Z","pid":27160,"hostname":"Shotgun","msg":"End of node method typeText"}
+{"level":30,"time":"2026-05-11T13:51:53.313Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-11T13:51:53.313Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=button[type=\"submit\"] in page."}
+{"level":30,"time":"2026-05-11T13:51:53.381Z","pid":27160,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-11T13:51:55.394Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-11T13:51:55.394Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.entries-list in page."}
+{"level":30,"time":"2026-05-11T13:51:55.420Z","pid":27160,"hostname":"Shotgun","msg":"Retrieved text for element css=.entries-list containing 11.5.2026\n\nMieliala: Hyvä\n\nUni: 3 tuntia\n\nPaino: 21.50 kg\n\ntoimii\n\nNäytä Poista\n10.5.2026\n\nMieliala: Hyvä\n\nUni: 8 tuntia\n\nPaino: 75.00 kg\n\nRobot testimerkintä\n\nNäytä Poista\n10.5.2026\n\nMieliala: Hyvä\n\nUni: 8 tuntia\n\nPaino: 75.00 kg\n\nRobot testimerkintä\n\nNäytä Poista"}
+{"level":30,"time":"2026-05-11T13:51:55.421Z","pid":27160,"hostname":"Shotgun","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-11T13:51:55.426Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method handleAlert"}
+{"level":30,"time":"2026-05-11T13:51:55.426Z","pid":27160,"hostname":"Shotgun","msg":"End of node method handleAlert"}
+{"level":30,"time":"2026-05-11T13:51:55.432Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-11T13:51:55.432Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.entry-card:first-child .view-btn in page."}
+{"level":30,"time":"2026-05-11T13:51:55.482Z","pid":27160,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-11T13:51:55.489Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-11T13:51:55.489Z","pid":27160,"hostname":"Shotgun","msg":"Strict mode is enabled, find Locator with css=.entry-card:first-child .delete-btn in page."}
+{"level":30,"time":"2026-05-11T13:51:55.542Z","pid":27160,"hostname":"Shotgun","msg":"Alert text: Päivämäärä: 11.5.2026\nMieliala: Hyvä\nUni: 3 tuntia\nPaino: 21.50 kg\nMuistiinpanot: toimii"}
+{"level":30,"time":"2026-05-11T13:51:55.559Z","pid":27160,"hostname":"Shotgun","msg":"End of node method click"}
+{"level":30,"time":"2026-05-11T13:51:57.578Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-11T13:51:57.636Z","pid":27160,"hostname":"Shotgun","msg":"Removed page=3c8bea1c-ddf9-49ed-adc9-294463895da8 from context=817b08bf-3595-4b2b-a7c4-9964dedfb6a0 page stack"}
+{"level":30,"time":"2026-05-11T13:51:58.106Z","pid":27160,"hostname":"Shotgun","msg":"End of node method closeBrowser"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-05-11T13:51:58.113Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-11T13:51:58.113Z","pid":27160,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Projects\oasis\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-05-11T13:51:58.122Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-11T13:51:58.122Z","pid":27160,"hostname":"Shotgun","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-11T13:51:58.202Z","pid":27160,"hostname":"Shotgun","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-11T13:51:58.202Z","pid":27160,"hostname":"Shotgun","msg":"End of node method closeAllBrowsers"}

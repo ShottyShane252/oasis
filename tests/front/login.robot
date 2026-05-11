@@ -4,7 +4,7 @@ Variables    ../resources/load_env.py
 Test Teardown    Close Browser
 
 *** Variables ***
-${BASE_URL}            http://localhost:3000
+${BASE_URL}            https://daauudi.switzerlandnorth.cloudapp.azure.com
 ${LOGIN_URL}           ${BASE_URL}/login.html
 ${INVALID_USERNAME}    wronguser
 ${INVALID_PASSWORD}    wrongpass
